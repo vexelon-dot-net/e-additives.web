@@ -5,6 +5,16 @@ The goal of the E-additives project is to implement a web platform and REST serv
 
 The Web UI is a responsive HTML5/Javascript web app implementation that allows users to *Search* and *Browse* the E-additives database.
 
+# Development
+
+## Project structure
+
+* `build/` - A place where distributable project contents will be generated. This folder **must** be empty!
+* `css/` - CSS styles files. 
+* `fonts/` - Fonts required by the project.
+* `js` - Contains all the Javascript code and libs.
+  * `vendor/` - Javascript libraries used throught the project.
+
 # Configuration
 
 ## Configure Apache
