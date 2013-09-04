@@ -1,7 +1,7 @@
 e-additives.web
 ===============
 
-The goal of the E-additives project is to implement a web platform and REST server API that will provide detailed information about [food additives](http://en.wikipedia.org/wiki/Food_additive).
+The goal of the E-additives project is to implement a web platform that will provide detailed information about [food additives](http://en.wikipedia.org/wiki/Food_additive).
 
 The Web UI is a responsive HTML5/Javascript web app implementation that allows users to *Search* and *Browse* the E-additives database.
 
