@@ -73,7 +73,7 @@ require(['sammy', 'bootstrap', 'plugin/domReady!'], function(Sammy) {
 
 		// HTTP 404
 		this.notFound = function(verb, path) {
-			window.location = '404.html';
+			//window.location = '404.html';
 		}		 	
 	});
 	// start the application
