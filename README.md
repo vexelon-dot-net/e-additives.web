@@ -17,7 +17,7 @@ The Web UI is a responsive HTML5/Javascript web app implementation that allows u
 
 # Configuration
 
-## Configure Apache
+## Configure test Apache server
 
 Configure Apache server on local machine for tests. Open your Apache Virtual Hosts configurations, e.g. `/etc/httpd/conf/extra/httpd-vhosts.conf`, and add the following:
 
@@ -31,3 +31,7 @@ Configure Apache server on local machine for tests. Open your Apache Virtual Hos
 		
 If your are under Windows you can also use [XAMPP](http://www.apachefriends.org/en/xampp.html).
 
+
+# License
+
+Under [AGPL](LICENSE) license.
