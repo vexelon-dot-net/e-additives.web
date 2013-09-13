@@ -34,4 +34,4 @@ If your are under Windows you can also use [XAMPP](http://www.apachefriends.org/
 
 # License
 
-Under [AGPL](LICENSE) license.
+Under [AGPL](LICENSE)  license.
