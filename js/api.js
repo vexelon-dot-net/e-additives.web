@@ -27,7 +27,7 @@ define(['jquery', 'underscore'], function($, _) {
         this.requestHeaders = {};
     }
 
-    api.prototype.ajax = function(requestType, resource, params, headers, callback) {
+    api.prototype.ajax = function(requestType, resource, params, headers, cb) {
         $.ajax({type: requestType,
             jsonp: this.jsonp,
             url: this.serverUrl + resource,
@@ -38,21 +38,21 @@ define(['jquery', 'underscore'], function($, _) {
             crossDomain: false,
         }).done(function(result) {
             // notify
-            if (callback)
-                callback(null, result);
+            if (cb)
+                cb(null, result);
 
         }).fail(function(jqXHR, textStatus, errorThrown) {
-            if (callback)
-                callback({'code': jqXHR.status, 'status': errorThrown, 'response': jqXHR.responseText}, null);
+            if (cb)
+                cb({'code': jqXHR.status, 'status': errorThrown, 'response': jqXHR.responseText}, null);
         });         
     }
     
-    api.prototype.ajaxGET = function(resource, params, headers, callback) {
-        this.ajax('GET', resource, params, headers, callback);
+    api.prototype.ajaxGET = function(resource, params, headers, cb) {
+        this.ajax('GET', resource, params, headers, cb);
     }
 
-    api.prototype.ajaxPOST = function(resource, params, headers, callback) {
-        this.ajax('POST', resource, params, headers, callback);
+    api.prototype.ajaxPOST = function(resource, params, headers, cb) {
+        this.ajax('POST', resource, params, headers, cb);
     }
 
     /**
@@ -61,11 +61,12 @@ define(['jquery', 'underscore'], function($, _) {
      */
     var clientAPI_09 = _.extend(api, {});
     clientAPI_09.prototype = _.extend(api.prototype, {
-        getAdditives: function(criteria, callback) {
-            this.ajaxGET('/additives', null, this.requestHeaders, callback);
+        getAdditives: function(cr, cb) {
+            this.ajaxGET('/additives', cr, this.requestHeaders, cb);
         },
-        searchAdditives: function(criteria, callback) {
-            this.ajaxGET('/additives/search', null, this.requestHeaders, callback);  
+        searchAdditives: function(q, cr, cb) {
+            cr['q'] = q;
+            this.ajaxGET('/additives/search', cr, this.requestHeaders, cb);  
         }
     });
 
@@ -101,7 +102,8 @@ define(['jquery', 'underscore'], function($, _) {
         },
 
         searchAdditives: function(q, criteria, callback) {
-            api.getAdditives(q, callback === undefined ? {} : criteria, callback === undefined ? criteria : callback);
+            api.searchAdditives(q, 
+                callback === undefined ? {} : criteria, callback === undefined ? criteria : callback);
         },
 
         getAdditive: function(code, callback) {

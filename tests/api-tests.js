@@ -38,13 +38,16 @@ define(['config', 'api'], function(Config, Api) {
 
         asyncTest('/additives/search', function() {
             Api.searchAdditives('Cuma', {}, function(err, data) {
-                equal(err, null);
-                notEqual(data, null);
-                ok(data.length > 0);
-                equal(data[0].code, '100');
-                equal(data[0].name, 'Curcuma (turmeric)');
+                equal(data[0].code, '100', "[EN] Code");
+                equal(data[0].name, 'Curcuma (turmeric)', "[EN] Name");
                 start();
             });
+            stop();
+            Api.searchAdditives('Cuma', {locale: 'bg'}, function(err, data) {
+                equal(data[0].code, '100', '[BG] Code');
+                equal(data[0].name, 'Curcuma (turmeric)', '[BG] Name');
+                start();
+            });            
         });        
 
     };
