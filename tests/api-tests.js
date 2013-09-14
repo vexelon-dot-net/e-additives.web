@@ -18,21 +18,34 @@
 
 "use strict";
 
-define(['api'], function(Api) {
+define(['config', 'api'], function(Config, Api) {
     var run = function() {
 
-        Api.initialize('http://localhost:81/ead.server', '1234567890', Api.Versions.V09);
+        Api.initialize(Config.server, Config.apiKey, Api.Versions.V09);
         
         test('Api Instance', function() {
-            ok(Api != null);
+            notEqual(Api, null);
         });
 
         asyncTest('/additives', function() {
-            Api.getAdditives(function(data, err) {
+            Api.getAdditives(function(err, data) {
+                equal(err, null);
+                notEqual(data, null);
                 ok(data.length > 0);
                 start();
             });
         });
+
+        asyncTest('/additives/search', function() {
+            Api.searchAdditives('Cuma', {}, function(err, data) {
+                equal(err, null);
+                notEqual(data, null);
+                ok(data.length > 0);
+                equal(data[0].code, '100');
+                equal(data[0].name, 'Curcuma (turmeric)');
+                start();
+            });
+        });        
 
     };
     return {run: run}

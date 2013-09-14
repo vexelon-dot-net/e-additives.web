@@ -39,11 +39,11 @@ define(['jquery', 'underscore'], function($, _) {
         }).done(function(result) {
             // notify
             if (callback)
-                callback(result, null);
+                callback(null, result);
 
         }).fail(function(jqXHR, textStatus, errorThrown) {
             if (callback)
-                callback(null, {'code': jqXHR.status, 'status': errorThrown, 'response': jqXHR.responseText});
+                callback({'code': jqXHR.status, 'status': errorThrown, 'response': jqXHR.responseText}, null);
         });         
     }
     
@@ -63,6 +63,9 @@ define(['jquery', 'underscore'], function($, _) {
     clientAPI_09.prototype = _.extend(api.prototype, {
         getAdditives: function(criteria, callback) {
             this.ajaxGET('/additives', null, this.requestHeaders, callback);
+        },
+        searchAdditives: function(criteria, callback) {
+            this.ajaxGET('/additives/search', null, this.requestHeaders, callback);  
         }
     });
 
@@ -93,23 +96,23 @@ define(['jquery', 'underscore'], function($, _) {
             };
         },
 
-        getAdditives: function(cb) {
-            api.getAdditives({}, cb);
+        getAdditives: function(criteria, callback) {
+            api.getAdditives(callback === undefined ? {} : criteria, callback === undefined ? criteria : callback);
         },
 
-        searchAdditives: function(cb) {
-
+        searchAdditives: function(q, criteria, callback) {
+            api.getAdditives(q, callback === undefined ? {} : criteria, callback === undefined ? criteria : callback);
         },
 
-        getAdditive: function(code, cb) {
-
-        },
-
-        getCategories: function(cb) {
+        getAdditive: function(code, callback) {
 
         },
 
-        getCategory: function(id, cb) {
+        getCategories: function(callback) {
+
+        },
+
+        getCategory: function(id, callback) {
 
         }
     };
