@@ -12,8 +12,9 @@ The Web UI is a responsive HTML5/Javascript web app implementation that allows u
 * `build/` - A place where distributable project contents will be generated. This folder **must** be empty!
 * `css/` - CSS styles files. 
 * `fonts/` - Fonts required by the project.
-* `js` - Contains all the Javascript code and libs.
+* `js/` - Contains all the Javascript code and libs.
   * `vendor/` - Javascript libraries used throught the project.
+* `tests`/ - QUnit based tests.
 
 # Configuration
 
@@ -31,7 +32,6 @@ Configure Apache server on local machine for tests. Open your Apache Virtual Hos
 		
 If your are under Windows you can also use [XAMPP](http://www.apachefriends.org/en/xampp.html).
 
-
 # License
 
-Under [AGPL](LICENSE)  license.
+Under [AGPL](LICENSE) license.
