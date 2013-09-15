@@ -56,7 +56,7 @@ require.config({
     
 require(['sammy', 'bootstrap', 'plugin/sammy.mustache', 'plugin/domReady!'], function(Sammy) {
     var app = Sammy(function() {
-        this.use(Sammy.Mustache);
+        this.use(Sammy.Mustache, 'ms');
         var template = "<h1>Hello {{foo}}</h1>";
 
         // default
@@ -70,14 +70,28 @@ require(['sammy', 'bootstrap', 'plugin/sammy.mustache', 'plugin/domReady!'], fun
 
         });
         // Additives browse page
-        this.get('#additives', function() {
+        this.get('#additives', function(context) {
             // load some data
             console.log('additives');
 
-            var rendered = this.mustache(template, {foo: 'test'});
-            console.log(rendered);
-            //$('body').append(rendered);
-            //context.$element().append(rendered);
+            //this.partials = {name: 'opa', code: '101', info: 'text info'};
+            this.name = 'opa';
+            this.code = '101';
+            //this.render('partials/single-additive.ms', {name: 'quirkey', code: '101'}).appendTo($('body'));
+
+            // this.load('partials/single-additive.ms')
+            //     .then(function(partial) {
+            //         // set local vars
+            //         context.partials = {name: 'opa', code: '101', info: 'text info'};
+            //         context.name = context.params.name;
+            //         context.friend = context.params.friend;
+            //         // render the template and pass it through mustache
+            //         context.partial('partials/single-additive.ms');
+
+            //         //var rendered = this.mustache(template, {foo: 'test'});
+            //         //console.log(rendered);
+
+            // });            
 
         });
         // Additives browse page

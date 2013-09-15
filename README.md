@@ -3,7 +3,7 @@ e-additives.web
 
 The goal of the E-additives project is to implement a web platform that will provide detailed information about [food additives](http://en.wikipedia.org/wiki/Food_additive).
 
-The Web UI is a responsive HTML5/Javascript web app implementation that allows users to *Search* and *Browse* the E-additives database.
+The Web UI is a responsive HTML5/Javascript single-page web app that allows users to *Search* and *Browse* the E-additives database.
 
 # Development
 
@@ -14,6 +14,7 @@ The Web UI is a responsive HTML5/Javascript web app implementation that allows u
 * `fonts/` - Fonts required by the project.
 * `js/` - Contains all the Javascript code and libs.
   * `vendor/` - Javascript libraries used throught the project.
+* `partials/` - Mustache HTML templates.
 * `tests`/ - QUnit based tests.
 
 # Configuration
