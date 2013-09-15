@@ -21,7 +21,7 @@
 define(['jquery', 'underscore'], function($, _) {
 
     var api = function() {
-        this.jsonp = 'callback';
+        this.useJsonp = true;
         this.serverUrl = null;
         this.apiAuthKey = '';
         this.requestHeaders = {};
@@ -29,15 +29,14 @@ define(['jquery', 'underscore'], function($, _) {
 
     api.prototype.ajax = function(requestType, resource, params, headers, cb) {
         $.ajax({type: requestType,
-            jsonp: this.jsonp,
+            //jsonp: this.jsonp,
             url: this.serverUrl + resource,
-            dataType: this.jsonp ? 'jsonp' : 'json',
+            dataType: this.useJsonp ? 'jsonp' : 'json',
             data: params || {},
             headers: headers || {},
-            cache: false,
+            cache: !this.useJsonp,
             crossDomain: false,
         }).done(function(result) {
-            // notify
             if (cb)
                 cb(null, result);
 
@@ -67,6 +66,15 @@ define(['jquery', 'underscore'], function($, _) {
         searchAdditives: function(q, cr, cb) {
             cr['q'] = q;
             this.ajaxGET('/additives/search', cr, this.requestHeaders, cb);  
+        },
+        getAdditive: function(code, cr, cb) {
+            this.ajaxGET('/additives/' + code, cr, this.requestHeaders, cb);
+        },
+        getCategories: function(cr, cb) {
+            this.ajaxGET('/categories', cr, this.requestHeaders, cb);
+        },
+        getCategory: function(id, cr, cb) {
+            this.ajaxGET('/categories/' + id, cr, this.requestHeaders, cb);
         }
     });
 
@@ -88,7 +96,6 @@ define(['jquery', 'underscore'], function($, _) {
                     api = new clientAPI_09();
                 break;
             }
-
             api.serverUrl = server;
             api.apiAuthKey = authKey;
             api.requestHeaders = {
@@ -101,21 +108,23 @@ define(['jquery', 'underscore'], function($, _) {
             api.getAdditives(callback === undefined ? {} : criteria, callback === undefined ? criteria : callback);
         },
 
-        searchAdditives: function(q, criteria, callback) {
-            api.searchAdditives(q, 
+        searchAdditives: function(query, criteria, callback) {
+            api.searchAdditives(query, 
                 callback === undefined ? {} : criteria, callback === undefined ? criteria : callback);
         },
 
-        getAdditive: function(code, callback) {
-
+        getAdditive: function(code, criteria, callback) {
+            api.getAdditive(code, 
+                callback === undefined ? {} : criteria, callback === undefined ? criteria : callback);           
         },
 
-        getCategories: function(callback) {
-
+        getCategories: function(criteria, callback) {
+            api.getCategories(callback === undefined ? {} : criteria, callback === undefined ? criteria : callback);
         },
 
-        getCategory: function(id, callback) {
-
+        getCategory: function(id, criteria, callback) {
+            api.getCategory(id, 
+                callback === undefined ? {} : criteria, callback === undefined ? criteria : callback);   
         }
     };
 });

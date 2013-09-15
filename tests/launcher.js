@@ -22,7 +22,8 @@
     paths: {
         qunit: ["//code.jquery.com/qunit/qunit-1.12.0", "qunit-1.12.0"],
         jquery: ["//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min", "../js/vendor/jquery-1.10.1.min"],
-        underscore: '../js/vendor/underscore-min',
+        underscore: ['//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min', 
+            '../js/vendor/underscore-min'],
         api: '../js/api',
     },
     shim: {
