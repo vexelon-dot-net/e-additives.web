@@ -36,8 +36,9 @@ require.config({
         sammy: 'vendor/sammy-0.7.4.min',
         underscore: 'vendor/underscore-min',
         moment: 'vendor/moment_langs.min',
+        mustache: 'vendor/mustache',
         // require.js plugins
-        propertyParser: '../plugins/propertyParser',
+        propertyParser: 'vendor/plugins/propertyParser',
     },
     shim: {
         'bootstrap': ['jquery', 'sammy'],
@@ -53,8 +54,11 @@ require.config({
     urlArgs: "bust=" +  (new Date()).getTime() // TODO: use build num
 });
     
-require(['sammy', 'bootstrap', 'plugin/domReady!'], function(Sammy) {
+require(['sammy', 'bootstrap', 'plugin/sammy.mustache', 'plugin/domReady!'], function(Sammy) {
     var app = Sammy(function() {
+        this.use(Sammy.Mustache);
+        var template = "<h1>Hello {{foo}}</h1>";
+
         // default
         this.get('#/', function() {
             this.redirect('#home');
@@ -69,6 +73,11 @@ require(['sammy', 'bootstrap', 'plugin/domReady!'], function(Sammy) {
         this.get('#additives', function() {
             // load some data
             console.log('additives');
+
+            var rendered = this.mustache(template, {foo: 'test'});
+            console.log(rendered);
+            //$('body').append(rendered);
+            //context.$element().append(rendered);
 
         });
         // Additives browse page
