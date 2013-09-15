@@ -43,7 +43,7 @@
 });
 
 // require the unit tests.
-require(['qunit', 'api-tests', 'api'], 
+require(['qunit', 'api-tests'], 
     function(QUnit, ApiTests) {
         ApiTests.run();
         QUnit.load();

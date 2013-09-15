@@ -20,14 +20,14 @@
 
 define(['jquery', 'underscore'], function($, _) {
 
-    var api = function() {
+    var BaseAPI = function() {
         this.useJsonp = true;
         this.serverUrl = null;
         this.apiAuthKey = '';
         this.requestHeaders = {};
     }
 
-    api.prototype.ajax = function(requestType, resource, params, headers, cb) {
+    BaseAPI.prototype.ajax = function(requestType, resource, params, headers, cb) {
         $.ajax({type: requestType,
             //jsonp: this.jsonp,
             url: this.serverUrl + resource,
@@ -46,11 +46,11 @@ define(['jquery', 'underscore'], function($, _) {
         });         
     }
     
-    api.prototype.ajaxGET = function(resource, params, headers, cb) {
+    BaseAPI.prototype.ajaxGET = function(resource, params, headers, cb) {
         this.ajax('GET', resource, params, headers, cb);
     }
 
-    api.prototype.ajaxPOST = function(resource, params, headers, cb) {
+    BaseAPI.prototype.ajaxPOST = function(resource, params, headers, cb) {
         this.ajax('POST', resource, params, headers, cb);
     }
 
@@ -58,8 +58,8 @@ define(['jquery', 'underscore'], function($, _) {
      * API 0.9 (BETA)
      * 
      */
-    var clientAPI_09 = _.extend(api, {});
-    clientAPI_09.prototype = _.extend(api.prototype, {
+    var clientAPI_09 = Object.create(BaseAPI);
+    clientAPI_09 = _.extend(clientAPI_09.prototype, BaseAPI.prototype, {
         getAdditives: function(cr, cb) {
             this.ajaxGET('/additives', cr, this.requestHeaders, cb);
         },
@@ -93,7 +93,7 @@ define(['jquery', 'underscore'], function($, _) {
             switch(version) {
                 case this.Versions.V09:
                 default:
-                    api = new clientAPI_09();
+                    api = clientAPI_09;
                 break;
             }
             api.serverUrl = server;
