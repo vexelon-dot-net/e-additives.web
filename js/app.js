@@ -55,9 +55,8 @@ require.config({
 });
     
 require(['sammy', 'bootstrap', 'plugin/sammy.mustache', 'plugin/domReady!'], function(Sammy) {
-    var app = Sammy(function() {
+    var app = Sammy('div[role="pane"]', function() {
         this.use(Sammy.Mustache, 'ms');
-        var template = "<h1>Hello {{foo}}</h1>";
 
         // default
         this.get('#/', function() {
@@ -66,7 +65,18 @@ require(['sammy', 'bootstrap', 'plugin/sammy.mustache', 'plugin/domReady!'], fun
         // Main/Search page
         this.get('#home', function() {
             // load some data
-            console.log('home');
+            var self = this;
+
+            //context.app.swap('');
+            this.partial('partials/home.ms.html', {});
+            
+            //context.$element().append('<h1>inbox</h1>');  
+    
+            // this.load('partials/home.ms').then(function(partial) {
+
+            //     var rendered = self.mustache(partial, {foo: 'test'});
+            //     console.log(rendered);                
+            // });
 
         });
         // Additives browse page
