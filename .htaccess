@@ -487,6 +487,10 @@ FileETag None
     ExpiresByType font/opentype                         "access plus 1 month"
     ExpiresByType image/svg+xml                         "access plus 1 month"
 
+  # Mustache template files
+  # TODO:
+    ExpiresByType text/troff                            "access plus 3 seconds"    
+
 </IfModule>
 
 # ------------------------------------------------------------------------------
