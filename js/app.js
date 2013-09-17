@@ -58,26 +58,17 @@ require(['sammy', 'bootstrap', 'plugin/sammy.mustache', 'plugin/domReady!'], fun
     var app = Sammy('div[role="pane"]', function() {
         this.use(Sammy.Mustache, 'ms');
 
+        // TODO: if dev?!
+        this.templateCache = function() {};
+
         // default
         this.get('#/', function() {
             this.redirect('#home');
         });
         // Main/Search page
         this.get('#home', function() {
-            // load some data
             var self = this;
-
-            //context.app.swap('');
-            this.partial('partials/home.ms.html', {});
-            
-            //context.$element().append('<h1>inbox</h1>');  
-    
-            // this.load('partials/home.ms').then(function(partial) {
-
-            //     var rendered = self.mustache(partial, {foo: 'test'});
-            //     console.log(rendered);                
-            // });
-
+            this.partial('partials/home.ms', {});
         });
         // Additives browse page
         this.get('#additives', function(context) {
@@ -85,8 +76,6 @@ require(['sammy', 'bootstrap', 'plugin/sammy.mustache', 'plugin/domReady!'], fun
             console.log('additives');
 
             //this.partials = {name: 'opa', code: '101', info: 'text info'};
-            this.name = 'opa';
-            this.code = '101';
             //this.render('partials/single-additive.ms', {name: 'quirkey', code: '101'}).appendTo($('body'));
 
             // this.load('partials/single-additive.ms')
@@ -104,11 +93,17 @@ require(['sammy', 'bootstrap', 'plugin/sammy.mustache', 'plugin/domReady!'], fun
             // });            
 
         });
-        // Additives browse page
-        this.get('#additives/:code', function() {
-            // load some data
-            console.log(':code');
+        // Show single additive
+        this.get('#additives/:code', function(context) {
+            var self = this;
 
+            var data = {
+                name: 'Test Additive',
+                code: '101',
+                
+            };
+
+            this.partial('partials/single-additive.ms', data);
         });
         // F.A.Q. page
         this.get('#help/faq', function() {
@@ -130,4 +125,6 @@ require(['sammy', 'bootstrap', 'plugin/sammy.mustache', 'plugin/domReady!'], fun
     });
     // start the application
     app.run('#/');
+
+    app.clearTemplateCache();
 });
