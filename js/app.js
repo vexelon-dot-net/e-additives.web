@@ -41,7 +41,7 @@ require.config({
         propertyParser: 'vendor/plugins/propertyParser',
     },
     shim: {
-        'bootstrap': ['jquery', 'sammy'],
+        'bootstrap': ['jquery'],
         'underscore': {
             exports: '_'
         },
@@ -54,7 +54,10 @@ require.config({
     urlArgs: "bust=" +  (new Date()).getTime() // TODO: use build num
 });
     
-require(['sammy', 'bootstrap', 'plugin/sammy.mustache', 'plugin/domReady!'], function(Sammy) {
+require(['sammy', 'api', 'config', 'bootstrap', 'plugin/sammy.mustache', 'plugin/domReady!'], function(Sammy, API, Config) {
+
+    API.initialize(Config.serverUrl, Config.serverKey);
+
     var app = Sammy('div[role="pane"]', function() {
         this.use(Sammy.Mustache, 'ms');
 
@@ -96,14 +99,13 @@ require(['sammy', 'bootstrap', 'plugin/sammy.mustache', 'plugin/domReady!'], fun
         // Show single additive
         this.get('#additives/:code', function(context) {
             var self = this;
-
-            var data = {
-                name: 'Test Additive',
-                code: '101',
-                
-            };
-
-            this.partial('partials/single-additive.ms', data);
+            API.getAdditive(this.params['code'], function(err, data) {
+                if (err) {
+                    console.log(err);
+                    return;
+                }
+                self.partial('partials/single-additive.ms', data);
+            });
         });
         // F.A.Q. page
         this.get('#help/faq', function() {

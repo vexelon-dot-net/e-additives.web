@@ -1,3 +1,4 @@
-# Ignore files
+# ignored
 build/*
 *.sublime-*
+js/config.js
