@@ -21,11 +21,6 @@
 require.config({
     //By default load any module IDs from js
     baseUrl: 'js',
-    //except, if the module ID starts with "app",
-    //load it from the js/app directory. paths
-    //config is relative to the baseUrl, and
-    //never includes a ".js" extension since
-    //the paths config could be for a directory.
     //enforceDefine: true,
     paths: {
         vendor: 'vendor',
@@ -37,8 +32,6 @@ require.config({
         underscore: 'vendor/underscore-min',
         moment: 'vendor/moment_langs.min',
         mustache: 'vendor/mustache',
-        // require.js plugins
-        propertyParser: 'vendor/plugins/propertyParser',
     },
     shim: {
         'bootstrap': ['jquery'],
@@ -74,9 +67,15 @@ require(['sammy', 'api', 'config', 'bootstrap', 'plugin/sammy.mustache', 'plugin
             this.partial('partials/home.ms', {});
         });
         // Additives browse page
-        this.get('#additives', function(context) {
-            // load some data
-            console.log('additives');
+        this.get('#additives', function() {
+            var self = this;
+            API.getAdditives(function(err, data) {
+                if (err) {
+                    console.log(err);
+                    return;
+                }
+                self.partial('partials/additives.ms', {data: data});
+            });            
 
             //this.partials = {name: 'opa', code: '101', info: 'text info'};
             //this.render('partials/single-additive.ms', {name: 'quirkey', code: '101'}).appendTo($('body'));
@@ -97,7 +96,7 @@ require(['sammy', 'api', 'config', 'bootstrap', 'plugin/sammy.mustache', 'plugin
 
         });
         // Show single additive
-        this.get('#additives/:code', function(context) {
+        this.get('#additives/:code', function() {
             var self = this;
             API.getAdditive(this.params['code'], function(err, data) {
                 if (err) {
