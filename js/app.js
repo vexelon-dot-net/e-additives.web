@@ -105,7 +105,7 @@ require(['sammy', 'api', 'config', 'bootstrap', 'plugin/sammy.mustache', 'plugin
                 }
                 self.partial('partials/single-additive.ms', data);
             });
-        });
+        });    
         // Compare 2 additives
         this.get('#additives/compare/:first/:second', function() {
             var self = this;
@@ -126,6 +126,28 @@ require(['sammy', 'api', 'config', 'bootstrap', 'plugin/sammy.mustache', 'plugin
                 });
             });
         });        
+        // Categories page
+        this.get('#categories', function() {
+            var self = this;
+            API.getCategories(function(err, data) {
+                if (err) {
+                    console.log(err);
+                    return;
+                }
+                self.partial('partials/categories.ms', {data: data});
+            });            
+        });
+        // Show single cateogry
+        this.get('#categories/:id', function() {
+            var self = this;
+            API.getCategory(this.params['id'], function(err, data) {
+                if (err) {
+                    console.log(err);
+                    return;
+                }
+                self.partial('partials/single-category.ms', data);
+            });
+        });                
         // F.A.Q. page
         this.get('#help/faq', function() {
             // load some data

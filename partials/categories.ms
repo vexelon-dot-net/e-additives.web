@@ -2,15 +2,13 @@
   <table class="table table-condensed table-striped">
     <thead>
         <tr>
-            <td>Code</td>
             <td>Name</td>
         </tr>
     </thead>
     <tbody>
         {{#data}}
         <tr>
-            <td><a href="#additives/{{code}}">{{code}}</a></h2></td>
-            <td>{{name}}</h2></td>
+            <td><a href="#categories/{{id}}">{{name}}</a></td>
         </tr>
         {{/data}}
     </tbody>
