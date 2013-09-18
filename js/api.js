@@ -21,7 +21,7 @@
 define(['jquery', 'underscore'], function($, _) {
 
     var BaseAPI = function() {
-        this.useJsonp = true;
+        this.useJsonp = false;
         this.serverUrl = null;
         this.apiAuthKey = '';
         this.requestHeaders = {};
@@ -29,10 +29,12 @@ define(['jquery', 'underscore'], function($, _) {
 
     BaseAPI.prototype.ajax = function(requestType, resource, params, headers, cb) {
         var self = this;
+        console.log(self.useJsonp);
         $.ajax({type: requestType,
-            //jsonp: this.jsonp,
             url: self.serverUrl + resource,
             dataType: self.useJsonp ? 'jsonp' : 'json',
+            //jsonpCallback: 'callback',
+            //jsonp: this.jsonp,
             data: params || {},
             headers: headers || {},
             cache: !self.useJsonp,
@@ -59,8 +61,8 @@ define(['jquery', 'underscore'], function($, _) {
      * API 0.9 (BETA)
      * 
      */
-    var clientAPI_09 = Object.create(BaseAPI);
-    clientAPI_09 = _.extend(clientAPI_09.prototype, BaseAPI.prototype, {
+    var clientAPI_09 = new BaseAPI();
+    _.extend(clientAPI_09, {
         getAdditives: function(cr, cb) {
             this.ajaxGET('/additives', cr, this.requestHeaders, cb);
         },
