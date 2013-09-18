@@ -1,7 +1,7 @@
 <div>
 {{#data}}
 	<ul>
-		<li>{{code}}</li> 
+		<li><a href="#additives/{{code}}">{{code}}</a></li> 
 		<li>{{name}}</li>
   	</ul>
 {{/data}}

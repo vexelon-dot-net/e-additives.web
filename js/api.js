@@ -29,7 +29,6 @@ define(['jquery', 'underscore'], function($, _) {
 
     BaseAPI.prototype.ajax = function(requestType, resource, params, headers, cb) {
         var self = this;
-        console.log(self.useJsonp);
         $.ajax({type: requestType,
             url: self.serverUrl + resource,
             dataType: self.useJsonp ? 'jsonp' : 'json',

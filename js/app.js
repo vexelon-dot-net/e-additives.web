@@ -106,6 +106,26 @@ require(['sammy', 'api', 'config', 'bootstrap', 'plugin/sammy.mustache', 'plugin
                 self.partial('partials/single-additive.ms', data);
             });
         });
+        // Compare 2 additives
+        this.get('#additives/compare/:first/:second', function() {
+            var self = this;
+            // fetch first
+            API.getAdditive(self.params['first'], function(err, dataFirst) {
+                if (err) {
+                    console.log(err);
+                    return;
+                }
+                // fetch second
+                API.getAdditive(self.params['second'], function(err, dataSecond) {
+                    if (err) {
+                        console.log(err);
+                        return;
+                    }                    
+
+                    self.partial('partials/compare-two.ms', {first: dataFirst, second: dataSecond});
+                });
+            });
+        });        
         // F.A.Q. page
         this.get('#help/faq', function() {
             // load some data
