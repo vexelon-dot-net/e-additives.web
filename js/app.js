@@ -60,6 +60,8 @@ require(['sammy', 'api', 'config', 'bootstrap', 'plugin/sammy.mustache', 'plugin
         // TODO: if dev?!
         this.templateCache = function() {};
 
+        var load_anim = '<p class="text-center"><img src="img/ajax-loader.gif"/></p>';
+
         // default
         this.get('#/', function() {
             this.redirect('#home');
@@ -67,6 +69,8 @@ require(['sammy', 'api', 'config', 'bootstrap', 'plugin/sammy.mustache', 'plugin
         // Main/Search page
         this.get('#home', function() {
             var self = this;
+            self.swap(load_anim);
+
             this.partial('partials/home.ms', {}, function() {
                 console.log('loaded');
                 // single dataset
@@ -79,6 +83,8 @@ require(['sammy', 'api', 'config', 'bootstrap', 'plugin/sammy.mustache', 'plugin
         // Additives browse page
         this.get('#additives', function() {
             var self = this;
+            self.swap(load_anim);
+
             API.getAdditives(function(err, data) {
                 if (err) {
                     console.log(err);
@@ -108,6 +114,8 @@ require(['sammy', 'api', 'config', 'bootstrap', 'plugin/sammy.mustache', 'plugin
         // Show single additive
         this.get('#additives/:code', function() {
             var self = this;
+            self.swap(load_anim);
+
             API.getAdditive(this.params['code'], function(err, data) {
                 if (err) {
                     console.log(err);
@@ -119,6 +127,8 @@ require(['sammy', 'api', 'config', 'bootstrap', 'plugin/sammy.mustache', 'plugin
         // Compare 2 additives
         this.get('#additives/compare/:first/:second', function() {
             var self = this;
+            self.swap(load_anim);
+
             // fetch first
             API.getAdditive(self.params['first'], function(err, dataFirst) {
                 if (err) {
@@ -139,6 +149,8 @@ require(['sammy', 'api', 'config', 'bootstrap', 'plugin/sammy.mustache', 'plugin
         // Categories page
         this.get('#categories', function() {
             var self = this;
+            self.swap(load_anim);
+
             API.getCategories(function(err, data) {
                 if (err) {
                     console.log(err);
@@ -150,6 +162,8 @@ require(['sammy', 'api', 'config', 'bootstrap', 'plugin/sammy.mustache', 'plugin
         // Show single cateogry
         this.get('#categories/:id', function() {
             var self = this;
+            self.swap(load_anim);
+
             API.getCategory(this.params['id'], function(err, data) {
                 if (err) {
                     console.log(err);
@@ -160,12 +174,18 @@ require(['sammy', 'api', 'config', 'bootstrap', 'plugin/sammy.mustache', 'plugin
         });                
         // F.A.Q. page
         this.get('#help/faq', function() {
+            var self = this;
+            self.swap(load_anim);
+
             // load some data
             console.log('faq');
 
         });
         // About page
         this.get('#help/about', function() {
+            var self = this;
+            self.swap(load_anim);
+                        
             // load some data
             console.log('about');
 
