@@ -34,6 +34,10 @@ body {
     font-size: 12pt;
 }
 
+.navbar {
+    margin-bottom: 0px !important;
+}
+
 .navbar-brand {
     padding: 12px;
 }
@@ -54,15 +58,18 @@ body {
 }
 
 .main {
-    margin-top:  50px;
-    padding-bottom:  255px;
+    margin-top: 0px;
+    padding-top: 15px;
+    padding-bottom:  155px;
+    background: white;
+    border: 1px solid #ccc;
 }
 
 #footer {
     font-size: 12pt;
     position: absolute;
     width: 95%;
-    bottom: 0;
+    /*bottom: 0;*/
     height: 255px;
     text-shadow: #fff 0 1px 0;
     line-height: 18px;
