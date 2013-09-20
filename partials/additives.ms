@@ -1,5 +1,5 @@
-<button type="button" class="btn btn-default">Compare</button>
-<button type="button" class="btn btn-info">QR Bundle</button>
+<button type="button" class="btn btn-default btn-lg">Compare</button>
+<button type="button" class="btn btn-info btn-lg">QR Bundle</button>
 <hr>
 <div class="table-responsive">
   <table class="table table-condensed table-striped">

@@ -3,11 +3,18 @@
    Author's custom styles
    ========================================================================== */
 
+@font-face {
+  font-family: 'Gudea';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Gudea'), url(http://themes.googleusercontent.com/static/fonts/gudea/v1/Z6xYy_2MlN1cUISkeodEPA.woff) format('woff');
+}
+
 html,
 body {
     height: 100%;
-    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
-    font-size: 13px;
+    font-family: "Gudea", "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-size: 14pt;
     /* The html and body elements cannot have any padding or margin. */
 }
 
@@ -16,6 +23,9 @@ body {
     background: #e3e3e3;
 }
 
+.dropdown-menu {
+    font-size: 12pt;
+}
 /* Wrapper for page content to push down footer */
 .wrap {
     min-height: 100%;
@@ -34,6 +44,7 @@ body {
 }
 
 #footer {
+    font-size: 12pt;
     position: absolute;
     width: 95%;
     bottom: 0;
@@ -51,7 +62,6 @@ body {
 }
 
 #footer ul li a:hover {
-    
     text-decoration: underline;
 }
 hr {
@@ -64,14 +74,14 @@ hr {
     list-style-type: none;  
     padding-right: 0;
     padding-left: 0;
-    font-size: 14px;
+    font-size: 12pt;
     font-weight: bold;
    
 }
 
 .rights {
     color:  #666;
-    font-size: 12px;
+    font-size: 12pt;
     line-height: 18px;
 }
 .rights a {
