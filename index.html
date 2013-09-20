@@ -21,7 +21,7 @@
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
-    <div class="container">
+    <div class="container wrap">
 
     <div class="navbar navbar-inverse navbar-default">
       <div class="container">
@@ -89,12 +89,12 @@
     </div>-->
 
     <!--Content will be loaded here -->
-    <div class="container" role="pane">
+    <div class="container main" role="pane">
       <p class="text-center"><img src="img/ajax-loader.gif"/></p>
     </div>
-
+    
     <!-- footer -->
-    <div id="footer" class="container col-md-10 col-md-offset-1"> <!-- Container for the footer -->
+    <div id="footer" class="container col-md-12"> <!-- Container for the footer -->
         <hr class="visible-xs">
         <!-- Vissible footer list collapse when screen <= xs -->
         <div class="panel-group visible-xs" id="accordion">
@@ -103,16 +103,16 @@
             <div class="panel-heading">
               <h4 class="panel-title">
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                  Collapsible Group Item #1
+                  Find out more
                 </a>
               </h4>
             </div>
-            <div id="collapseOne" class="panel-collapse collapse in">
+            <div id="collapseOne" class="panel-collapse collapse">
               <div class="panel-body">
                <ul class="list-unstyled">
-                    <li>1st</li>
-                    <li>1st</li>
-                    <li>1st</li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact us</a></li>
                </ul>
               </div>
             </div>
@@ -121,54 +121,17 @@
             <div class="panel-heading">
               <h4 class="panel-title">
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                  Collapsible Group Item #2
+                 More
                 </a>
               </h4>
             </div>
             <div id="collapseTwo" class="panel-collapse collapse">
               <div class="panel-body">
                 <ul class="list-unstyled">
-                    <li>2nd</li>
-                    <li>2nd</li>
-                    <li>2nd</li>
+                    <li><a href="#">Android app</a></li>
+                    <li><a href="#">E-additives API</a></li>
                  </ul>
               </div>
-            </div>
-          </div>
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="panel-title">
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                  Collapsible Group Item #3
-                </a>
-              </h4>
-            </div>
-            <div id="collapseThree" class="panel-collapse collapse">
-              <div class="panel-body">
-                <ul class="list-unstyled">
-                    <li>3rd</li>
-                    <li>3rd</li>
-                    <li>3rd</li>
-                </ul>
-                </div>
-            </div>
-          </div>
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="panel-title">
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
-                  Collapsible Group Item #3
-                </a>
-              </h4>
-            </div>
-            <div id="collapseFour" class="panel-collapse collapse">
-              <div class="panel-body">
-                <ul class="list-unstyled">
-                    <li>4th</li>
-                    <li>4th</li>
-                    <li>4th</li>
-                </ul>
-                </div>
             </div>
           </div>
           <hr>
@@ -183,65 +146,53 @@
             <div id="collapseFive" class="panel-collapse collapse">
               <div class="panel-body">
                <ul class="list-unstyled">
-                    <li>Bulgarian</li>
-                    <li>English</li> 
+                    <li><a href="#">Bulgarian</a></li>
+                    <li><a href="#">English</a></li> 
                </ul>
               </div>
             </div>
           </div>
 
         </div>
-
+        <div class="container hidden-xs"><hr></div>
         <!-- Vissible footer list when screen is > xs -->
-        <div class="container col-md-12 hidden-xs">
-            <hr>
+        <div class="container hidden-xs col-md-12">
+            
             <div class="col-xs-6 col-sm-3">
                 <ul class="list-unstyled">
-                    <li>1st</li>
-                    <li>1st</li>
-                    <li>1st</li>
+                    <li><h4>Find out more</h4></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact us</a></li>
                 </ul>
             </div>
             <div class="col-xs-6 col-sm-3 ">
                 <ul class="list-unstyled">
-                    <li>2nd</li>
-                    <li>2nd</li>
-                    <li>2nd</li>
+                    <li><h4>More</h4></li>
+                    <li><a href="#">Android app</a></li>
+                    <li><a href="#">E-additives API</a></li>
                 </ul>
             </div>
-            <div class="col-xs-6 col-sm-3 ">
-                <ul class="list-unstyled">
-                    <li>3rd</li>
-                    <li>3rd</li>
-                    <li>3rd</li>
-                </ul>
-            </div>
-            <div class="col-xs-6 col-sm-3 " >
-                <ul class="list-unstyled">
-                    <li>4th</li>
-                    <li>4th</li>
-                    <li>4th</li>
-                </ul>
-            </div> 
         </div>
 
-        <div class="container">
+        <div class="container separator2">
           <hr>
         </div>
 
-        
-          <ul class="list-inline hidden-xs">
-              <li>English</li>
-              <li>Bulgarian</li>
+        <div class="container">
+          <ul class="list-inline hidden-xs language-list-footer">
+              <li><a href="#">English</a></li>
+              <li>|  <a href="#">Bulgarian</a></li>
           </ul>
-          <p class="rights">All rights reserved Terms of Use, Privacy Policy and Legal Policies — Updated 2013 </p>
-        
+          <p class="rights"><img src="img/icon.png"/> © 2013 Vexelon.NET Services. All rights reserved. | <a href="#">Terms of Use</a>, <a href="#">Privacy Policy</a></p>
+        </div>
 
 <!--     <div id="footer" class="container">
       <div class="container">
         <p class="text-muted credit">&copy; 2013 VEXELON.NET Services</p>
       </div>
     </div> -->
+        </div>
     </div> <!-- /container wrap -->
     <!-- app start -->
     <script data-main="js/app.js" src="js/require.js"></script>
