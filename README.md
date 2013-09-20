@@ -12,8 +12,10 @@ The Web UI is a responsive HTML5/Javascript single-page web app that allows user
 * `build/` - A place where distributable project contents will be generated. This folder **must** be empty!
 * `css/` - CSS styles files. 
 * `fonts/` - Fonts required by the project.
+* `img/` - All images go here.
 * `js/` - Contains all the Javascript code and libs.
   * `vendor/` - Javascript libraries used throught the project.
+    * `plugins` - Plugins for vendor libraries.
 * `partials/` - Mustache HTML templates.
 * `tests`/ - QUnit based tests.
 
