@@ -3,6 +3,11 @@
    Author's custom styles
    ========================================================================== */
 
+/**
+ * Infos:
+ * Generally, 1em = 12pt = 16px = 100%. 
+ */
+
 @font-face {
   font-family: 'Gudea';
   font-style: normal;
@@ -23,9 +28,19 @@ body {
     background: #e3e3e3;
 }
 
+/* Override Bootstrap styles */
+
 .dropdown-menu {
     font-size: 12pt;
 }
+
+.navbar-brand {
+    padding: 12px;
+}
+.navbar-brand > img {
+    padding: 0;
+}
+
 /* Wrapper for page content to push down footer */
 .wrap {
     min-height: 100%;
