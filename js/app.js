@@ -32,16 +32,19 @@ require.config({
         underscore: 'vendor/underscore-min',
         moment: 'vendor/moment_langs.min',
         mustache: 'vendor/mustache',
+        // plugins
+        typeahead: 'vendor/plugins/typeahead.min'
     },
     shim: {
-        'bootstrap': ['jquery'],
+        'bootstrap': ['jquery', 'typeahead'],
         'underscore': {
             exports: '_'
         },
         'jquery': {
             exports: '$'
         },
-        'sammy': ['jquery']
+        'sammy': ['jquery'],
+        'typeahead': ['jquery']
     },
     waitSeconds: 10,
     urlArgs: "bust=" +  (new Date()).getTime() // TODO: use build num
@@ -64,7 +67,14 @@ require(['sammy', 'api', 'config', 'bootstrap', 'plugin/sammy.mustache', 'plugin
         // Main/Search page
         this.get('#home', function() {
             var self = this;
-            this.partial('partials/home.ms', {});
+            this.partial('partials/home.ms', {}, function() {
+                console.log('loaded');
+                // single dataset
+                $('.typeahead').typeahead({
+                    name: 'accounts',
+                    local: ['101', '101a', '202']
+                });  
+            });
         });
         // Additives browse page
         this.get('#additives', function() {
