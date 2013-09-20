@@ -6,7 +6,6 @@
 html,
 body {
     height: 100%;
-    
     font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
     font-size: 13px;
     /* The html and body elements cannot have any padding or margin. */
@@ -19,16 +18,14 @@ body {
 
 /* Wrapper for page content to push down footer */
 .wrap {
-      min-height: 100%;
-      position:relative;  
-    /*min-height: 100%;
+    min-height: 100%;
+    position:relative;  
+/*    min-height: 100%;
     height: auto !important;
     height: 100%;
-    
     margin: 0 auto -60px;
+    padding: 0 0 60px;*/
     
-    padding: 0 0 60px;
-    */
 }
 
 .main {
@@ -37,15 +34,15 @@ body {
 }
 
 #footer {
-      position: absolute;
-      width: 95%;
-      bottom: 0;
-      height: 255px;
-      text-shadow: #fff 0 1px 0;
-      line-height: 18px;
-        /* This value is the height of your footer */
-        margin:0;
-        padding: 0;
+    position: absolute;
+    width: 95%;
+    bottom: 0;
+    height: 255px;
+    text-shadow: #fff 0 1px 0;
+    line-height: 18px;
+    /* This value is the height of your footer */
+    margin:0;
+    padding: 0;
         
 }
 
