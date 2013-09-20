@@ -55,11 +55,14 @@ body {
 .twitter-typeahead .tt-query,
 .twitter-typeahead .tt-hint {
     margin-bottom: 0;
-    width:100%;
-    height: 34px;
+    width: 100%;
+    height: 45px;
     position: absolute;
     top:0;
     left:0;
+    font-size: 18px;
+    line-height: 1.33;
+    border-radius: 6px;
 }
 .twitter-typeahead .tt-hint {
     color:#a1a1a1;
