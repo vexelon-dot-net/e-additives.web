@@ -50,7 +50,7 @@ require.config({
     urlArgs: "bust=" +  (new Date()).getTime() // TODO: use build num
 });
     
-require(['sammy', 'api', 'config', 'bootstrap', 'plugin/sammy.mustache', 'plugin/domReady!'], function(Sammy, API, Config) {
+require(['sammy', 'api', 'config', 'mustache', 'bootstrap', 'plugin/sammy.mustache', 'plugin/domReady!'], function(Sammy, API, Config, Mustache) {
 
     API.initialize(Config.serverUrl, Config.serverKey);
 
@@ -76,7 +76,14 @@ require(['sammy', 'api', 'config', 'bootstrap', 'plugin/sammy.mustache', 'plugin
                 // single dataset
                 $('.typeahead').typeahead({
                     name: 'accounts',
-                    local: ['101', '101a', '202']
+                    local: [
+                        {'value': '101', 'code': '101', 'name': 'test'}
+                    ],
+                    template: '<p>{{value}} </p>',                                                    
+                    engine: Mustache,
+                    // template: function (datum) {
+                    //     return datum.code;
+                    // }                        
                 });  
             });
         });
