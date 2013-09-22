@@ -50,7 +50,8 @@ require.config({
     urlArgs: "bust=" +  (new Date()).getTime() // TODO: use build num
 });
     
-require(['sammy', 'api', 'config', 'mustache', 'bootstrap', 'plugin/sammy.mustache', 'plugin/domReady!'], function(Sammy, API, Config, Mustache) {
+require(['sammy', 'config', 'api', 'mustache', 'bootstrap', 'plugin/sammy.mustache', 'plugin/domReady!'], 
+    function(Sammy, Config, API, Mustache) {
 
     API.initialize(Config.serverUrl, Config.serverKey);
 
@@ -61,6 +62,8 @@ require(['sammy', 'api', 'config', 'mustache', 'bootstrap', 'plugin/sammy.mustac
         this.templateCache = function() {};
 
         var load_anim = '<p class="text-center"><img src="img/ajax-loader.gif"/></p>';
+        var searchTemplateCode = Mustache.compile('<h4><span class="label label-default">{{code}}</span> {{name}}</h4>');
+        var searchTemplateName = Mustache.compile('<h4>{{name}} <span class="label label-default">{{code}}</span></h4>');
 
         // default
         this.get('#/', function() {
@@ -72,20 +75,31 @@ require(['sammy', 'api', 'config', 'mustache', 'bootstrap', 'plugin/sammy.mustac
             self.swap(load_anim);
 
             this.partial('partials/home.ms', {}, function() {
-                console.log('loaded');
-                // single dataset
-                $('.typeahead').typeahead({
-                    name: 'accounts',
-                    local: [
-                        {'value': '101', 'code': '101', 'name': 'test'}
-                    ],
-                    template: '<p>{{value}} </p>',                                                    
-                    engine: Mustache,
-                    // template: function (datum) {
-                    //     return datum.code;
-                    // }                        
-                });  
-            });
+                API.getAdditives(function(err, data) {
+                    if (err) {
+                        console.log(err);
+                        return;
+                    }
+                    $('.typeahead').typeahead([
+                        {
+                            name: 'additives-codes',
+                            valueKey: 'code',
+                            limit: 7,
+                            local: data,
+                            template: searchTemplateCode,
+                            engine: Mustache,
+                        },
+                        {
+                            name: 'additives-names',
+                            valueKey: 'name',
+                            limit: 7,
+                            local: data,
+                            template: searchTemplateName,
+                            engine: Mustache,
+                        }
+                    ]);                     
+                }); //eof-API
+            }); //eof-this.partial
         });
         // Additives browse page
         this.get('#additives', function() {
