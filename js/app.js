@@ -58,8 +58,10 @@ require(['sammy', 'config', 'api', 'mustache', 'bootstrap', 'plugin/sammy.mustac
     var app = Sammy('div[role="pane"]', function() {
         this.use(Sammy.Mustache, 'ms');
 
-        // TODO: if dev?!
-        this.templateCache = function() {};
+        // disable Sammy template caching while in 'dev' mode
+        if (Config.isDevMode) {
+            this.templateCache = function() {};
+        }
 
         var load_anim = '<p class="text-center"><img src="img/ajax-loader.gif"/></p>';
         var searchTemplateCode = Mustache.compile('<h4><span class="label label-default">{{code}}</span> {{name}}</h4>');
