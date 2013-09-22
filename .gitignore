@@ -2,3 +2,6 @@
 build/*
 *.sublime-*
 js/config.js
+css/bootstrap.css
+css/bootstrap-theme.css
+
