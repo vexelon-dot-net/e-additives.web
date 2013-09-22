@@ -11,7 +11,7 @@
         <div class="input-group input-group-lg">
           <input type="text" class="form-control typeahead" id="search" placeholder="Name or number, e.g, E101" />
           <span class="input-group-btn">
-            <button class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search"></span></button>
+            <button id="btnSearch" class="btn btn-primary" type="button"><span class="glyphicon glyphicon-search"></span></button>
           </span>
         </div>
         

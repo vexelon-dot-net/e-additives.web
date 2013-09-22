@@ -53,8 +53,14 @@ require.config({
 require(['sammy', 'config', 'api', 'mustache', 'bootstrap', 'plugin/sammy.mustache', 'plugin/domReady!'], 
     function(Sammy, Config, API, Mustache) {
 
+    /**
+     * Init client API
+     */
     API.initialize(Config.serverUrl, Config.serverKey);
 
+    /**
+     * App routes and functionality
+     */
     var app = Sammy('div[role="pane"]', function() {
         this.use(Sammy.Mustache, 'ms');
 
@@ -134,6 +140,19 @@ require(['sammy', 'config', 'api', 'mustache', 'bootstrap', 'plugin/sammy.mustac
             // });            
 
         });
+        // Search additives
+        this.get('#additives/search/:query', function() {
+            var self = this;
+            self.swap(load_anim);
+
+            API.searchAdditives(this.params['query'], function(err, data) {
+                if (err) {
+                    console.log(err);
+                    return;
+                }
+                self.partial('partials/additives.ms', {data: data});
+            });
+        }); 
         // Show single additive
         this.get('#additives/:code', function() {
             var self = this;
@@ -221,6 +240,16 @@ require(['sammy', 'config', 'api', 'mustache', 'bootstrap', 'plugin/sammy.mustac
     });
     // start the application
     app.run('#/');
-
     app.clearTemplateCache();
+
+
+    /**
+     * Bind events
+     */
+    
+    $(document).on('click', '#btnSearch', function() {
+        var query = $('#search').val();
+        app.setLocation('#additives/search/' + query);
+    });
+
 });
