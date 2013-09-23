@@ -23,3 +23,16 @@
       <a href="#faq">F.A.Q.</a>
     </div>
   </div>
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron hidden-xs">
+    <div class="container">
+      <p>The goal of the E-additives project is to implement a web platform that allows users to Search and Browse for information about food additives.</p>
+      <p>
+        <a class="btn btn-primary btn-lg">Explore &raquo;</a>
+        <button type="button" class="btn btn-info btn-lg">
+          <span class="glyphicon glyphicon-question-sign"></span> F.A.Q.
+        </button>
+      </p>
+    </div>
+  </div>  

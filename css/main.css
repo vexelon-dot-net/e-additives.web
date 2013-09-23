@@ -63,9 +63,13 @@ body {
 .main {
     margin-top: 0px;
     padding-top: 25px;
-    padding-bottom:  155px;
+    padding-bottom: 55px;
     background: white;
     border: 1px solid #ccc;
+}
+
+.jumbotron {
+    bottom: 0;
 }
 
 #footer {
