@@ -15,7 +15,7 @@ The Web UI is a responsive HTML5/Javascript single-page web app that allows user
 * `img/` - All images go here.
 * `js/` - Contains all the Javascript code and libs.
   * `vendor/` - Javascript libraries used throught the project.
-    * `plugins` - Plugins for vendor libraries.
+    - `plugins` - Plugins for vendor libraries.
 * `partials/` - Mustache HTML templates.
 * `tests`/ - QUnit based tests.
 
