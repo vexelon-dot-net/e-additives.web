@@ -51,8 +51,8 @@ require.config({
     urlArgs: "bust=" +  (new Date()).getTime() // TODO: use build num
 });
     
-require(['sammy', 'config', 'api', 'mustache', 'bootstrap', 'plugin/sammy.mustache', 'plugin/domReady!'], 
-    function(Sammy, Config, API, Mustache) {
+require(['sammy', 'config', 'api', 'bindings', 'mustache', 'bootstrap', 'plugin/sammy.mustache', 'plugin/domReady!'], 
+    function(Sammy, Config, API, Bindings, Mustache) {
 
     /**
      * Init client API
@@ -242,16 +242,8 @@ require(['sammy', 'config', 'api', 'mustache', 'bootstrap', 'plugin/sammy.mustac
     app.run('#/');
     app.clearTemplateCache();
 
-
     /**
-     * Bind events
+     * Bind app events
      */
-    
-    $(document).on('click', '#btnSearch', function() {
-        var query = $('#search').val();
-        app.setLocation('#additives/search/' + query);
-    });
-
-    $(document).on('click', '')
-
+    Bindings.bindAll(app);
 });
