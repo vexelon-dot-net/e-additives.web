@@ -1,9 +1,8 @@
-<h2>Privacy Notice</h2>
+<h1>Privacy Policy</h1>
 
 <p>
 This privacy notice discloses the privacy practices for <a href="http://e-additiv.es">http://e-additiv.es</a>. This privacy notice applies solely to information collected by this web site. It will notify you of the following:
 </p>
-
 <ol>
 	<li>What personally identifiable information is collected from you through the web site, how it is used and with whom it may be shared. </li>
 	<li>What choices are available to you regarding the use of your data. </li>
@@ -30,7 +29,11 @@ This privacy notice discloses the privacy practices for <a href="http://e-additi
 <h2>Cookies</h2>
 <p>We use "cookies" on this site. A cookie is a piece of data stored on a site visitor's hard drive to help us improve your access to our site and identify repeat visitors to our site. For instance, when we use a cookie to identify you, you would not have to log in a password more than once, thereby saving time while on our site. Cookies can also enable us to track and target the interests of our users to enhance the experience on our site. Usage of a cookie is in no way linked to any personally identifiable information on our site.</p>
 
+<h2>Disclosing Personal Details</h2>
+<p>We will never ask you for credit card or other security passwords in unsolicited phone calls or email. If you receive such a request, please take the time to report it to us by emailing company@vexelon.net</p>
+
 <h2>Links</h2>
 <p>This web site contains links to other sites. Please be aware that we are not responsible for the content or privacy practices of such other sites. We encourage our users to be aware when they leave our site and to read the privacy statements of any other site that collects personally identifiable information.</p>
 
 <p><b>If you feel that we are not abiding by this privacy policy, you should contact us immediately via email at company@vexelon.net.</b></p>
+<p><b>Please note that any changes we may make to our privacy policy in the future will be posted on this page and, where appropriate, notified to you by email.</b></p>

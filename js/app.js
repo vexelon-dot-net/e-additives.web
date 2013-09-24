@@ -221,13 +221,18 @@ require(['sammy', 'config', 'api', 'mustache', 'bootstrap', 'plugin/sammy.mustac
             self.swap(load_anim);
             self.partial('partials/faq.ms');
         });
-        // Privacy page
-        this.get('#privacy', function() {
+        // Legal: Privacy page
+        this.get('#legal/privacy', function() {
             var self = this;
             self.swap(load_anim);
             self.partial('partials/privacy.ms');
-        });        
-
+        });
+        // Legal: Terms of use page
+        this.get('#legal/terms', function() {
+            var self = this;
+            self.swap(load_anim);
+            self.partial('partials/terms.ms');
+        });
         // HTTP 404
         this.notFound = function(verb, path) {
             //window.location = '404.html';
