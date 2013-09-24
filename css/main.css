@@ -63,13 +63,17 @@ body {
 .main {
     margin-top: 0px;
     padding-top: 25px;
-    padding-bottom: 55px;
+    padding-bottom: 150px;
     background: white;
     border: 1px solid #ccc;
 }
 
 .jumbotron {
-    bottom: 0;
+    margin-top: 0px;
+}
+
+.home-logo {
+    padding-top: 25px;
 }
 
 #footer {
