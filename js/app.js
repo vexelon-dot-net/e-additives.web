@@ -216,16 +216,13 @@ require(['sammy', 'config', 'api', 'mustache', 'bootstrap', 'plugin/sammy.mustac
             });
         });                
         // F.A.Q. page
-        this.get('#help/faq', function() {
+        this.get('#faq', function() {
             var self = this;
             self.swap(load_anim);
-
-            // load some data
-            console.log('faq');
-
+            self.partial('partials/faq.ms');
         });
         // About page
-        this.get('#help/about', function() {
+        this.get('#about', function() {
             var self = this;
             self.swap(load_anim);
                         

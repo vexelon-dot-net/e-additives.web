@@ -3,10 +3,10 @@
     <div class="container">
       <p>The goal of the E-additives project is to implement a web platform that allows users to Search and Browse for information about food additives.</p>
       <p>
-        <a class="btn btn-primary btn-lg">Explore &raquo;</a>
-        <button type="button" class="btn btn-info btn-lg">
+        <a href="#additives" class="btn btn-primary btn-lg">Explore &raquo;</a>
+        <a href="#faq" class="btn btn-info btn-lg">
           <span class="glyphicon glyphicon-question-sign"></span> F.A.Q.
-        </button>
+        </a>
       </p>
     </div>
   </div>  
