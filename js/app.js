@@ -221,15 +221,12 @@ require(['sammy', 'config', 'api', 'mustache', 'bootstrap', 'plugin/sammy.mustac
             self.swap(load_anim);
             self.partial('partials/faq.ms');
         });
-        // About page
-        this.get('#about', function() {
+        // Privacy page
+        this.get('#privacy', function() {
             var self = this;
             self.swap(load_anim);
-                        
-            // load some data
-            console.log('about');
-
-        });
+            self.partial('partials/privacy.ms');
+        });        
 
         // HTTP 404
         this.notFound = function(verb, path) {
@@ -249,5 +246,7 @@ require(['sammy', 'config', 'api', 'mustache', 'bootstrap', 'plugin/sammy.mustac
         var query = $('#search').val();
         app.setLocation('#additives/search/' + query);
     });
+
+    $(document).on('click', '')
 
 });
