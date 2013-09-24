@@ -1,5 +1,6 @@
 # ignored
 build/*
+build.number
 *.sublime-*
 js/config.js
 css/bootstrap.css
