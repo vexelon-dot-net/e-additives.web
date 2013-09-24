@@ -21,12 +21,13 @@
 require.config({
     //By default load any module IDs from js
     baseUrl: 'js',
+	//To get timely, correct error triggers in IE, force a define/shim exports check.
     //enforceDefine: true,
     paths: {
         vendor: 'vendor',
         plugin: 'vendor/plugins',
         // libs
-        jquery: ["//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min", "vendor/jquery-1.10.1.min"],
+        jquery: ["vendor/jquery-1.10.1.min"], //"//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min",
         bootstrap: 'vendor/bootstrap.min',
         sammy: 'vendor/sammy-0.7.4.min',
         underscore: 'vendor/underscore-min',
