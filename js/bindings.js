@@ -17,6 +17,10 @@
  */
 
 define(['jquery'], function($) {
+	/**
+	 * Here we bind all expected web site events.
+	 * Things like: button press, key press, custom events, etc.
+	 */
     return {
     	bindAll: function(app) {
 		    /**
