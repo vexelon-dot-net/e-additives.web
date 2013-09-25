@@ -30,6 +30,10 @@ define(['jquery'], function($) {
 		        var query = $('#search').val();
 		        app.setLocation('#additives/search/' + query);
 		    });
+
+		    $(document).on('breadcrumbs', null, function(event, location) {
+		    	console.log('updated brd' + location);
+		    });
     	}
     };
 });

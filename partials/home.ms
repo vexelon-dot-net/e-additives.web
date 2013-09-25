@@ -1,3 +1,17 @@
+{{> box}}
+<!--Start: Breadcrumbs -->
+<ol class="breadcrumb">
+    {{#breadcrumbs}}
+    {{#active}}
+        <li class="active">{{name}}</li>
+    {{/active}}
+    {{^active}}
+    <li><a href="{{link}}">{{name}}</a></li>
+    {{/active}}
+    {{/breadcrumbs}}
+</ol>
+<!--End: Breadcrumbs -->
+
   <!-- Main jumbotron for a primary marketing message or call to action -->
   <div class="jumbotron hidden-xs">
     <div class="container">

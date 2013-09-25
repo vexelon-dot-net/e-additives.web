@@ -1,3 +1,16 @@
+<!--Start: Breadcrumbs -->
+<ol class="breadcrumb">
+    {{#breadcrumbs}}
+    {{#active}}
+        <li class="active">{{name}}</li>
+    {{/active}}
+    {{^active}}
+    <li><a href="{{link}}">{{name}}</a></li>
+    {{/active}}
+    {{/breadcrumbs}}
+</ol>
+<!--End: Breadcrumbs -->
+
 <button type="button" class="btn btn-default btn-lg">Compare</button>
 <button type="button" class="btn btn-info btn-lg">QR Bundle</button>
 <hr>

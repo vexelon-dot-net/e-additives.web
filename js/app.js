@@ -54,6 +54,8 @@ require.config({
 require(['sammy', 'config', 'api', 'bindings', 'mustache', 'bootstrap', 'plugin/sammy.mustache', 'plugin/domReady!'], 
     function(Sammy, Config, API, Bindings, Mustache) {
 
+    var breadcrumbs = [];
+
     /**
      * Init client API
      */
@@ -63,12 +65,17 @@ require(['sammy', 'config', 'api', 'bindings', 'mustache', 'bootstrap', 'plugin/
      * App routes and functionality
      */
     var app = Sammy('div[role="pane"]', function() {
-        this.use(Sammy.Mustache, 'ms');
+        this.use(Sammy.Mustache, 'ms');      
 
         // disable Sammy template caching while in 'dev' mode
         if (Config.isDevMode) {
             this.templateCache = function() {};
         }
+
+        /**
+         * Bind app events
+         */
+        Bindings.bindAll(app);          
 
         var load_anim = '<p class="text-center"><img src="img/ajax-loader.gif"/></p>';
         var searchTemplateCode = Mustache.compile('<h4><span class="label label-default">{{code}}</span> {{name}}</h4>');
@@ -82,6 +89,8 @@ require(['sammy', 'config', 'api', 'bindings', 'mustache', 'bootstrap', 'plugin/
         this.get('#home', function() {
             var self = this;
             self.swap(load_anim);
+            // notify breadcrumbs change
+            $(document).trigger('breadcrumbs', 'home');
 
             this.partial('partials/home.ms', {}, function() {
                 API.getAdditives(function(err, data) {
@@ -114,32 +123,22 @@ require(['sammy', 'config', 'api', 'bindings', 'mustache', 'bootstrap', 'plugin/
         this.get('#additives', function() {
             var self = this;
             self.swap(load_anim);
+            // notify breadcrumbs change
+            $(document).trigger('breadcrumbs', 'additives');
+
+            breadcrumbs = [
+                {name: 'Home', active: false},
+                {name: 'Additives', active: true},
+
+            ];
 
             API.getAdditives(function(err, data) {
                 if (err) {
                     console.log(err);
                     return;
                 }
-                self.partial('partials/additives.ms', {data: data});
+                self.partial('partials/additives.ms', {data: data, breadcrumbs: breadcrumbs});
             });            
-
-            //this.partials = {name: 'opa', code: '101', info: 'text info'};
-            //this.render('partials/single-additive.ms', {name: 'quirkey', code: '101'}).appendTo($('body'));
-
-            // this.load('partials/single-additive.ms')
-            //     .then(function(partial) {
-            //         // set local vars
-            //         context.partials = {name: 'opa', code: '101', info: 'text info'};
-            //         context.name = context.params.name;
-            //         context.friend = context.params.friend;
-            //         // render the template and pass it through mustache
-            //         context.partial('partials/single-additive.ms');
-
-            //         //var rendered = this.mustache(template, {foo: 'test'});
-            //         //console.log(rendered);
-
-            // });            
-
         });
         // Search additives
         this.get('#additives/search/:query', function() {
@@ -158,6 +157,7 @@ require(['sammy', 'config', 'api', 'bindings', 'mustache', 'bootstrap', 'plugin/
         this.get('#additives/:code', function() {
             var self = this;
             self.swap(load_anim);
+
 
             API.getAdditive(this.params['code'], function(err, data) {
                 if (err) {
@@ -241,9 +241,4 @@ require(['sammy', 'config', 'api', 'bindings', 'mustache', 'bootstrap', 'plugin/
     // start the application
     app.run('#/');
     app.clearTemplateCache();
-
-    /**
-     * Bind app events
-     */
-    Bindings.bindAll(app);
 });
