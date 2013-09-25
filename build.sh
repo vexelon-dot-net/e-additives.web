@@ -1,4 +1,7 @@
 #!/bin/sh
+#
+# Builds the e-additivies.web project
+##################################################
 
 PWD=$(pwd)
 YUI=$(pwd)/yuicompressor-2.4.8pre.jar
