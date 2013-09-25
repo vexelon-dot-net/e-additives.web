@@ -48,7 +48,7 @@ require.config({
         'typeahead': ['jquery']
     },
     waitSeconds: 10,
-    urlArgs: "bust=" +  (new Date()).getTime() // TODO: use build num
+    urlArgs: "bust=" + _Globals.buildnumber
 });
     
 require(['sammy', 'config', 'api', 'bindings', 'mustache', 'bootstrap', 'plugin/sammy.mustache', 'plugin/domReady!'], 

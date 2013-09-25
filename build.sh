@@ -71,5 +71,6 @@ echo $BUILDNUM > $BUILDNUM_FILE
 
 # insert into html
 sed -i 's/<\!\-\-build\-\->/Build: '$BUILDNUM'/g' index.html
+sed -i 's/buildnumber:_timestamp/buildnumber:'$BUILDNUM'/g' index.html
 
 echo "Build completed."
