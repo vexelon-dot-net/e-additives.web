@@ -21,7 +21,7 @@
 require.config({
     //By default load any module IDs from js
     baseUrl: 'js',
-	//To get timely, correct error triggers in IE, force a define/shim exports check.
+    //To get timely, correct error triggers in IE, force a define/shim exports check.
     //enforceDefine: true,
     paths: {
         vendor: 'vendor',
@@ -51,10 +51,10 @@ require.config({
     urlArgs: "bust=" + _Globals.buildnumber
 });
     
-require(['sammy', 'config', 'api', 'bindings', 'mustache', 'bootstrap', 'plugin/sammy.mustache', 'plugin/domReady!'], 
-    function(Sammy, Config, API, Bindings, Mustache) {
+require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'bootstrap', 'plugin/sammy.mustache', 'plugin/domReady!'], 
+    function(Sammy, Config, API, Bindings, Breadcrumbs, Mustache) {
 
-    var breadcrumbs = [];
+    var breadcrumbs = new Breadcrumbs();
 
     /**
      * Init client API
@@ -89,8 +89,8 @@ require(['sammy', 'config', 'api', 'bindings', 'mustache', 'bootstrap', 'plugin/
         this.get('#home', function() {
             var self = this;
             self.swap(load_anim);
-            // notify breadcrumbs change
-            $(document).trigger('breadcrumbs', 'home');
+
+            breadcrumbs.new();
 
             this.partial('partials/home.ms', {}, function() {
                 API.getAdditives(function(err, data) {
@@ -123,21 +123,14 @@ require(['sammy', 'config', 'api', 'bindings', 'mustache', 'bootstrap', 'plugin/
         this.get('#additives', function() {
             var self = this;
             self.swap(load_anim);
-            // notify breadcrumbs change
-            $(document).trigger('breadcrumbs', 'additives');
-
-            breadcrumbs = [
-                {name: 'Home', active: false},
-                {name: 'Additives', active: true},
-
-            ];
 
             API.getAdditives(function(err, data) {
                 if (err) {
                     console.log(err);
                     return;
                 }
-                self.partial('partials/additives.ms', {data: data, breadcrumbs: breadcrumbs});
+                self.partial('partials/additives.ms', {data: data, 
+                    breadcrumbs: breadcrumbs.new().add('home').add('additives').get()});
             });            
         });
         // Search additives
@@ -164,7 +157,8 @@ require(['sammy', 'config', 'api', 'bindings', 'mustache', 'bootstrap', 'plugin/
                     console.log(err);
                     return;
                 }
-                self.partial('partials/single-additive.ms', data);
+                self.partial('partials/single-additive.ms', {data: data, 
+                    breadcrumbs: breadcrumbs.new().add('home').add('additives').add(data.code).get()});                
             });
         });    
         // Compare 2 additives
@@ -199,7 +193,8 @@ require(['sammy', 'config', 'api', 'bindings', 'mustache', 'bootstrap', 'plugin/
                     console.log(err);
                     return;
                 }
-                self.partial('partials/categories.ms', {data: data});
+                self.partial('partials/categories.ms', {data: data, 
+                    breadcrumbs: breadcrumbs.new().add('home').add('categories').get()});
             });            
         });
         // Show single cateogry

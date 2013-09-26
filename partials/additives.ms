@@ -5,7 +5,7 @@
         <li class="active">{{name}}</li>
     {{/active}}
     {{^active}}
-    <li><a href="{{link}}">{{name}}</a></li>
+    <li><a href="{{url}}">{{name}}</a></li>
     {{/active}}
     {{/breadcrumbs}}
 </ol>

@@ -17,23 +17,23 @@
  */
 
 define(['jquery'], function($) {
-	/**
-	 * Here we bind all expected web site events.
-	 * Things like: button press, key press, custom events, etc.
-	 */
+    /**
+     * Here we bind all expected web site events.
+     * Things like: button press, key press, custom events, etc.
+     */
     return {
-    	bindAll: function(app) {
-		    /**
-		     * Home page
-		     */
-		    $(document).on('click', '#btnSearch', function() {
-		        var query = $('#search').val();
-		        app.setLocation('#additives/search/' + query);
-		    });
+        bindAll: function(app) {
+            /**
+             * Home page
+             */
+            $(document).on('click', '#btnSearch', function() {
+                var query = $('#search').val();
+                app.setLocation('#additives/search/' + query);
+            });
 
-		    $(document).on('breadcrumbs', null, function(event, location) {
-		    	console.log('updated brd' + location);
-		    });
-    	}
+            $(document).on('breadcrumbs', null, function(event, location) {
+                console.log('updated brd' + location);
+            });
+        }
     };
 });
