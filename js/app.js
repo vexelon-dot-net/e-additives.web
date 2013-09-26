@@ -120,7 +120,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'boots
             }); //eof-this.partial
         });
         // Additives browse page
-        this.get('#additives', function() {
+        this.get('#additives', function(context) {
             var self = this;
             self.swap(load_anim);
 
@@ -129,8 +129,14 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'boots
                     console.log(err);
                     return;
                 }
-                self.partial('partials/additives.ms', {data: data, 
-                    breadcrumbs: breadcrumbs.new().add('home').add('additives').get()});
+                self.load('partials/breadcrumbs.ms').then(function(partial) {
+                    // set local vars
+                    context.partials = {breadcrumbs: partial};
+                    context.breadcrumbs = breadcrumbs.new().add('home').add('additives').get();
+                    context.data = data;
+                    // render the template and pass it through mustache
+                    context.partial('partials/additives.ms');                   
+                });
             });            
         });
         // Search additives
