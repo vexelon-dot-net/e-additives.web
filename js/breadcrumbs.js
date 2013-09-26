@@ -52,8 +52,19 @@ define(['jquery'], function($) {
     }
 
     Breadcrumbs.prototype.get = function() {
-        this.current[this.current.length - 1].active = true;
-        return this.current;
+        var self = this;
+        self.current[self.current.length - 1].active = true;
+        return self;        
+    }
+
+    Breadcrumbs.prototype.render = function(sammy, ctx, callback) {
+        var self = this.get();
+
+        sammy.load('partials/breadcrumbs.ms').then(function(partial) {
+            ctx.partials = {breadcrumbs: partial};
+            ctx.breadcrumbs = self.current;
+            callback();                  
+        });    
     }
 
     return Breadcrumbs;

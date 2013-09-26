@@ -70,12 +70,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'boots
         // disable Sammy template caching while in 'dev' mode
         if (Config.isDevMode) {
             this.templateCache = function() {};
-        }
-
-        /**
-         * Bind app events
-         */
-        Bindings.bindAll(app);          
+        }   
 
         var load_anim = '<p class="text-center"><img src="img/ajax-loader.gif"/></p>';
         var searchTemplateCode = Mustache.compile('<h4><span class="label label-default">{{code}}</span> {{name}}</h4>');
@@ -129,18 +124,14 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'boots
                     console.log(err);
                     return;
                 }
-                self.load('partials/breadcrumbs.ms').then(function(partial) {
-                    // set local vars
-                    context.partials = {breadcrumbs: partial};
-                    context.breadcrumbs = breadcrumbs.new().add('home').add('additives').get();
+                breadcrumbs.new().add('home').add('additives').render(self, context, function() {
                     context.data = data;
-                    // render the template and pass it through mustache
-                    context.partial('partials/additives.ms');                   
+                    context.partial('partials/additives.ms');                        
                 });
             });            
         });
         // Search additives
-        this.get('#additives/search/:query', function() {
+        this.get('#additives/search/:query', function(context) {
             var self = this;
             self.swap(load_anim);
 
@@ -149,22 +140,26 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'boots
                     console.log(err);
                     return;
                 }
-                self.partial('partials/additives.ms', {data: data});
+                breadcrumbs.new().add('home').add('additives').render(self, context, function() {
+                    context.data = data;
+                    context.partial('partials/additives.ms');                        
+                });                
             });
         }); 
         // Show single additive
-        this.get('#additives/:code', function() {
+        this.get('#additives/:code', function(context) {
             var self = this;
             self.swap(load_anim);
-
 
             API.getAdditive(this.params['code'], function(err, data) {
                 if (err) {
                     console.log(err);
                     return;
                 }
-                self.partial('partials/single-additive.ms', {data: data, 
-                    breadcrumbs: breadcrumbs.new().add('home').add('additives').add(data.code).get()});                
+                breadcrumbs.new().add('home').add('additives').add(data.code).render(self, context, function() {
+                    context.data = data;
+                    context.partial('partials/single-additive.ms');                        
+                });                            
             });
         });    
         // Compare 2 additives
@@ -190,7 +185,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'boots
             });
         });        
         // Categories page
-        this.get('#categories', function() {
+        this.get('#categories', function(context) {
             var self = this;
             self.swap(load_anim);
 
@@ -199,12 +194,14 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'boots
                     console.log(err);
                     return;
                 }
-                self.partial('partials/categories.ms', {data: data, 
-                    breadcrumbs: breadcrumbs.new().add('home').add('categories').get()});
+                breadcrumbs.new().add('home').add('categories').render(self, context, function() {
+                    context.data = data;
+                    context.partial('partials/categories.ms');                        
+                });                 
             });            
         });
         // Show single cateogry
-        this.get('#categories/:id', function() {
+        this.get('#categories/:id', function(context) {
             var self = this;
             self.swap(load_anim);
 
@@ -213,7 +210,10 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'boots
                     console.log(err);
                     return;
                 }
-                self.partial('partials/single-category.ms', data);
+                breadcrumbs.new().add('home').add('categories').add(data.name).render(self, context, function() {
+                    context.data = data;
+                    context.partial('partials/single-category.ms');                        
+                });                   
             });
         });                
         // F.A.Q. page
@@ -242,4 +242,9 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'boots
     // start the application
     app.run('#/');
     app.clearTemplateCache();
+
+    /**
+     * Bind app events
+     */
+    Bindings.bindAll(app);    
 });
