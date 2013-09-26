@@ -1,3 +1,7 @@
+<!--Start: Breadcrumbs -->
+{{>breadcrumbs}}
+<!--End: Breadcrumbs -->
+
 <h2>What exactly is E-additives?</h2>
 <p>
 A web platform that provides access to information about food additives. The additives may be searched by their E Number or name.

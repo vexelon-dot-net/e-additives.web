@@ -217,10 +217,12 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'boots
             });
         });                
         // F.A.Q. page
-        this.get('#faq', function() {
+        this.get('#faq', function(context) {
             var self = this;
             self.swap(load_anim);
-            self.partial('partials/faq.ms');
+            breadcrumbs.new().add('home').add('F.A.Q.').render(self, context, function() {
+                context.partial('partials/faq.ms');                        
+            });         
         });
         // Legal: Privacy page
         this.get('#legal/privacy', function() {
