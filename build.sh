@@ -70,8 +70,13 @@ fi
 BUILDNUM=$((BUILDNUM + 1))
 echo $BUILDNUM > $BUILDNUM_FILE
 
-# insert into html
+# insert build no. into html
 sed -i 's/<\!\-\-build\-\->/Build: '$BUILDNUM'/g' index.html
 sed -i 's/buildnumber:_timestamp/buildnumber:'$BUILDNUM'/g' index.html
+# insert urchin into html
+sed -i '/<\!\-\-URCHIN\-\->/{
+    s/<\!\-\-URCHIN\-\->//g
+    r ../urchin
+}' index.html
 
 echo "Build completed."
