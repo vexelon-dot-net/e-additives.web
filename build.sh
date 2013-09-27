@@ -4,7 +4,7 @@
 ##################################################
 
 PWD=$(pwd)
-YUI=$(pwd)/yuicompressor-2.4.8pre.jar
+YUI=$(pwd)/yuicompressor-2.4.8.jar
 BUILD=$(pwd)/build
 BUILDNUM_FILE=`readlink -f build.number`
 
@@ -13,10 +13,10 @@ if [ ! -d $BUILD ]; then
 	exit
 fi
 
-# if [ ! -e $YUI ]; then
-# 	echo "YUI not found in $YUI!"
-# 	exit
-# fi
+if [ ! -e $YUI ]; then
+	echo "YUI not found in $YUI!"
+	exit
+fi
 
 if [ "$1" = "clean" ]; then
 	CLEANONLY=1
@@ -51,13 +51,11 @@ cp partials/ $BUILD -R
 cp .htaccess 404.html apple-touch-*.png favicon.ico index.html robots.txt $BUILD
 
 ### Obfuscate javascript
-# cd $BUILD/css
-# java -jar $YUI  -o 'style.css' style.css
+cd $BUILD/css
+java -jar $YUI -o 'main.css' main.css
 # #rm style.css
-# cd $BUILD/js
-# java -jar $YUI  -o '.js$:.js' *.js
-# cd $BUILD/js/app
-# java -jar $YUI  -o '.js$:.js' *.js
+cd $BUILD/js
+find *.js -not -name "require.js" -not -name "config*.js" | xargs -i java -jar $YUI -o '.js$:.js' {}
 
 ### Production
 cd $BUILD
