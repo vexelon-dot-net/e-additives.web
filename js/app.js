@@ -33,12 +33,16 @@ require.config({
         underscore: 'vendor/underscore-min',
         moment: 'vendor/moment_langs.min',
         mustache: 'vendor/mustache',
-        
+        footable: 'vendor/footable',
         // plugins
-        typeahead: 'vendor/plugins/typeahead.min'
+        typeahead: 'vendor/plugins/typeahead.min',
+        ftpaginate: 'vendor/plugins/footable.paginate',
+        ftfilter: 'vendor/plugins/footable.filter',
+        ftsort: 'vendor/plugins/footable.sort',
+        fttemplate: 'vendor/plugins/footable.plugin.template',
     },
     shim: {
-        'bootstrap': ['jquery', 'typeahead',],
+        'bootstrap': ['jquery', 'typeahead', 'footable', 'ftpaginate', 'ftfilter', 'ftsort', 'fttemplate'],
         'underscore': {
             exports: '_'
         },
@@ -46,7 +50,12 @@ require.config({
             exports: '$'
         },
         'sammy': ['jquery'],
-        'typeahead': ['jquery']
+        'typeahead': ['jquery'],
+        'footable': ['jquery'],
+        'ftpaginate': ['footable'],
+        'ftfilter': ['footable'],
+        'ftsort': ['footable'],
+        'fttemplate': ['footable'],
     },
     waitSeconds: 10,
     urlArgs: "bust=" + _Globals.buildnumber
@@ -127,7 +136,10 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'boots
                 }
                 breadcrumbs.new().add('home').add('additives').render(self, context, function() {
                     context.data = data;
-                    context.partial('partials/additives.ms');                        
+
+                    context.partial('partials/additives.ms', function() {
+                            $('table').footable();
+                    });                     
                 });
             });            
         });
