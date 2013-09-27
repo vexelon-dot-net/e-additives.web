@@ -35,6 +35,20 @@ Configure Apache server on local machine for tests. Open your Apache Virtual Hos
 		
 If your are under Windows you can also use [XAMPP](http://www.apachefriends.org/en/xampp.html).
 
+# Open Source Libraries
+The following open source libraries are used:
+
+  * [jQuery](http://jquery.com/) - The Write Less, Do More, JavaScript Library.
+  * [Bootstrap](http://twitter.github.com/bootstrap/) - Sleek, intuitive, and powerful front-end framework for faster and easier web development.
+  * [Sammy.js](http://sammyjs.org/) - A small web framework. 
+  * [Mustache](http://mustache.github.io/) - Logic-less templates.
+  * [Require.js](http://requirejs.org/) - RequireJS is a JavaScript file and module loader.
+  * [Underscore.js](http://underscorejs.org/) - utility-belt library for JavaScript.
+  * [FooTable](https://github.com/bradvin/FooTable) - jQuery plugin to make HTML tables responsive.
+  * [Holder.js](http://imsky.github.com/holder/) - Holder renders image placeholders entirely on the client side.  
+  * [Moment.js](http://momentjs.com/) - A 5.5kb javascript date library for parsing, validating, manipulating, and formatting dates.
+  * [Modernizr](http://modernizr.com/) - Modernizr is a JavaScript library that detects HTML5 and CSS3 features in the user's browser.
+
 # License
 
 Under [AGPL](LICENSE) license.
