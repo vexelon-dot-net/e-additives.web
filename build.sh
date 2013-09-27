@@ -18,8 +18,17 @@ if [ ! -e $YUI ]; then
 	exit
 fi
 
-if [ "$1" = "clean" ]; then
-	CLEANONLY=1
+# any cmd line params?
+CMD="$1"
+if [ ! -z $CMD ]; then
+	if [ $CMD = "clean" ]; then
+		CLEANONLY=1
+	elif [ $CMD = "no-urchin" ]; then
+		NO_URCHIN=1
+	else
+		echo "Invalid cmd line parameter."
+		exit
+	fi
 fi
 
 echo "Cleaning ..."
@@ -51,6 +60,7 @@ cp partials/ $BUILD -R
 cp .htaccess 404.html apple-touch-*.png favicon.ico index.html robots.txt $BUILD
 
 ### Obfuscate javascript
+echo "Minifying ..."
 cd $BUILD/css
 java -jar $YUI -o 'main.css' main.css
 # #rm style.css
@@ -59,9 +69,9 @@ find *.js -not -name "require.js" -not -name "config*.js" | xargs -i java -jar $
 
 ### Production
 cd $BUILD
-#sed -i 's/style.css/style.min.css/g' index.html
 
 # increment build number
+echo "Setting build number ..."
 if [ -f $BUILDNUM_FILE ]; then
     BUILDNUM=`cat $BUILDNUM_FILE`
 else
@@ -73,10 +83,15 @@ echo $BUILDNUM > $BUILDNUM_FILE
 # insert build no. into html
 sed -i 's/<\!\-\-build\-\->/Build: '$BUILDNUM'/g' index.html
 sed -i 's/buildnumber:_timestamp/buildnumber:'$BUILDNUM'/g' index.html
-# insert urchin into html
-sed -i '/<\!\-\-URCHIN\-\->/{
-    s/<\!\-\-URCHIN\-\->//g
-    r ../urchin
-}' index.html
+
+if [ ! -z $NO_URCHIN ]; then 
+	echo "Skipped: urchin <script>."
+else
+	# insert urchin into html
+	sed -i '/<\!\-\-URCHIN\-\->/{
+	    s/<\!\-\-URCHIN\-\->//g
+	    r ../urchin
+	}' index.html
+fi
 
 echo "Build completed."
