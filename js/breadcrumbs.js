@@ -24,7 +24,7 @@ define(['jquery'], function($) {
         self.current = [];
     }
 
-    Breadcrumbs.prototype.new = function() {
+    Breadcrumbs.prototype.clear = function() {
         this.current = [];
         return this;
     }

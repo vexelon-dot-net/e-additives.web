@@ -95,7 +95,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'boots
             var self = this;
             self.swap(load_anim);
 
-            breadcrumbs.new();
+            breadcrumbs.clear();
 
             this.partial('partials/home.ms', {}, function() {
                 API.getAdditives(function(err, data) {
@@ -134,7 +134,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'boots
                     console.log(err);
                     return;
                 }
-                breadcrumbs.new().add('home').add('additives').render(self, context, function() {
+                breadcrumbs.clear().add('home').add('additives').render(self, context, function() {
                     context.data = data;
 
                     context.partial('partials/additives.ms', function() {
@@ -153,7 +153,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'boots
                     console.log(err);
                     return;
                 }
-                breadcrumbs.new().add('home').add('additives').render(self, context, function() {
+                breadcrumbs.clear().add('home').add('additives').render(self, context, function() {
                     context.data = data;
                     context.partial('partials/additives.ms');                        
                 });                
@@ -169,7 +169,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'boots
                     console.log(err);
                     return;
                 }
-                breadcrumbs.new().add('home').add('additives').add(data.code).render(self, context, function() {
+                breadcrumbs.clear().add('home').add('additives').add(data.code).render(self, context, function() {
                     context.data = data;
                     context.partial('partials/single-additive.ms');                        
                 });                            
@@ -207,7 +207,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'boots
                     console.log(err);
                     return;
                 }
-                breadcrumbs.new().add('home').add('categories').render(self, context, function() {
+                breadcrumbs.clear().add('home').add('categories').render(self, context, function() {
                     context.data = data;
                     context.partial('partials/categories.ms');                        
                 });                 
@@ -223,7 +223,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'boots
                     console.log(err);
                     return;
                 }
-                breadcrumbs.new().add('home').add('categories').add(data.name).render(self, context, function() {
+                breadcrumbs.clear().add('home').add('categories').add(data.name).render(self, context, function() {
                     context.data = data;
                     context.partial('partials/single-category.ms');                        
                 });                   
@@ -233,7 +233,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'boots
         this.get('#faq', function(context) {
             var self = this;
             self.swap(load_anim);
-            breadcrumbs.new().add('home').add('F.A.Q.').render(self, context, function() {
+            breadcrumbs.clear().add('home').add('F.A.Q.').render(self, context, function() {
                 context.partial('partials/faq.ms');                        
             });         
         });
