@@ -33,11 +33,12 @@ require.config({
         underscore: 'vendor/underscore-min',
         moment: 'vendor/moment_langs.min',
         mustache: 'vendor/mustache',
+        
         // plugins
         typeahead: 'vendor/plugins/typeahead.min'
     },
     shim: {
-        'bootstrap': ['jquery', 'typeahead'],
+        'bootstrap': ['jquery', 'typeahead',],
         'underscore': {
             exports: '_'
         },
