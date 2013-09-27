@@ -9,7 +9,7 @@
   <table class="footable" data-page-navigation=".pagination">
     <thead>
         <tr>
-            <th><input type="checkbox" data-role="checkall" /></th>
+            <th data-sort-ignore="true"><input type="checkbox" data-role="checkall" /></th>
             <th data-toggle="true">Code</th>
             <th data-toggle="true">Name</th>
             <th data-hide="phone,tablet" data-toggle="true">Last update</th>
