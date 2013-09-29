@@ -21,6 +21,7 @@ define({
 	 * en_US default locale
 	 */	
 	"root": {
+		'title': 'e-additives'
 
 	},
 	"bg-bg": true

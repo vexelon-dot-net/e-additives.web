@@ -40,6 +40,7 @@ require.config({
         ftfilter: 'vendor/plugins/footable.filter',
         ftsort: 'vendor/plugins/footable.sort',
         fttemplate: 'vendor/plugins/footable.plugin.template',
+        i18n: 'vendor/plugins/i18n'
     },
     shim: {
         'bootstrap': ['jquery', 'typeahead', 'footable', 'ftpaginate', 'ftfilter', 'ftsort', 'fttemplate'],
@@ -61,8 +62,11 @@ require.config({
     urlArgs: "bust=" + _Globals.buildnumber
 });
     
-require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'bootstrap', 'plugin/sammy.mustache', 'plugin/domReady!'], 
-    function(Sammy, Config, API, Bindings, Breadcrumbs, Mustache) {
+require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!nls/locale', 'bootstrap', 
+    'plugin/sammy.mustache', 'i18n', 'plugin/domReady!'], 
+    function(Sammy, Config, API, Bindings, Breadcrumbs, Mustache, Locale) {
+
+    console.log(Locale.title);
 
     var breadcrumbs = new Breadcrumbs();
 
