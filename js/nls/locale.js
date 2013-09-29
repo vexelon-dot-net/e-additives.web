@@ -17,12 +17,17 @@
  */
 
 define({
-	/**
-	 * en_US default locale
-	 */	
-	"root": {
-		'title': 'e-additives'
+    /**
+     * en_US default locale
+     */ 
+    "root": {
+        "title": "e-additives",
 
-	},
-	"bg-bg": true
+        // Home page
+        "home": {
+            "jumbatron" : "The goal of the E-additives project is to implement a web platform that allows users to Search and Browse for information about food additives.",
+            "search_title": "Search food additives"
+        }
+    },
+    "bg-bg": true
 });

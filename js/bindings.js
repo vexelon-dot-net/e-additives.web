@@ -30,6 +30,17 @@ define(['jquery'], function($) {
                 var query = $('#search').val();
                 app.setLocation('#additives/search/' + query);
             });
+            /**
+             * Languages
+             */
+            $(document).on('click', '#lang-en', function() {
+                $.localStorage.set('locale', 'en-us');
+                window.location.reload();
+            });
+            $(document).on('click', '#lang-bg', function() {
+                $.localStorage.set('locale', 'bg-bg');
+                window.location.reload();
+            });
         }
     };
 });

@@ -1,8 +1,9 @@
 
   <!-- Main jumbotron for a primary marketing message or call to action -->
+  {{#locale}}
   <div class="jumbotron hidden-xs">
     <div class="container">
-      <p>The goal of the E-additives project is to implement a web platform that allows users to Search and Browse for information about food additives.</p>
+      <p>{{home.jumbatron}}</p>
       <p>
         <a href="#additives" class="btn btn-primary btn-lg">Explore &raquo;</a>
         <a href="#faq" class="btn btn-info btn-lg">
@@ -19,7 +20,7 @@
   <!-- search -->
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
-      <h3 class="text-center">Search food additives</h3>
+      <h3 class="text-center">{{home.search_title}}</h3>
       <form class="form-horizontal" role="form">
         
         <div class="input-group input-group-lg">
@@ -37,3 +38,4 @@
       <a href="#faq">F.A.Q.</a>
     </div>
   </div>
+  {{/locale}}

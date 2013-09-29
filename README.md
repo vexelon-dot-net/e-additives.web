@@ -10,13 +10,20 @@ The Web UI is a responsive HTML5/Javascript single-page web app that allows user
 ## Project structure
 
 `build/` - A place where distributable project contents will be generated. This folder **must** be empty!
+
 `css/` - CSS styles files. 
+
 `fonts/` - Fonts required by the project.
+
 `img/` - All images go here.
+
 `js/` - Contains all the Javascript code and libs.
+  * `nls/` - Contains web app locales.
   * `vendor/` - Javascript libraries used throught the project.
     - `plugins` - Plugins for vendor libraries.
+
 `partials/` - Mustache HTML templates.
+
 `tests`/ - QUnit based tests.
 
 # Configuration
@@ -45,6 +52,7 @@ The following open source libraries are used:
   * [Require.js](http://requirejs.org/) - RequireJS is a JavaScript file and module loader.
   * [Underscore.js](http://underscorejs.org/) - utility-belt library for JavaScript.
   * [FooTable](https://github.com/bradvin/FooTable) - jQuery plugin to make HTML tables responsive.
+  * [jQuery Storage API](https://github.com/julien-maurel/jQuery-Storage-API) - jQuery Storage API is a plugin that simplify access to storages.
   * [Holder.js](http://imsky.github.com/holder/) - Holder renders image placeholders entirely on the client side.  
   * [Moment.js](http://momentjs.com/) - A 5.5kb javascript date library for parsing, validating, manipulating, and formatting dates.
   * [Modernizr](http://modernizr.com/) - Modernizr is a JavaScript library that detects HTML5 and CSS3 features in the user's browser.

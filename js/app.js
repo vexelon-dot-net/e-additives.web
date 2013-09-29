@@ -59,14 +59,20 @@ require.config({
         'fttemplate': ['footable'],
     },
     waitSeconds: 10,
-    urlArgs: "bust=" + _Globals.buildnumber
+    urlArgs: "bust=" + _Globals.buildnumber,
+    config: {
+        //Set the config for the i18n module ID
+        i18n: {
+            locale: _Globals.locale
+        }
+    }    
 });
     
 require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!nls/locale', 'bootstrap', 
     'plugin/sammy.mustache', 'i18n', 'plugin/domReady!'], 
     function(Sammy, Config, API, Bindings, Breadcrumbs, Mustache, Locale) {
 
-    console.log(Locale.title);
+    console.log(Locale);
 
     var breadcrumbs = new Breadcrumbs();
 
@@ -101,7 +107,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
 
             breadcrumbs.clear();
 
-            this.partial('partials/home.ms', {}, function() {
+            this.partial('partials/home.ms', {locale: Locale}, function() {
                 API.getAdditives(function(err, data) {
                     if (err) {
                         console.log(err);
