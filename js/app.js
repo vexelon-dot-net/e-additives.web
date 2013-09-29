@@ -72,8 +72,6 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
     'plugin/sammy.mustache', 'i18n', 'plugin/domReady!'], 
     function(Sammy, Config, API, Bindings, Breadcrumbs, Mustache, Locale) {
 
-    console.log(Locale);
-
     var breadcrumbs = new Breadcrumbs();
 
     /**

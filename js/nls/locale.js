@@ -26,7 +26,10 @@ define({
         // Home page
         "home": {
             "jumbatron" : "The goal of the E-additives project is to implement a web platform that allows users to Search and Browse for information about food additives.",
-            "search_title": "Search food additives"
+            "search_title": "Search food additives",
+            "search_hint": "Name or number, e.g, 101",
+            "explore": "Explore",
+            "faq": "F.A.Q."
         }
     },
     "bg-bg": true
