@@ -24,6 +24,13 @@ define(['jquery'], function($) {
     return {
         bindAll: function(app) {
             /**
+             * Navbar
+             */
+            $('#navbar-menu').on("click", "a", null, function() {
+                // force closing of dropdown menu
+                $(this).closest('.dropdown-menu').trigger('click');
+            })            
+            /**
              * Home page
              */
             $(document).on('click', '#btnSearch', function() {
