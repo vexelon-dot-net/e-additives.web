@@ -43,12 +43,15 @@ require.config({
         i18n: 'vendor/plugins/i18n'
     },
     shim: {
-        'bootstrap': ['jquery', 'typeahead', 'footable', 'ftpaginate', 'ftfilter', 'ftsort', 'fttemplate'],
+        'bootstrap': ['jquery', 'typeahead', 'footable', 'ftpaginate', 'ftfilter', 'ftsort', 'fttemplate', 'moment'],
         'underscore': {
             exports: '_'
         },
         'jquery': {
             exports: '$'
+        },
+        'moment': {
+            exports: 'moment'
         },
         'sammy': ['jquery'],
         'typeahead': ['jquery'],
@@ -71,6 +74,13 @@ require.config({
 require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!nls/locale', 'bootstrap', 
     'plugin/sammy.mustache', 'i18n', 'plugin/domReady!'], 
     function(Sammy, Config, API, Bindings, Breadcrumbs, Mustache, Locale) {
+
+    /**
+     * Set datetime locale
+     */
+    if (_Globals.locale) {
+        moment.lang(_Globals.locale.substring(0,2).toLowerCase());
+    }
 
     var breadcrumbs = new Breadcrumbs();
 
@@ -143,10 +153,9 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                     return;
                 }
                 breadcrumbs.clear().add('home').add('additives').render(self, context, function() {
-                    context.data = data;
-
+                    context.data = formatAdditivesData(data);
                     context.partial('partials/additives.ms', function() {
-                            $('table').footable();
+                        $('table').footable();
                     });                     
                 });
             });            
@@ -162,7 +171,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                     return;
                 }
                 breadcrumbs.clear().add('home').add('additives').render(self, context, function() {
-                    context.data = data;
+                    context.data = formatAdditivesData(data);
                     context.partial('partials/additives.ms');                        
                 });                
             });
@@ -178,33 +187,33 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                     return;
                 }
                 breadcrumbs.clear().add('home').add('additives').add(data.code).render(self, context, function() {
-                    context.data = data;
+                    context.data = formatAdditivesData(data);
                     context.partial('partials/single-additive.ms');                        
                 });                            
             });
         });    
-        // Compare 2 additives
-        this.get('#additives/compare/:first/:second', function() {
-            var self = this;
-            self.swap(load_anim);
+        // // Compare 2 additives
+        // this.get('#additives/compare/:first/:second', function() {
+        //     var self = this;
+        //     self.swap(load_anim);
 
-            // fetch first
-            API.getAdditive(self.params['first'], function(err, dataFirst) {
-                if (err) {
-                    console.log(err);
-                    return;
-                }
-                // fetch second
-                API.getAdditive(self.params['second'], function(err, dataSecond) {
-                    if (err) {
-                        console.log(err);
-                        return;
-                    }                    
+        //     // fetch first
+        //     API.getAdditive(self.params['first'], function(err, dataFirst) {
+        //         if (err) {
+        //             console.log(err);
+        //             return;
+        //         }
+        //         // fetch second
+        //         API.getAdditive(self.params['second'], function(err, dataSecond) {
+        //             if (err) {
+        //                 console.log(err);
+        //                 return;
+        //             }                    
 
-                    self.partial('partials/compare-two.ms', {first: dataFirst, second: dataSecond});
-                });
-            });
-        });        
+        //             self.partial('partials/compare-two.ms', {first: dataFirst, second: dataSecond});
+        //         });
+        //     });
+        // });        
         // Categories page
         this.get('#categories', function(context) {
             var self = this;
@@ -269,5 +278,25 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
     /**
      * Bind app events
      */
-    Bindings.bindAll(app);    
+    Bindings.bindAll(app);
+
+    /**
+     * Others
+     */
+    function formatAdditivesData(data) {
+        function _fmt(additive) {
+            additive.last_update = moment(additive.last_update).format('LLL');
+            return additive;            
+        }
+
+        if (Object.prototype.toString.call(data) == '[object Array]') {
+            var result = [];
+            _.each(data, function(item) {
+                result.push(_fmt(item));
+            });
+            return result;
+        }
+
+        return _fmt(data);
+    }
 });
