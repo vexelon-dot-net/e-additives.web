@@ -82,6 +82,18 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
         moment.lang(_Globals.locale.substring(0,2).toLowerCase());
     }
 
+    /**
+     * Load navbar & footer
+     */
+    $.get('partials/navbar.ms', function(data) {
+        var html = Mustache.render(data, {locale: Locale});
+        $('div[role="navbar"]').html(html);
+    });
+    $.get('partials/footer.ms', function(data) {
+        var html = Mustache.render(data, {locale: Locale});
+        $('#footer').html(html);
+    });    
+
     var breadcrumbs = new Breadcrumbs();
 
     /**

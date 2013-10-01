@@ -21,7 +21,32 @@ define({
      * en_US default locale
      */ 
     "root": {
-        "title": "e-additives",
+
+        // Common for all pages
+        "common": {
+            "language": "Language",
+        },
+
+        // Navbar
+        "navbar": {
+            "home": "Home",
+            "explore": "Explore",
+            "additives": "Additives",
+            "categories": "Categories",
+        },
+
+        // Footer
+        "footer": {
+            "column_1": "Find out more",
+            "contact_us": "Contact Us",
+            "contribute": "Contribute",
+            "blog": "Blog",
+            "column_2": "Goodies",
+            "apps": "Apps",
+            "api": "Developer API",
+
+            ""
+        },
 
         // Home page
         "home": {

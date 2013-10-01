@@ -20,14 +20,37 @@ define({
     /**
      * bg_BG locale
      */
-    "title": "e-additives",
+
+    // Common for all pages
+    "common": {
+        "language": "Език",
+    },
+
+    // Navbar
+    "navbar": {
+        "home": "Начало",
+        "explore": "Открии",
+        "additives": "Добавки",
+        "categories": "Категории",
+    },
+
+    // Footer
+    "footer": {
+        "column_1": "Още",
+        "contact_us": "Контакти",
+        "contribute": "Искам да помогна",
+        "blog": "Блог",
+        "column_2": "Благинки",
+        "apps": "Приложения",
+        "api": "Developer API",
+    },    
 
     // Home page
     "home": {
-        "jumbatron" : "Целта на проекта E-additives е да предостави web платформа, която да позволява на потребителите да се информиат относно добавките в храните.",
+        "jumbatron" : "Целта на проекта E-additives е да предостави web платформа, която да позволява на потребителите да се информират относно добавките в храните.",
         "search_title": "Търси хранителни добавки",
-        "search_hint": "Име или номер, например 101",
-        "explore": "Разгледай",
+        "search_hint": "Име или номер, напр. 101",
+        "explore": "Списък",
         "faq": "F.A.Q."
     }   
 });

@@ -1,9 +1,6 @@
 <!--Start: Breadcrumbs -->
 {{>breadcrumbs}}
 <!--End: Breadcrumbs -->
-<button type="button" class="btn btn-default btn-lg">Compare</button>
-<button type="button" class="btn btn-info btn-lg">QR Bundle</button>
-<hr>
 <div class="table-responsive">
   <table class="footable" data-page-navigation=".pagination" data-page-size="20" data-filter="#filter">
     <thead>
