@@ -81,7 +81,7 @@ BUILDNUM=$((BUILDNUM + 1))
 echo $BUILDNUM > $BUILDNUM_FILE
 
 # insert build no. into html
-sed -i 's/<\!\-\-build\-\->/Build: '$BUILDNUM'/g' index.html
+#sed -i 's/<\!\-\-build\-\->/Build: '$BUILDNUM'/g' index.html
 sed -i 's/buildnumber:_timestamp/buildnumber:'$BUILDNUM'/g' index.html
 
 if [ ! -z $NO_URCHIN ]; then 
