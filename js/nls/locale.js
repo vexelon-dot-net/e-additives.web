@@ -44,8 +44,6 @@ define({
             "column_2": "Goodies",
             "apps": "Apps",
             "api": "Developer API",
-
-            ""
         },
 
         // Home page
@@ -55,6 +53,16 @@ define({
             "search_hint": "Name or number, e.g, 101",
             "explore": "Explore",
             "faq": "F.A.Q."
+        },
+
+        // Additives page
+        "additives": {
+
+        },
+
+        // Categories page
+        "categories": {
+            
         }
     },
     "bg-bg": true

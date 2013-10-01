@@ -50,7 +50,17 @@ define({
         "jumbatron" : "Целта на проекта E-additives е да предостави web платформа, която да позволява на потребителите да се информират относно добавките в храните.",
         "search_title": "Търси хранителни добавки",
         "search_hint": "Име или номер, напр. 101",
-        "explore": "Списък",
+        "explore": "Открии",
         "faq": "F.A.Q."
-    }   
+    },
+
+    // Additives page
+    "additives": {
+
+    },
+
+    // Categories page
+    "categories": {
+        
+    }    
 });

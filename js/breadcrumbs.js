@@ -16,7 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-define(['jquery'], function($) {
+define(['jquery', 'i18n!nls/locale'], function($, locale) {
 
     function Breadcrumbs() {
         var self = this;
@@ -33,13 +33,13 @@ define(['jquery'], function($) {
         var obj = null;
         switch(name) {
             case 'home':
-                obj = { name: 'Home', url: '#home' };
+                obj = { name: locale.navbar.home, url: '#home' };
                 break;
             case 'additives':
-                obj = { name: 'Additives', url: '#additives' };
+                obj = { name: locale.navbar.additives, url: '#additives' };
                 break;
             case 'categories':
-                obj = { name: 'Categories', url: '#categories' };
+                obj = { name: locale.navbar.categories, url: '#categories' };
                 break;
             default:
                  obj = { name: name, url: url };
