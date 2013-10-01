@@ -92,6 +92,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
     $.get('partials/footer.ms', function(data) {
         var html = Mustache.render(data, {locale: Locale});
         $('#footer').html(html);
+        $('#build').html(_Globals.buildnumber);
     });    
 
     var breadcrumbs = new Breadcrumbs();

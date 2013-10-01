@@ -93,9 +93,7 @@
       <li>|  <a href="#">Български</a></li>
   </ul>
   <p class="rights"><img src="img/icon.png"/> © 2013 <a href="http://vexelon.net">Vexelon.NET Services</a>. All rights reserved. | <a href="#legal/terms">Terms of Use</a>, <a href="#legal/privacy">Privacy Policy</a>
-    <span id="#build" class="pull-right">
-      <!--build-->
-    </span>
+    <span id="build" class="pull-right"><!--build no.--></span>
   </p>
 </div>
 {{/locale}}
