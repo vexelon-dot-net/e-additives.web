@@ -40,11 +40,11 @@ define(['jquery'], function($) {
             /**
              * Languages
              */
-            $(document).on('click', '#lang-en', function() {
+            $(document).on('click', 'a[data-lang="lang-en"]', function() {
                 $.localStorage.set('locale', 'en-us');
                 window.location.reload();
             });
-            $(document).on('click', '#lang-bg', function() {
+            $(document).on('click', 'a[data-lang="lang-bg"]', function() {
                 $.localStorage.set('locale', 'bg-bg');
                 window.location.reload();
             });

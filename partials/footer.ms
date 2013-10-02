@@ -51,10 +51,10 @@
     </div>
     <div id="collapseFive" class="panel-collapse collapse">
       <div class="panel-body">
-       <ul class="list-unstyled">
-            <li><a href="#">English</a></li>
-            <li><a href="#">Български</a></li> 
-       </ul>
+        <ul class="list-unstyled">
+          <li><a data-lang="lang-en" href="#">English</a></li>
+          <li>|&nbsp;<a data-lang="lang-bg" href="#">Български</a></li>
+        </ul>
       </div>
     </div>
   </div>
@@ -89,8 +89,8 @@
 
 <div class="container">
   <ul class="list-inline hidden-xs language-list-footer">
-      <li><a href="#">English</a></li>
-      <li>|  <a href="#">Български</a></li>
+      <li><a data-lang="lang-en" href="#">English</a></li>
+      <li>|&nbsp;<a data-lang="lang-bg" href="#">Български</a></li>
   </ul>
   <p class="rights"><img src="img/icon.png"/> © 2013 <a href="http://vexelon.net">Vexelon.NET Services</a>. All rights reserved. | <a href="#legal/terms">Terms of Use</a>, <a href="#legal/privacy">Privacy Policy</a>
     <span id="build" class="pull-right"><!--build no.--></span>

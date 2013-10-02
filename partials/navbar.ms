@@ -24,8 +24,8 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{common.language}} <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li><a id="lang-en" href="#">English</a></li>
-                <li><a id="lang-bg" href="#">Български</a></li>
+                <li><a data-lang="lang-en" href="#">English</a></li>
+                <li><a data-lang="lang-bg" href="#">Български</a></li>
               </ul>
             </li>
           </ul>
