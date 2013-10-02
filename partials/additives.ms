@@ -10,7 +10,7 @@
         <tr>
             <th data-sort-ignore="true"><input type="checkbox"/></th>
             <th data-toggle="true">Code</th>
-            <th data-toggle="true">Name</th>
+            <th data-toggle="true">{{locale.categories.name}}</th>
             <th data-hide="phone,tablet" data-toggle="true">Last update</th>
         </tr>
     </thead>

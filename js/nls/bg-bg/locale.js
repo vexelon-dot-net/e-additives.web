@@ -56,11 +56,11 @@ define({
 
     // Additives page
     "additives": {
-
+        "name": "Име",
     },
 
     // Categories page
     "categories": {
-        
+        "name": "Име",
     }    
 });

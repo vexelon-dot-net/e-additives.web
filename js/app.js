@@ -173,6 +173,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                 }
                 breadcrumbs.clear().add('home').add('additives').render(self, context, function() {
                     context.data = formatAdditivesData(data);
+                    context.locale = Locale;
                     context.partial('partials/additives.ms', function() {
                         $('table').footable();
                     });                     
@@ -191,6 +192,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                 }
                 breadcrumbs.clear().add('home').add('additives').render(self, context, function() {
                     context.data = formatAdditivesData(data);
+                    context.locale = Locale;
                     context.partial('partials/additives.ms');                        
                 });                
             });
@@ -207,6 +209,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                 }
                 breadcrumbs.clear().add('home').add('additives').add(data.code).render(self, context, function() {
                     context.data = formatAdditivesData(data);
+                    context.locale = Locale;
                     context.partial('partials/single-additive.ms');                        
                 });                            
             });
@@ -245,6 +248,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                 }
                 breadcrumbs.clear().add('home').add('categories').render(self, context, function() {
                     context.data = data;
+                    context.locale = Locale;
                     context.partial('partials/categories.ms');                        
                 });                 
             });            
@@ -261,6 +265,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                 }
                 breadcrumbs.clear().add('home').add('categories').add(data.name).render(self, context, function() {
                     context.data = data;
+                    context.locale = Locale;
                     context.partial('partials/single-category.ms');                        
                 });                   
             });
@@ -270,7 +275,8 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
             var self = this;
             self.swap(load_anim);
             breadcrumbs.clear().add('home').add('F.A.Q.').render(self, context, function() {
-                context.partial('partials/faq.ms');                        
+                context.locale = Locale;
+                context.partial('partials/faq.ms');
             });         
         });
         // Legal: Privacy page

@@ -6,7 +6,7 @@
   <table class="table table-condensed table-striped">
     <thead>
         <tr>
-            <td>Name</td>
+            <td>{{locale.categories.name}}</td>
         </tr>
     </thead>
     <tbody>

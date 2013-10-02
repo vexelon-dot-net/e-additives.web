@@ -57,12 +57,12 @@ define({
 
         // Additives page
         "additives": {
-
+            "name": "Name",
         },
 
         // Categories page
         "categories": {
-            
+            "name": "Name",
         }
     },
     "bg-bg": true
