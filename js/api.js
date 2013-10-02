@@ -25,6 +25,7 @@ define(['jquery', 'underscore'], function($, _) {
         this.serverUrl = null;
         this.apiAuthKey = '';
         this.requestHeaders = {};
+        this.locale = null;
     }
 
     BaseAPI.prototype.ajax = function(requestType, resource, params, headers, cb) {
@@ -56,6 +57,14 @@ define(['jquery', 'underscore'], function($, _) {
         this.ajax('POST', resource, params, headers, cb);
     }
 
+    BaseAPI.prototype.normalizeCriteria = function(cr) {
+        cr = cr || {};
+        if (this.locale) {
+            cr['locale'] = this.locale;
+        }
+        return cr;
+    }
+
     /**
      * API 0.9 (BETA)
      * 
@@ -63,19 +72,24 @@ define(['jquery', 'underscore'], function($, _) {
     var clientAPI_09 = new BaseAPI();
     _.extend(clientAPI_09, {
         getAdditives: function(cr, cb) {
+            cr = this.normalizeCriteria(cr);
             this.ajaxGET('/additives', cr, this.requestHeaders, cb);
         },
         searchAdditives: function(q, cr, cb) {
+            cr = this.normalizeCriteria(cr);
             cr['q'] = q;
             this.ajaxGET('/additives/search', cr, this.requestHeaders, cb);  
         },
         getAdditive: function(code, cr, cb) {
+            cr = this.normalizeCriteria(cr);
             this.ajaxGET('/additives/' + code, cr, this.requestHeaders, cb);
         },
         getCategories: function(cr, cb) {
+            cr = this.normalizeCriteria(cr);
             this.ajaxGET('/categories', cr, this.requestHeaders, cb);
         },
         getCategory: function(id, cr, cb) {
+            cr = this.normalizeCriteria(cr);
             this.ajaxGET('/categories/' + id, cr, this.requestHeaders, cb);
         }
     });
@@ -104,6 +118,10 @@ define(['jquery', 'underscore'], function($, _) {
                 //'User-Agent': 'EAD WEB',
                 'X-Authorization': 'EAD-TOKENS apiKey="' + authKey + '"'
             };
+        },
+
+        setLocale: function(locale) {
+            api.locale = locale;
         },
 
         getAdditives: function(criteria, callback) {

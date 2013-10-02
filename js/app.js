@@ -75,11 +75,14 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
     'plugin/sammy.mustache', 'i18n', 'plugin/domReady!'], 
     function(Sammy, Config, API, Bindings, Breadcrumbs, Mustache, Locale) {
 
+    var shortLocale = null;
+
     /**
      * Set datetime locale
      */
     if (_Globals.locale) {
-        moment.lang(_Globals.locale.substring(0,2).toLowerCase());
+        shortLocale = _Globals.locale.substring(0, 2).toLowerCase();
+        moment.lang(shortLocale);
     }
 
     /**
@@ -101,6 +104,9 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
      * Init client API
      */
     API.initialize(Config.serverUrl, Config.serverKey);
+    if (shortLocale) {
+        API.setLocale(shortLocale);
+    }
 
     /**
      * App routes and functionality
