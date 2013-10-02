@@ -26,7 +26,7 @@ define(['jquery'], function($) {
             /**
              * Navbar
              */
-            $('#navbar-menu').on("click", "a", null, function() {
+            $(document).on("click", "#navbar-menu a", null, function() {
                 // force closing of dropdown menu
                 $(this).closest('.dropdown-menu').trigger('click');
             })            
