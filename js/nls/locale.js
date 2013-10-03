@@ -24,7 +24,7 @@ define({
 
         // Common for all pages
         "common": {
-            "language": "Language",
+            "language": "Language"
         },
 
         // Navbar
@@ -32,7 +32,7 @@ define({
             "home": "Home",
             "explore": "Explore",
             "additives": "Additives",
-            "categories": "Categories",
+            "categories": "Categories"
         },
 
         // Footer
@@ -43,7 +43,7 @@ define({
             "blog": "Blog",
             "column_2": "Goodies",
             "apps": "Apps",
-            "api": "Developer API",
+            "api": "Developer API"
         },
 
         // Home page
@@ -60,14 +60,26 @@ define({
             "name": "Name",
             "code": "Code",
             "search": "Search",
-            "last_update": "Last update",
+            "last_update": "Last update"
         },
 
         // Categories page
         "categories": {
-            "name": "Name",
+            "name": "Name"
             
-        }
+        },
+        // Single additives page
+        "single_additives": {
+            "code": "Code",
+            "name": "Name",
+            "function": "Function",
+            "notice": "Warnings",
+            "status": "Status",
+            "veg": "Safe for vegetarians",
+            "foods": "Foods",
+            "info": "Details"
+            
+         }
     },
     "bg-bg": true
 });

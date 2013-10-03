@@ -23,7 +23,7 @@ define({
 
     // Common for all pages
     "common": {
-        "language": "Език",
+        "language": "Език"
     },
 
     // Navbar
@@ -31,7 +31,7 @@ define({
         "home": "Начало",
         "explore": "Разгледай",
         "additives": "Добавки",
-        "categories": "Категории",
+        "categories": "Категории"
     },
 
     // Footer
@@ -42,7 +42,7 @@ define({
         "blog": "Блог",
         "column_2": "Благинки",
         "apps": "Приложения",
-        "api": "Developer API",
+        "api": "Developer API"
     },    
 
     // Home page
@@ -59,11 +59,25 @@ define({
         "name": "Име",
         "code": "Код",
         "search": "Търси",
-         "last_update": "Последна редакция",
+         "last_update": "Последна редакция"
     },
 
     // Categories page
     "categories": {
-        "name": "Име",
-    }    
+        "name": "Име"
+    },    
+
+    // Single additives page
+        "single_additives": {
+            "code": "Код",
+            "name": "Име",
+            "function": "Употреба",
+            "notice": "Противопоказност",
+            "status": "Опасност",
+            "veg": "Безопасно за вегетарианци",
+            "foods": "Храни",
+            "info": "Инфо"
+            
+    }
+  
 });
