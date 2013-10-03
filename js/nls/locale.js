@@ -57,6 +57,7 @@ define({
 
         // Additives page
         "additives": {
+            "msg_notfound": "Additive not found!",
             "name": "Name",
             "code": "Code",
             "search": "Search",
@@ -65,6 +66,7 @@ define({
 
         // Categories page
         "categories": {
+            "msg_notfound": "Category not found!",
             "name": "Name"
             
         },

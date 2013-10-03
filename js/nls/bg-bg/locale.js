@@ -56,6 +56,7 @@ define({
 
     // Additives page
     "additives": {
+        "msg_notfound": "Добавката не може да бъде намерена!",
         "name": "Име",
         "code": "Код",
         "search": "Търси",
@@ -64,6 +65,7 @@ define({
 
     // Categories page
     "categories": {
+        "msg_notfound": "Категорияте не може да бъде намерена!",
         "name": "Име"
     },    
 

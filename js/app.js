@@ -205,7 +205,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
             API.getAdditive(this.params['code'], function(err, data) {
                 if (err) {
                     console.log(err);
-                    $(document).trigger('alert', ['Additive not found!']);
+                    $(document).trigger('alert', [Locale.additives.msg_notfound]);
                     self.redirect('#additives');
                     return;
                 }
@@ -263,7 +263,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
             API.getCategory(this.params['id'], function(err, data) {
                 if (err) {
                     console.log(err);
-                    $(document).trigger('alert', ['Category not found!']);
+                    $(document).trigger('alert', [Locale.categories.msg_notfound]);
                     self.redirect('#categories');
                     return;
                 }
