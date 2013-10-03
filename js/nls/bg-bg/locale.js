@@ -72,16 +72,15 @@ define({
     },    
 
     // Single additives page
-        "single_additives": {
-            "code": "Код",
-            "name": "Име",
-            "function": "Употреба",
-            "notice": "Противопоказност",
-            "status": "Опасност",
-            "veg": "Безопасно за вегетарианци",
-            "foods": "Храни",
-            "info": "Инфо"
-            
+    "single_additives": {
+        "code": "Код",
+        "name": "Име",
+        "function": "Употреба",
+        "notice": "Противопоказност",
+        "status": "Опасност",
+        "veg": "Безопасно за вегетарианци",
+        "foods": "Храни",
+        "info": "Инфо"
     }
   
 });
