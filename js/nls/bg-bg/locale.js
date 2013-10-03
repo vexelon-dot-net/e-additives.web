@@ -57,6 +57,9 @@ define({
     // Additives page
     "additives": {
         "name": "Име",
+        "code": "Код",
+        "search": "Търси",
+         "last_update": "Последна редакция",
     },
 
     // Categories page

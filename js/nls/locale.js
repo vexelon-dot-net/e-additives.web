@@ -58,11 +58,15 @@ define({
         // Additives page
         "additives": {
             "name": "Name",
+            "code": "Code",
+            "search": "Search",
+            "last_update": "Last update",
         },
 
         // Categories page
         "categories": {
             "name": "Name",
+            
         }
     },
     "bg-bg": true
