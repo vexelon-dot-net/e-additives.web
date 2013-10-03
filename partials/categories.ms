@@ -2,7 +2,7 @@
 {{>breadcrumbs}}
 <!--End: Breadcrumbs -->
 <div class="table-responsive">
-  <table class="footable>
+  <table class="footable">
     <thead>
         <tr>
             <th>{{locale.categories.name}}</th>
