@@ -60,15 +60,15 @@ define({
         "name": "Име",
         "code": "Код",
         "search": "Търси",
-         "last_update": "Последна редакция"
+         "last_update": "Обновено на"
     },
 
     // Categories page
     "categories": {
-        "msg_notfound": "Категорияте не може да бъде намерена!",
+        "msg_notfound": "Категорията не може да бъде намерена!",
         "name": "Име",
-        "amount": "Брой",
-        "last_update": "Последно обновена"
+        "amount": "Добавки (бр.)",
+        "last_update": "Обновено на"
     },    
 
     // Single additives page
@@ -76,11 +76,11 @@ define({
         "code": "Код",
         "name": "Име",
         "function": "Употреба",
-        "notice": "Противопоказност",
+        "notice": "Противопоказности",
         "status": "Опасност",
         "veg": "Безопасно за вегетарианци",
-        "foods": "Храни",
-        "info": "Инфо"
+        "foods": "Съдържа се в",
+        "info": "Информация"
     }
   
 });

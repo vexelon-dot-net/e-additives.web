@@ -68,7 +68,7 @@ define({
         "categories": {
             "msg_notfound": "Category not found!",
             "name": "Name",
-            "amount": "Amount",
+            "amount": "Additives (amt.)",
             "last_update": "Last update"
             
         },
@@ -82,8 +82,7 @@ define({
             "veg": "Safe for vegetarians",
             "foods": "Foods",
             "info": "Details"
-            
-         }
+        }
     },
     "bg-bg": true
 });
