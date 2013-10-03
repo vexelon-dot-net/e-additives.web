@@ -249,9 +249,11 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                     return;
                 }
                 breadcrumbs.clear().add('home').add('categories').render(self, context, function() {
-                    context.data = data;
+                    context.data = formatCategoriesData(data);
                     context.locale = Locale;
-                    context.partial('partials/categories.ms');                        
+                    context.partial('partials/categories.ms', function() {
+                        $('table').footable();
+                    });                        
                 });                 
             });            
         });
@@ -268,7 +270,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                     return;
                 }
                 breadcrumbs.clear().add('home').add('categories').add(data.name).render(self, context, function() {
-                    context.data = data;
+                    context.data = formatCategoriesData(data);
                     context.locale = Locale;
                     context.partial('partials/single-category.ms');                        
                 });                   
@@ -316,6 +318,22 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
         function _fmt(additive) {
             additive.last_update = moment(additive.last_update).format('LLL');
             return additive;            
+        }
+
+        if (Object.prototype.toString.call(data) == '[object Array]') {
+            var result = [];
+            _.each(data, function(item) {
+                result.push(_fmt(item));
+            });
+            return result;
+        }
+
+        return _fmt(data);
+    }
+    function formatCategoriesData(data) {
+        function _fmt(category) {
+            category.last_update = moment(category.last_update).format('LLL');
+            return category;            
         }
 
         if (Object.prototype.toString.call(data) == '[object Array]') {
