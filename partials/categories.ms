@@ -1,18 +1,21 @@
 <!--Start: Breadcrumbs -->
 {{>breadcrumbs}}
 <!--End: Breadcrumbs -->
-
 <div class="table-responsive">
-  <table class="table table-condensed table-striped">
+  <table class="footable>
     <thead>
         <tr>
-            <td>{{locale.categories.name}}</td>
+            <th>{{locale.categories.name}}</th>
+            <th>{{locale.categories.amount}}</th>
+            <th>{{locale.categories.last_update}}</th>
         </tr>
     </thead>
     <tbody>
         {{#data}}
         <tr>
-            <td><a href="#categories/{{id}}">{{name}}</a></td>
+            <td data-toggle="true"><a href="#categories/{{id}}">{{name}}</a></td>
+            <td data-toggle="true"></td>
+            <td data-toggle="true">{{last_update}}</td>
         </tr>
         {{/data}}
     </tbody>
