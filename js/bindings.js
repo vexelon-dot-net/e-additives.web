@@ -26,7 +26,7 @@ define(['jquery'], function($) {
             /**
              * Navbar
              */
-            $(document).on("click", "#navbar-menu a", null, function() {
+            $(document).on('click', "#navbar-menu a", null, function() {
                 // force closing of dropdown menu
                 $(this).closest('.dropdown-menu').trigger('click');
             })            
@@ -37,6 +37,17 @@ define(['jquery'], function($) {
                 var query = $('#search').val();
                 app.setLocation('#additives/search/' + query);
             });
+            /**
+             * Additives page
+             */
+            $(document).on('click', '#check_all_none', function () {
+                if ( $(this).is(':checked') ){
+                    $('.others').prop("checked", true);
+                }
+                else{
+                    $('.others').removeAttr("checked");
+                }
+            });            
             /**
              * Languages
              */

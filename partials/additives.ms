@@ -1,17 +1,6 @@
 <!--Start: Breadcrumbs -->
 {{>breadcrumbs}}
 <!--End: Breadcrumbs -->
-<script>
-$('#check_all_none').click(function () {
-    if ( $(this).is(':checked') ){
-        $('.others').prop("checked", true);
-    }
-    else{
-        $('.others').removeAttr("checked");
-    }
-
-});
-</script>
 <div class="table-responsive">
   <table class="footable" data-page-navigation=".pagination" data-page-size="25" data-filter="#filter">
     <thead>
