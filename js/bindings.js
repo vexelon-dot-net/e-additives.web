@@ -24,12 +24,31 @@ define(['jquery'], function($) {
     return {
         bindAll: function(app) {
             /**
+             * Common/Custom
+             */
+            $(document).on('alert', function(event, message, type) {
+                var $alert = $('div[data-role="alert-box"]');
+
+                if (type === 'info') {
+                    type = 'alert-info';
+                } else {
+                    // danger/error
+                    type = 'alert-danger';
+                }
+                $alert.removeClass('alert-success alert-info alert-warning alert-danger').addClass(type);
+                $alert.find('p').html(message);
+                $alert.show();
+            });
+            $(document).on('click', 'div[data-role="alert-box"] > button', function() {
+                $(this).parent().hide();
+            });
+            /**
              * Navbar
              */
             $(document).on('click', "#navbar-menu a", null, function() {
                 // force closing of dropdown menu
                 $(this).closest('.dropdown-menu').trigger('click');
-            })            
+            });
             /**
              * Home page
              */

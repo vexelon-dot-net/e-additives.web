@@ -205,6 +205,8 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
             API.getAdditive(this.params['code'], function(err, data) {
                 if (err) {
                     console.log(err);
+                    $(document).trigger('alert', ['Additive not found!']);
+                    self.redirect('#additives');
                     return;
                 }
                 breadcrumbs.clear().add('home').add('additives').add(data.code).render(self, context, function() {
@@ -261,6 +263,8 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
             API.getCategory(this.params['id'], function(err, data) {
                 if (err) {
                     console.log(err);
+                    $(document).trigger('alert', ['Category not found!']);
+                    self.redirect('#categories');
                     return;
                 }
                 breadcrumbs.clear().add('home').add('categories').add(data.name).render(self, context, function() {
@@ -269,7 +273,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                     context.partial('partials/single-category.ms');                        
                 });                   
             });
-        });                
+        });
         // F.A.Q. page
         this.get('#faq', function(context) {
             var self = this;
@@ -292,9 +296,9 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
             self.partial('partials/terms.ms');
         });
         // HTTP 404
-        this.notFound = function(verb, path) {
-            //window.location = '404.html';
-        }           
+        // this.notFound = function(verb, path) {
+        //     window.location = '404.html';
+        // }
     });
     // start the application
     app.run('#/');
