@@ -40,12 +40,11 @@ define(['jquery'], function($) {
             /**
              * Additives page
              */
-            $(document).on('click', '#check_all_none', function () {
-                if ( $(this).is(':checked') ){
-                    $('.others').prop("checked", true);
-                }
-                else{
-                    $('.others').removeAttr("checked");
+            $(document).on('click', 'input[data-role="additives-checkall"]', function() {
+                if ($(this).is(':checked')) {
+                    $('input[data-role="additives-item"]').prop("checked", true);
+                } else {
+                    $('input[data-role="additives-item"]').removeAttr("checked");
                 }
             });            
             /**
