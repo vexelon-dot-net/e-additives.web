@@ -1,6 +1,17 @@
 <!--Start: Breadcrumbs -->
 {{>breadcrumbs}}
 <!--End: Breadcrumbs -->
+<script>
+$('#check_all_none').click(function () {
+    if ( $(this).is(':checked') ){
+        $('.others').prop("checked", true);
+    }
+    else{
+        $('.others').removeAttr("checked");
+    }
+
+});
+</script>
 <div class="table-responsive">
   <table class="footable" data-page-navigation=".pagination" data-page-size="20" data-filter="#filter">
     <thead>
@@ -8,7 +19,7 @@
             <th colspan="4">Search: <input id="filter" type="text"></th>
         </tr>
         <tr>
-            <th data-sort-ignore="true"><input type="checkbox"/></th>
+            <th data-sort-ignore="true"><input id="check_all_none" type="checkbox"/></th>
             <th data-toggle="true">Code</th>
             <th data-toggle="true">{{locale.categories.name}}</th>
             <th data-hide="phone,tablet" data-toggle="true">Last update</th>
@@ -17,7 +28,7 @@
     <tbody>
         {{#data}}
         <tr>
-            <td><input type="checkbox" data-role="checkall" /></td>
+            <td><input class="others" type="checkbox" data-role="checkall" /></td>
             <td><a href="#additives/{{code}}">{{code}}</a></td>
             <td>{{name}}</td>
             <td>{{last_update}}</td>
