@@ -249,7 +249,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                     return;
                 }
                 breadcrumbs.clear().add('home').add('categories').render(self, context, function() {
-                    context.data = formatCategoriesData(data);
+                    context.data = data;
                     context.locale = Locale;
                     context.partial('partials/categories.ms');                        
                 });                 

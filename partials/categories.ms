@@ -15,7 +15,7 @@
         <tr>
             <td data-toggle="true"><a href="#categories/{{id}}">{{name}}</a></td>
             <td data-toggle="true"></td>
-            <td>{{last_update}}</td>
+            <td data-toggle="true">{{last_update}}</td>
         </tr>
         {{/data}}
     </tbody>
