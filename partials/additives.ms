@@ -13,7 +13,7 @@ $('#check_all_none').click(function () {
 });
 </script>
 <div class="table-responsive">
-  <table class="footable" data-page-navigation=".pagination" data-page-size="20" data-filter="#filter">
+  <table class="footable" data-page-navigation=".pagination" data-page-size="25" data-filter="#filter">
     <thead>
         <tr>
             <th colspan="4">{{locale.additives.search}} : <input id="filter" type="text"></th>
