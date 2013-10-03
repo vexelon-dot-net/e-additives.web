@@ -67,7 +67,9 @@ define({
         // Categories page
         "categories": {
             "msg_notfound": "Category not found!",
-            "name": "Name"
+            "name": "Name",
+            "amount": "Amount",
+            "last_update": "Last update"
             
         },
         // Single additives page

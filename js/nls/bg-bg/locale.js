@@ -66,7 +66,9 @@ define({
     // Categories page
     "categories": {
         "msg_notfound": "Категорияте не може да бъде намерена!",
-        "name": "Име"
+        "name": "Име",
+        "amount": "Брой",
+        "last_update": "Последно обновена"
     },    
 
     // Single additives page
