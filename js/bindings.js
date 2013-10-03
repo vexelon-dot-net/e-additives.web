@@ -45,9 +45,15 @@ define(['jquery'], function($) {
             /**
              * Navbar
              */
-            $(document).on('click', "#navbar-menu a", null, function() {
-                // force closing of dropdown menu
+            $(document).on('click', '#navbar-menu a', null, function() {
+                // Issue #17
+                // force close expanded menus if menu link has been clicked
                 $(this).closest('.dropdown-menu').trigger('click');
+            });
+            $(document).on('click', 'div[role="pane"] a', function() {
+                // Issue #17
+                // force close expanded menus when content link has been clicked
+               $('.dropdown.open .dropdown-toggle').dropdown('toggle');
             });
             /**
              * Home page
