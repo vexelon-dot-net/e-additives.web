@@ -61,7 +61,8 @@ define({
             "name": "Name",
             "code": "Code",
             "search": "Search",
-            "last_update": "Last update"
+            "last_update": "Last update",
+            "enter": "Enter code"
         },
 
         // Categories page

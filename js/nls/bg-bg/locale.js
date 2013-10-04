@@ -60,7 +60,8 @@ define({
         "name": "Име",
         "code": "Код",
         "search": "Търси",
-         "last_update": "Обновено на"
+        "last_update": "Обновено на",
+        "enter": "Въведи код"
     },
 
     // Categories page
