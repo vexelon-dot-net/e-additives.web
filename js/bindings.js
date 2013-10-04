@@ -83,6 +83,10 @@ define(['jquery'], function($) {
                 $.localStorage.set('locale', 'bg-bg');
                 window.location.reload();
             });
+        },
+
+        trigger: function(event, paramsObj) {
+            $(document).trigger(event, paramsObj);
         }
     };
 });
