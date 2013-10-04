@@ -5,7 +5,7 @@
   <table class="footable" data-page-navigation=".pagination" data-page-size="25" data-filter="#filter">
     <thead>
         <tr>
-            <th colspan="4">{{locale.additives.search}} : <input id="filter" type="text"></th>
+            <th colspan="4">{{locale.additives.search}} <input id="filter" type="text"></th>
         </tr>
         <tr>
             <th data-sort-ignore="true"><input data-role="additives-checkall" type="checkbox"/></th>
