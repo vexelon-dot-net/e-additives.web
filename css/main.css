@@ -46,12 +46,14 @@ body {
 }
 .navbar-brand > img {
     padding: 0;
+    width: 1em;
+    height: 1em;
 }
 
 /* Wrapper for page content to push down footer */
 .wrap {
     min-height: 100%;
-    position:relative;  
+    position: relative;  
 /*    min-height: 100%;
     height: auto !important;
     height: 100%;
