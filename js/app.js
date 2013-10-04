@@ -215,6 +215,12 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                     return;
                 }
                 breadcrumbs.clear().add('home').add('additives').render(self, context, function() {
+                    // no results?
+                    if (data.length === 0) {
+                        errNo.trigger(Locale.additives.msg_notfound);
+                        self.redirect('#additives');                        
+                        return;
+                    }
                     context.data = formatAdditivesData(data);
                     context.locale = Locale;
                     context.partial('partials/additives.ms');                        
