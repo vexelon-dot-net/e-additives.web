@@ -75,11 +75,35 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
     'plugin/sammy.mustache', 'i18n', 'plugin/domReady!'], 
     function(Sammy, Config, API, Bindings, Breadcrumbs, Mustache, Locale) {
 
-    var shortLocale = null;
+    /**
+     * Custom errors register
+     * @return {[type]} [description]
+     */
+    var errObj = function() {
+        var visible = false;
+        var msg = null;
+        return {
+            trigger: function(arg) {
+                visible = true;
+                msg = arg;
+            },
+            exists: function(arg) {
+                if (typeof arg !== 'undefined')
+                    visible = arg;
+                return visible;
+            },
+            message: function() {
+                return msg;
+            }
+        };
+    };
+    var errNo = new errObj();
 
     /**
      * Set datetime locale
      */
+    var shortLocale = null;
+
     if (_Globals.locale) {
         shortLocale = _Globals.locale.substring(0, 2).toLowerCase();
         moment.lang(shortLocale);
@@ -205,7 +229,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
             API.getAdditive(this.params['code'], function(err, data) {
                 if (err) {
                     console.log(err);
-                    Bindings.trigger('alert', [Locale.additives.msg_notfound]);
+                    errNo.trigger(Locale.additives.msg_notfound);
                     self.redirect('#additives');
                     return;
                 }
@@ -265,7 +289,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
             API.getCategory(this.params['id'], function(err, data) {
                 if (err) {
                     console.log(err);
-                    Bindings.trigger('alert', [Locale.categories.msg_notfound]);
+                    errNo.trigger(Locale.categories.msg_notfound);
                     self.redirect('#categories');
                     return;
                 }
@@ -301,6 +325,17 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
         // this.notFound = function(verb, path) {
         //     window.location = '404.html';
         // }
+
+        // show/hide error messages        
+        this.bind('route-found', function() {
+            if (errNo.exists()) {
+                Bindings.trigger('alert', [errNo.message]);
+                errNo.exists(false);
+            } else {
+                Bindings.trigger('hide-alert');
+            }
+        });
+        
     });
     // start the application
     app.run('#/');

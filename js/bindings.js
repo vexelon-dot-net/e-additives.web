@@ -27,8 +27,7 @@ define(['jquery'], function($) {
              * Common/Custom
              */
             $(document).on('alert', function(event, message, type) {
-                var $alert = $('div[data-role="alert-box"]');
-
+                var $alert = $('div[data-role="alert-box"]'); //.clone();
                 if (type === 'info') {
                     type = 'alert-info';
                 } else {
@@ -37,11 +36,16 @@ define(['jquery'], function($) {
                 }
                 $alert.removeClass('alert-success alert-info alert-warning alert-danger').addClass(type);
                 $alert.find('p').html(message);
+                // $alert.appendTo('div[role="pane"]');
                 $alert.show();
             });
             $(document).on('click', 'div[data-role="alert-box"] > button', function() {
                 $(this).parent().hide();
             });
+            $(document).on('hide-alert', function(event) {
+                var $alert = $('div[data-role="alert-box"]');
+                $alert.hide();
+            });            
             /**
              * Navbar
              */
