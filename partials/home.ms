@@ -15,7 +15,7 @@
 
   <!-- logo -->
   <div class="row home-logo">
-    <p class="text-center"><img src="img/logo_small.png" alt="E-additives Logo" class="img-rounded"/></p>
+    <p class="text-center"><img src="img/logo.svgz" alt="E-additives Logo" class="img-rounded"/></p>
   </div>
   <!-- search -->
   <div class="row">
