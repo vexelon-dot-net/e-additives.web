@@ -9,16 +9,16 @@
  */
 
 @font-face {
-  font-family: 'Gudea';
+  font-family: 'Open Sans';
   font-style: normal;
   font-weight: 400;
-  src: local('Gudea'), url(http://themes.googleusercontent.com/static/fonts/gudea/v1/Z6xYy_2MlN1cUISkeodEPA.woff) format('woff');
+  src: local('Open Sans'), local('OpenSans'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/RjgO7rYTmqiVp7vzi-Q5UT8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
 }
 
 html,
 body {
     height: 100%;
-    font-family: "Gudea", "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
     font-size: 14pt;
     /* The html and body elements cannot have any padding or margin. */
 }
