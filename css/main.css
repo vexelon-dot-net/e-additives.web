@@ -50,6 +50,12 @@ body {
     height: 1.35em;
 }
 
+#footer p.rights > img {
+    padding: 0;
+    width: 1.6em;
+    height: 1.6em;    
+}
+
 /* Wrapper for page content to push down footer */
 .wrap {
     min-height: 100%;

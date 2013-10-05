@@ -10,7 +10,7 @@
   </div>
   <div id="navbar-menu" class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#/">{{navbar.home}}</a></li>
+      <li><a href="#/">{{navbar.home}}</a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{navbar.explore}} <b class="caret"></b></a>
         <ul class="dropdown-menu">
