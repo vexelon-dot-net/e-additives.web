@@ -1,13 +1,17 @@
 <!--Start: Breadcrumbs -->
 {{>breadcrumbs}}
 <!--End: Breadcrumbs -->
-<div class="table-responsive">
-<form role="form">
-  <div class="form-group col-sm-4 col-xs-6">
-    <label for="code">{{locale.additives.search}}</label>
-    <input type="text" id="filter" class="form-control" id="code" placeholder="{{locale.additives.enter}}">
+<div>
+<form role="form" class="form-horizontal">
+  <div class="form-group">
+    <label class="col-sm-1 cold-md-1 col-xs-3 control-label" for="code">{{locale.additives.search}}</label>
+    <div class="col-sm-4 col-md-3 col-xs-6">
+        <input type="text" id="filter" class="form-control" id="code" placeholder="{{locale.additives.enter}}">
+    </div>
   </div>
 </form>
+</div>
+<div class="table-responsive">
   <table class="footable" data-page-navigation=".pagination" data-page-size="25" data-filter="#filter">
     <thead>
         <tr>
@@ -21,8 +25,8 @@
         {{#data}}
         <tr>
             <td><input type="checkbox" data-role="additives-item" /></td>
-            <td><a href="#additives/{{code}}">{{code}}</a></td>
-            <td>{{name}}</td>
+            <td class="searchitem"><a href="#additives/{{code}}">{{code}}</a></td>
+            <td class="searchitem">{{name}}</td>
             <td>{{last_update}}</td>
         </tr>
         {{/data}}
