@@ -46,8 +46,8 @@ body {
 }
 .navbar-brand > img {
     padding: 0;
-    width: 100%;
-    height: 100%;
+    width: 1.35em;
+    height: 1.35em;
 }
 
 /* Wrapper for page content to push down footer */
