@@ -311,8 +311,9 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
             var self = this;
             self.swap(load_anim);
             breadcrumbs.clear().add('home').add('F.A.Q.').render(self, context, function() {
+                var partialName = shortLocale === 'bg' ? 'faq-bg.ms' : 'faq.ms';
                 context.locale = Locale;
-                context.partial('partials/faq.ms');
+                context.partial('partials/' + partialName);
             });         
         });
         // Legal: Privacy page
