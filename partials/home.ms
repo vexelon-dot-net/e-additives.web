@@ -1,7 +1,7 @@
 
   <!-- Main jumbotron for a primary marketing message or call to action -->
   {{#locale}}
-  <div class="jumbotron hidden-xs">
+  <div class="jumbotron hidden-xs hidden-sm">
     <div class="container">
       <p>{{home.jumbatron}}</p>
       <p>
