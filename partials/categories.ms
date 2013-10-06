@@ -14,7 +14,7 @@
         {{#data}}
         <tr>
             <td data-toggle="true"><a href="#categories/{{id}}">{{name}}</a></td>
-            <td data-toggle="true"></td>
+            <td data-toggle="true">{{additives}}</td>
             <td data-toggle="true">{{last_update}}</td>
         </tr>
         {{/data}}
