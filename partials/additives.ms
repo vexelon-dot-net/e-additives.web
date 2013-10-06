@@ -4,8 +4,7 @@
 <div>
 <form role="form" class="form-horizontal">
   <div class="form-group">
-    <label class="col-sm-1 cold-md-1 col-xs-3 control-label" for="code">{{locale.additives.search}}</label>
-    <div class="col-sm-4 col-md-3 col-xs-6">
+    <div class="col-sm-3 col-md-2 col-xs-6">
         <input type="text" id="filter" class="form-control" id="code" placeholder="{{locale.additives.enter}}">
     </div>
   </div>
