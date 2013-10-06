@@ -24,7 +24,8 @@ define({
 
         // Common for all pages
         "common": {
-            "language": "Language"
+            "language": "Language",
+            "outdated": "outdated"
         },
 
         // Navbar
@@ -48,7 +49,7 @@ define({
 
         // Home page
         "home": {
-            "jumbatron" : "The goal of the E-additives project is to implement a web platform that allows users to Search and Browse for information about food additives.",
+            "jumbotron" : "The goal of the E-additives project is to implement a web platform that allows users to Search and Browse for information about food additives.",
             "search_title": "Search food additives",
             "search_hint": "Name or number, e.g, 101",
             "explore": "Explore",
@@ -83,6 +84,16 @@ define({
             "veg": "Safe for vegetarians",
             "foods": "Foods",
             "info": "Details"
+        },
+
+        // Apps page
+        "goodies": {
+            "apps": {
+                "jumbotron": 'Here you can find a list of apps that interact with the E-additives platform. \
+                If you write an app that uses our API, make sure you send us a link so we can place it here. :) ',
+                "j2me_title": "E-additives Java ME App",
+                "j2me_body": "Java Microedition app that provides detailed information about food additives on Java enabled phones."
+            }
         }
     },
     "bg-bg": true

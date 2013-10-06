@@ -32,7 +32,7 @@
     <div id="collapseTwo" class="panel-collapse collapse">
       <div class="panel-body">
         <ul class="list-unstyled">
-            <li><a href="#">{{footer.apps}}</a></li>
+            <li><a href="#goodies/apps">{{footer.apps}}</a></li>
             <li>
               <a href="https://github.com/vexelon-dot-net/e-additives.server/blob/production/docs/API.md">{{footer.api}}</a>
             </li>
@@ -75,7 +75,7 @@
     <div class="col-xs-6 col-sm-3 ">
         <ul class="list-unstyled">
             <li><h4>{{footer.column_2}}</h4></li>
-            <li><a href="#">{{footer.apps}}</a></li>
+            <li><a href="#goodies/apps">{{footer.apps}}</a></li>
             <li>
               <a href="https://github.com/vexelon-dot-net/e-additives.server/blob/production/docs/API.md">{{footer.api}}</a>
             </li>
