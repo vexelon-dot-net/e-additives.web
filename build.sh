@@ -94,4 +94,10 @@ else
 	}' index.html
 fi
 
+# insert uservoice feedback widget into html
+sed -i '/<\!\-\-USERVOICE\-\->/{
+    s/<\!\-\-USERVOICE\-\->//g
+    r ../uservoice
+}' index.html
+
 echo "Build completed."

@@ -303,7 +303,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                     context.data = formatCategoriesData(data);
                     context.locale = Locale;
                     context.partial('partials/single-category.ms');                        
-                });                   
+                });
             });
         });
         // F.A.Q. page
@@ -311,10 +311,20 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
             var self = this;
             self.swap(load_anim);
             breadcrumbs.clear().add('home').add('F.A.Q.').render(self, context, function() {
+                var partialName = shortLocale === 'bg' ? 'faq-bg.ms' : 'faq.ms';
                 context.locale = Locale;
-                context.partial('partials/faq.ms');
+                context.partial('partials/' + partialName);
             });         
         });
+        // Goodies: Apps
+        this.get('#goodies/apps', function(context) {
+            var self = this;
+            self.swap(load_anim);
+            breadcrumbs.clear().add('home').add('goodies').add('apps').render(self, context, function() {
+                context.locale = Locale;
+                context.partial('partials/apps.ms');                      
+            });            
+        });        
         // Legal: Privacy page
         this.get('#legal/privacy', function() {
             var self = this;

@@ -1,9 +1,9 @@
 
   <!-- Main jumbotron for a primary marketing message or call to action -->
   {{#locale}}
-  <div class="jumbotron hidden-xs">
+  <div class="jumbotron hidden-xs hidden-sm">
     <div class="container">
-      <p>{{home.jumbatron}}</p>
+      <p>{{home.jumbotron}}</p>
       <p>
         <a href="#additives" class="btn btn-primary btn-lg">{{home.explore}} &raquo;</a>
         <a href="#faq" class="btn btn-info btn-lg">
@@ -15,7 +15,7 @@
 
   <!-- logo -->
   <div class="row home-logo">
-    <p class="text-center"><img src="img/logo_small.png" alt="E-additives Logo" class="img-rounded"/></p>
+    <p class="text-center"><img src="img/logo.svgz" alt="E-additives Logo" class="img-rounded"/></p>
   </div>
   <!-- search -->
   <div class="row">
