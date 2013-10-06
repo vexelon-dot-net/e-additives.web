@@ -14,7 +14,7 @@
     <div id="collapseOne" class="panel-collapse collapse">
       <div class="panel-body">
        <ul class="list-unstyled">
-            <li><a href="#">{{footer.contact_us}}</a></li>
+            <li><a href="http://e-additives.uservoice.com/">{{footer.contact_us}}</a></li>
             <li><a href="https://github.com/vexelon-dot-net">{{footer.contribute}}</a></li>
             <li><a href="#">{{footer.blog}}</a></li>
        </ul>
@@ -67,7 +67,7 @@
     <div class="col-xs-6 col-sm-3">
         <ul class="list-unstyled">
             <li><h4>{{footer.column_1}}</h4></li>
-            <li><a href="#">{{footer.contact_us}}</a></li>
+            <li><a href="http://e-additives.uservoice.com/">{{footer.contact_us}}</a></li>
             <li><a href="https://github.com/vexelon-dot-net">{{footer.contribute}}</a></li>
             <li><a href="#">{{footer.blog}}</a></li>
         </ul>

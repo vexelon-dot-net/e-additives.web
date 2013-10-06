@@ -20,7 +20,7 @@ E numbers are number codes for food additives that have been assessed for use wi
 </p>
 
 <h2>Some of the information is inaccurate!</h2>
-<p>Suggestions and corrections are most welcome. Please use the <a href="#">feedback</a> forum to add your corrections and remarks. Make sure you specify valid sources and links before posting corrections! We will <b>not accept</b> corrections otherwise.</p>
+<p>Suggestions and corrections are most welcome. Please use the <a href="http://e-additives.uservoice.com/forums/224067-general">feedback</a> forum to add your corrections and remarks. Make sure you specify valid sources and links before posting corrections! We will <b>not accept</b> corrections otherwise.</p>
 <p>We will be further working on a way to allow users to write comments and update additives directly. That would be a functionality quite similar to how information is edited in Wikipedia.</p>
 
 <h2>Where does the information about E-additives come from?</h2>
