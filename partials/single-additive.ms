@@ -4,12 +4,9 @@
  <div class="table-responsive">
   <table class="footable">
     <thead>
-        <th>
-            <h3>{{locale.single_additives.code}}</h3>
-        </th>
-        <th>
+        <th colspan="2">
             {{#data}}
-            <h3>{{code}}</h3>
+            <h3>E {{code}}</h3>
             {{/data}}
         </th>
     </thead>
