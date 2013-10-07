@@ -56,10 +56,15 @@
         callback: function() {
           require(['js/vendor/plugins/jquery.storageapi.min'], function() {
             var storage = $.localStorage;
-            if (!storage.isEmpty('locale')) {
+            if (storage && !storage.isEmpty('locale')) {
               _Globals.locale = storage.get('locale');
-              console.log('Setting locale to: ' + _Globals.locale);
+            } else {
+              var language = window.navigator.userLanguage || window.navigator.language;
+              if (language.length == 2)
+                language += '-' + language;
+              _Globals.locale = language;
             }
+            console.log('Setting locale to: ' + _Globals.locale);
             // load app
             require(['js/app']);
           });
