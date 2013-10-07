@@ -35,7 +35,7 @@ fi
 echo "Cleaning ..."
 
 ### Cleanup old build files
-find $BUILD -type f ! -name ".gitkeep" |xargs -i rm {}
+find $BUILD -type f ! -name ".gitkeep" -and ! -name ".htaccess" |xargs -i rm {}
 find $BUILD -type d ! -name ".gitkeep" -and ! -name "build" |xargs -i rmdir {} -p --ignore-fail-on-non-empty
 
 if [ ! -z $CLEANONLY ]; then 
