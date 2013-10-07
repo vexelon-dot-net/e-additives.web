@@ -22,7 +22,7 @@
     <!-- languages -->
     <ul class="nav navbar-nav navbar-right">
       <li class="dropdown">
-        <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{common.language}} <b class="caret"></b></a>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">&nbsp;<img src="img/globe_26x26.png"/> <b class="caret"></b></a>
         <ul class="dropdown-menu">
           <li><a data-lang="lang-en" href="#">English</a></li>
           <li><a data-lang="lang-bg" href="#">Български</a></li>
