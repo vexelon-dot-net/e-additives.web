@@ -7,6 +7,7 @@ PWD=$(pwd)
 YUI=$(pwd)/yuicompressor-2.4.8.jar
 BUILD=$(pwd)/build
 BUILDNUM_FILE=`readlink -f build.number`
+BUILDNAME_FILE=`readlink -f build.name`
 
 if [ ! -d $BUILD ]; then
 	echo "Build folder($BUILD) does not exist!"
@@ -80,6 +81,11 @@ else
 fi
 BUILDNUM=$((BUILDNUM + 1))
 echo $BUILDNUM > $BUILDNUM_FILE
+
+if [ -f $BUILDNAME_FILE ]; then
+	BUILDNAME=`cat $BUILDNAME_FILE`
+	BUILDNUM="'$BUILDNAME-$BUILDNUM'"
+fi
 
 # insert build no. into html
 #sed -i 's/<\!\-\-build\-\->/Build: '$BUILDNUM'/g' index.html

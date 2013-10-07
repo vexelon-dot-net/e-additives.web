@@ -2,6 +2,7 @@
 .htaccess
 build/*
 build.number
+build.name
 *.sublime-*
 js/config.js
 css/bootstrap.css
