@@ -57,7 +57,8 @@ cp img/ $BUILD -R
 cp js/ $BUILD -R
 [ -e $BUILD/js/config.js ] && rm $BUILD/js/config.js
 cp partials/ $BUILD -R
-cp .htaccess 404.html apple-touch-*.png favicon.ico index.html robots.txt $BUILD
+cp 404.html apple-touch-*.png favicon.ico index.html robots.txt $BUILD
+cp .htaccess-template $BUILD
 
 ### Obfuscate javascript
 echo "Minifying ..."
