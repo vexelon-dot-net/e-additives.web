@@ -412,9 +412,9 @@ AddDefaultCharset utf-8
 # Prevent some of the mobile network providers from modifying the content of
 # your site: http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9.5.
 
-# <IfModule mod_headers.c>
-#    Header set Cache-Control "no-transform"
-# </IfModule>
+<IfModule mod_headers.c>
+   Header set Cache-Control "no-transform"
+</IfModule>
 
 # ------------------------------------------------------------------------------
 # | ETag removal                                                               |
@@ -444,7 +444,7 @@ FileETag None
     ExpiresDefault                                      "access plus 1 month"
 
   # CSS
-    ExpiresByType text/css                              "access plus 1 year"
+    ExpiresByType text/css                              "access plus 1 month"
 
   # Data interchange
     ExpiresByType application/json                      "access plus 0 seconds"
@@ -461,7 +461,7 @@ FileETag None
     ExpiresByType text/html                             "access plus 0 seconds"
 
   # JavaScript
-    ExpiresByType application/javascript                "access plus 1 year"
+    ExpiresByType application/javascript                "access plus 1 month"
 
   # Manifest files
     ExpiresByType application/x-web-app-manifest+json   "access plus 0 seconds"
@@ -488,8 +488,7 @@ FileETag None
     ExpiresByType image/svg+xml                         "access plus 1 month"
 
   # Mustache template files
-  # TODO:
-    ExpiresByType text/troff                            "access plus 3 seconds"    
+    ExpiresByType text/troff                            "access plus 1 week"
 
 </IfModule>
 
