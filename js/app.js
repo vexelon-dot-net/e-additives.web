@@ -100,14 +100,17 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
     var errNo = new errObj();
 
     /**
-     * Set datetime locale
+     * Determine locale
      */
-    var shortLocale = null;
-
+    var shortLocale = 'en'; // default
     if (_Globals.locale) {
         shortLocale = _Globals.locale.substring(0, 2).toLowerCase();
-        moment.lang(shortLocale);
+        if (shortLocale != 'bg' && shortLocale != 'en') {
+            shortLocale = 'en'; // fallback to default
+        }
     }
+    // set date-time formatting
+    moment.lang(shortLocale);
 
     /**
      * Load navbar & footer
