@@ -1,6 +1,16 @@
 <!--Start: Breadcrumbs -->
 {{>breadcrumbs}}
 <!--End: Breadcrumbs -->
+
+<ul class="nav nav-tabs">
+{{#categories}}
+  <li class="active"><a href="#">E {{category}}</a></li>
+{{/categories}}
+</ul>
+
+<br/>
+<br/>
+
 <div>
 <form role="form" class="form-horizontal">
   <div class="form-group">
@@ -10,6 +20,7 @@
   </div>
 </form>
 </div>
+
 <div class="table-responsive">
   <table class="footable" data-page-navigation=".pagination" data-page-size="25" data-filter="#filter">
     <thead>

@@ -193,19 +193,27 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
             var self = this;
             self.swap(load_anim);
 
-            API.getAdditives(function(err, data) {
+            API.getCategories(function(err, categoriesData) {
                 if (err) {
                     console.log(err);
                     return;
                 }
-                breadcrumbs.clear().add('home').add('additives').render(self, context, function() {
-                    context.data = formatAdditivesData(data);
-                    context.locale = Locale;
-                    context.partial('partials/additives.ms', function() {
-                        $('table').footable();
-                    });                     
-                });
-            });            
+
+                API.getAdditives(function(err, data) {
+                    if (err) {
+                        console.log(err);
+                        return;
+                    }
+                    breadcrumbs.clear().add('home').add('additives').render(self, context, function() {
+                        context.data = formatAdditivesData(data);
+                        context.categories = categoriesData;
+                        context.locale = Locale;
+                        context.partial('partials/additives.ms', function() {
+                            $('table').footable();
+                        });                     
+                    });
+                });                  
+            });              
         });
         // Search additives
         this.get('#additives/search/:query', function(context) {
