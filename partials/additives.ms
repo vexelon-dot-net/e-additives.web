@@ -4,7 +4,14 @@
 
 <ul class="nav nav-tabs">
 {{#categories}}
-  <li class="active"><a href="#additives/category/{{id}}">E {{category}}</a></li>
+    {{#active}}
+    <li class="active">
+    {{/active}}
+    {{^active}}
+    <li>
+    {{/active}}
+        <a href="#additives/category/{{id}}">E {{category}}</a>
+    </li>
 {{/categories}}
 </ul>
 

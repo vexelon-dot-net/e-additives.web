@@ -196,7 +196,8 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
             var self = this;
             self.swap(load_anim);
 
-            var cat = this.params['category'];
+            var catId = this.params['category'];
+            var catName = '';
 
             //TODO validate category
 
@@ -205,13 +206,21 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                     console.log(err);
                     return;
                 }
+                // prep category info
+                _.each(categoriesData, function(item) {
+                    if (item.id == catId) {
+                        item.active = true;
+                        catName = item.name;
+                        return;
+                    }
+                });
 
-                API.getAdditives({category: cat}, function(err, data) {
+                API.getAdditives({category: catId}, function(err, data) {
                     if (err) {
                         console.log(err);
                         return;
                     }
-                    breadcrumbs.clear().add('home').add('additives').add('E' + cat).render(self, context, function() {
+                    breadcrumbs.clear().add('home').add('additives').add(catName).render(self, context, function() {
                             context.data = formatAdditivesData(data);
                             context.categories = categoriesData;
                             context.locale = Locale;
