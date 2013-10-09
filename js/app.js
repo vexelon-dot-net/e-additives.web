@@ -188,10 +188,17 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                 }); //eof-API
             }); //eof-this.partial
         });
-        // Additives browse page
+        // Additives browse pages
         this.get('#additives', function(context) {
+            this.redirect('#additives/category/1');
+        });
+        this.get('#additives/category/:category', function(context) {
             var self = this;
             self.swap(load_anim);
+
+            var cat = this.params['category'];
+
+            //TODO validate category
 
             API.getCategories(function(err, categoriesData) {
                 if (err) {
@@ -199,21 +206,21 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                     return;
                 }
 
-                API.getAdditives(function(err, data) {
+                API.getAdditives({category: cat}, function(err, data) {
                     if (err) {
                         console.log(err);
                         return;
                     }
-                    breadcrumbs.clear().add('home').add('additives').render(self, context, function() {
-                        context.data = formatAdditivesData(data);
-                        context.categories = categoriesData;
-                        context.locale = Locale;
-                        context.partial('partials/additives.ms', function() {
-                            $('table').footable();
-                        });                     
+                    breadcrumbs.clear().add('home').add('additives').add('E' + cat).render(self, context, function() {
+                            context.data = formatAdditivesData(data);
+                            context.categories = categoriesData;
+                            context.locale = Locale;
+                            context.partial('partials/additives.ms', function() {
+                                $('table').footable();
+                            });                     
                     });
                 });                  
-            });              
+            });
         });
         // Search additives
         this.get('#additives/search/:query', function(context) {
@@ -256,7 +263,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                     context.partial('partials/single-additive.ms');                        
                 });                            
             });
-        });    
+        });
         // // Compare 2 additives
         // this.get('#additives/compare/:first/:second', function() {
         //     var self = this;
