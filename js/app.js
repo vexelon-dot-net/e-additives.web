@@ -370,7 +370,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
         // }
 
         // show/hide error messages        
-        this.bind('route-found', function() {
+        this.bind('changed', function() {
             if (errNo.exists()) {
                 Bindings.trigger('alert', [errNo.message]);
                 errNo.exists(false);
