@@ -205,7 +205,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                 if (err) {
                     console.log(err);
                     return;
-                }
+                }                                   
                 // prep category info
                 _.each(categoriesData, function(item) {
                     if (item.id == catId) {
@@ -220,6 +220,12 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                         console.log(err);
                         return;
                     }
+                    // no results?
+                    if (data.length === 0) {
+                        errNo.trigger(Locale.categories.msg_notfound);
+                        self.redirect('#additives');                        
+                        return;
+                    }                    
                     breadcrumbs.clear().add('home').add('additives').add(catName).render(self, context, function() {
                             context.data = formatAdditivesData(data);
                             context.categories = categoriesData;
@@ -266,11 +272,18 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                     self.redirect('#additives');
                     return;
                 }
-                breadcrumbs.clear().add('home').add('additives').add(data.code).render(self, context, function() {
-                    context.data = formatAdditivesData(data);
-                    context.locale = Locale;
-                    context.partial('partials/single-additive.ms');                        
-                });                            
+                API.getCategory(data.category_id, function(err, categoryData) {
+                    if (err) {
+                        console.log(err);
+                        return;
+                    }
+                    breadcrumbs.clear().add('home').add('additives').add(categoryData.name).add(data.code)
+                    .render(self, context, function() {
+                        context.data = formatAdditivesData(data);
+                        context.locale = Locale;
+                        context.partial('partials/single-additive.ms');                        
+                    });                      
+                });
             });
         });
         // // Compare 2 additives
