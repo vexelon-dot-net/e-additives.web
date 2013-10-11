@@ -1,5 +1,6 @@
 e-additives.web
 ===============
+![alt text](https://raw.github.com/vexelon-dot-net/e-additives.web/master/img/app_j2me.png "E-additives Logo")
 
 The goal of the E-additives project is to implement a web platform that will provide detailed information about [food additives](http://en.wikipedia.org/wiki/Food_additive).
 
