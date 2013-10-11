@@ -277,12 +277,14 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                         console.log(err);
                         return;
                     }
-                    breadcrumbs.clear().add('home').add('additives').add(categoryData.name).add(data.code)
-                    .render(self, context, function() {
-                        context.data = formatAdditivesData(data);
-                        context.locale = Locale;
-                        context.partial('partials/single-additive.ms');                        
-                    });                      
+                    breadcrumbs.clear().add('home').add('additives')
+                        .add(categoryData.name, '#additives/category/' + categoryData.id)
+                        .add(data.code)
+                        .render(self, context, function() {
+                            context.data = formatAdditivesData(data);
+                            context.locale = Locale;
+                            context.partial('partials/single-additive.ms');                        
+                        });                      
                 });
             });
         });
