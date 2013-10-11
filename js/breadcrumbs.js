@@ -33,13 +33,13 @@ define(['jquery', 'i18n!nls/locale'], function($, locale) {
         var obj = null;
         switch(name) {
             case 'home':
-                obj = { name: locale.navbar.home, url: '#home' };
+                obj = { name: locale.navbar.home, url: 'home' };
                 break;
             case 'additives':
-                obj = { name: locale.navbar.additives, url: '#additives' };
+                obj = { name: locale.navbar.additives, url: 'additives' };
                 break;
             case 'categories':
-                obj = { name: locale.navbar.categories, url: '#categories' };
+                obj = { name: locale.navbar.categories, url: 'categories' };
                 break;
             default:
                  obj = { name: name, url: url };

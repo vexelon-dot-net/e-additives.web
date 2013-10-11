@@ -7,8 +7,8 @@
     <div class="container">
       <p>{{home.jumbotron}}</p>
       <p>
-        <a href="#additives" class="btn btn-primary btn-lg">{{home.explore}} &raquo;</a>
-        <a href="#faq" class="btn btn-info btn-lg">
+        <a href="#!/additives" class="btn btn-primary btn-lg">{{home.explore}} &raquo;</a>
+        <a href="#!/faq" class="btn btn-info btn-lg">
           <span class="glyphicon glyphicon-question-sign"></span> {{home.faq}}
         </a>
       </p>
@@ -37,7 +37,7 @@
   </div>
   <div class="row" style="margin-top: 4px;">
     <div class="col-md-6 col-md-offset-3 text-center">
-      <a href="#faq">{{home.faq}}</a>
+      <a href="#!/faq">{{home.faq}}</a>
     </div>
   </div>
   {{/locale}}

@@ -28,12 +28,10 @@
             <td data-toggle="true">{{locale.single_additives.status}}</td>
             <td>{{status}}</td>
         </tr>
-       
-       <!-- <tr>
+        <!-- <tr>
             <td data-toggle="true">{{locale.single_additives.veg}}</td>
             <td>{{veg}}</td>
         </tr> -->
-
         <tr>
             <td data-toggle="true">{{locale.single_additives.foods}}</td>
             <td>{{foods}}</td>

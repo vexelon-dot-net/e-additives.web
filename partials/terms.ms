@@ -1,7 +1,7 @@
 <h1>By visiting this site, you accept our terms</h1>
 
 <p>
-The use of this website is subject to the following terms of use and the conditions of our <a href="#legal/privacy">privacy policy</a>. By visiting this website you are acknowledge that you have read, understood and agree to these. We may update these policies from time to time and it is your responsibility to check for updates.
+The use of this website is subject to the following terms of use and the conditions of our <a href="#!/legal/privacy">privacy policy</a>. By visiting this website you are acknowledge that you have read, understood and agree to these. We may update these policies from time to time and it is your responsibility to check for updates.
 </p>
 
 <h2>NO WARRANTIES / LIMITATION OF LIABILITY</h2>

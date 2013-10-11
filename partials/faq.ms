@@ -12,11 +12,11 @@ From Wikipedia: <i>Food additives are substances added to food to preserve flavo
 </p>
 
 <h2>How can I work with this platform?</h2>
-<p>Check what food additives are listed on the packaging of your favorite foods and then look them up in <a href="#additives">our database</a>.</p>
+<p>Check what food additives are listed on the packaging of your favorite foods and then look them up in <a href="#!/additives">our database</a>.</p>
 
 <h2>What are E numbers?</h2>
 <p>
-E numbers are number codes for food additives that have been assessed for use within the European Union, i.e., <a href="#additives/951">Е951</a> (Aspartame), <a href="#additives/100">Е100</a> (Food coloring), etc. They are commonly found on food labels throughout the European Union. E numbers are also encountered on food labelling in other jurisdictions, including the GCC, Australia, New Zealand and Israel. They are increasingly found on North American packaging, especially in Canada on imported European products
+E numbers are number codes for food additives that have been assessed for use within the European Union, i.e., <a href="#!/additives/951">Е951</a> (Aspartame), <a href="#!/additives/100">Е100</a> (Food coloring), etc. They are commonly found on food labels throughout the European Union. E numbers are also encountered on food labelling in other jurisdictions, including the GCC, Australia, New Zealand and Israel. They are increasingly found on North American packaging, especially in Canada on imported European products
 </p>
 
 <h2>Some of the information is inaccurate!</h2>

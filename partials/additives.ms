@@ -10,7 +10,7 @@
     {{^active}}
     <li>
     {{/active}}
-        <a href="#additives/category/{{id}}">E {{category}}</a>
+        <a href="#!/additives/category/{{id}}">E {{category}}</a>
     </li>
 {{/categories}}
 </ul>
@@ -42,7 +42,7 @@
         {{#data}}
         <tr>
             <td><input type="checkbox" data-role="additives-item" /></td>
-            <td class="searchitem"><a href="#additives/{{code}}">{{code}}</a></td>
+            <td class="searchitem"><a href="#!/additives/{{code}}">{{code}}</a></td>
             <td class="searchitem">{{name}}</td>
             <td>{{last_update}}</td>
         </tr>

@@ -151,11 +151,11 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
         var searchTemplateName = Mustache.compile('<h4>{{name}} <span class="label label-default">{{code}}</span></h4>');
 
         // default
-        this.get('#/', function() {
-            this.redirect('#home');
+        this.get('/', function() {
+            this.redirect('#!/home');
         });
         // Main/Search page
-        this.get('#home', function() {
+        this.get('home', function() {
             var self = this;
             self.swap(load_anim);
 
@@ -189,10 +189,10 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
             }); //eof-this.partial
         });
         // Additives browse pages
-        this.get('#additives', function(context) {
-            this.redirect('#additives/category/1');
+        this.get('additives', function(context) {
+            this.redirect('#!/additives/category/1');
         });
-        this.get('#additives/category/:category', function(context) {
+        this.get('additives/category/:category', function(context) {
             var self = this;
             self.swap(load_anim);
 
@@ -223,7 +223,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                     // no results?
                     if (data.length === 0) {
                         errNo.trigger(Locale.categories.msg_notfound);
-                        self.redirect('#additives');                        
+                        self.redirect('#!/additives');                        
                         return;
                     }                    
                     breadcrumbs.clear().add('home').add('additives').add(catName).render(self, context, function() {
@@ -238,7 +238,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
             });
         });
         // Search additives
-        this.get('#additives/search/:query', function(context) {
+        this.get('additives/search/:query', function(context) {
             var self = this;
             self.swap(load_anim);
 
@@ -261,7 +261,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
             });
         }); 
         // Show single additive
-        this.get('#additives/:code', function(context) {
+        this.get('additives/:code', function(context) {
             var self = this;
             self.swap(load_anim);
 
@@ -269,7 +269,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                 if (err) {
                     console.log(err);
                     errNo.trigger(Locale.additives.msg_notfound);
-                    self.redirect('#additives');
+                    self.redirect('#!/additives');
                     return;
                 }
                 API.getCategory(data.category_id, function(err, categoryData) {
@@ -278,7 +278,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                         return;
                     }
                     breadcrumbs.clear().add('home').add('additives')
-                        .add(categoryData.name, '#additives/category/' + categoryData.id)
+                        .add(categoryData.name, 'additives/category/' + categoryData.id)
                         .add(data.code)
                         .render(self, context, function() {
                             context.data = formatAdditivesData(data);
@@ -311,7 +311,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
         //     });
         // });        
         // Categories page
-        this.get('#categories', function(context) {
+        this.get('categories', function(context) {
             var self = this;
             self.swap(load_anim);
 
@@ -330,7 +330,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
             });            
         });
         // Show single cateogry
-        this.get('#categories/:id', function(context) {
+        this.get('categories/:id', function(context) {
             var self = this;
             self.swap(load_anim);
 
@@ -349,7 +349,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
             });
         });
         // F.A.Q. page
-        this.get('#faq', function(context) {
+        this.get('faq', function(context) {
             var self = this;
             self.swap(load_anim);
             breadcrumbs.clear().add('home').add('F.A.Q.').render(self, context, function() {
@@ -359,7 +359,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
             });         
         });
         // Goodies: Apps
-        this.get('#goodies/apps', function(context) {
+        this.get('goodies/apps', function(context) {
             var self = this;
             self.swap(load_anim);
             breadcrumbs.clear().add('home').add('goodies').add('apps').render(self, context, function() {
@@ -368,13 +368,13 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
             });            
         });        
         // Legal: Privacy page
-        this.get('#legal/privacy', function() {
+        this.get('legal/privacy', function() {
             var self = this;
             self.swap(load_anim);
             self.partial('partials/privacy.ms');
         });
         // Legal: Terms of use page
-        this.get('#legal/terms', function() {
+        this.get('legal/terms', function() {
             var self = this;
             self.swap(load_anim);
             self.partial('partials/terms.ms');
@@ -396,7 +396,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
         
     });
     // start the application
-    app.run('#/');
+    app.run('#!/');
     app.clearTemplateCache();
 
     /**
