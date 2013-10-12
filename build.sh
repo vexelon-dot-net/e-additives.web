@@ -8,6 +8,7 @@ YUI=$(pwd)/yuicompressor-2.4.8.jar
 BUILD=$(pwd)/build
 BUILDNUM_FILE=`readlink -f build.number`
 BUILDNAME_FILE=`readlink -f build.name`
+BUILD_NAME=
 
 if [ ! -d $BUILD ]; then
 	echo "Build folder($BUILD) does not exist!"
@@ -26,8 +27,18 @@ if [ ! -z $CMD ]; then
 		CLEANONLY=1
 	elif [ $CMD = "no-urchin" ]; then
 		NO_URCHIN=1
+	elif [ $CMD = "--version" ]; then
+		if [ ! -z "$2" ]; then
+			BUILD_NAME="$2"
+		else 
+			echo "Invalid build name!"
+			exit
+		fi
 	else
 		echo "Invalid cmd line parameter."
+		echo
+		echo "Usage: build.sh [clean] [no-urchin] [--version (text)]"
+		echo
 		exit
 	fi
 fi
@@ -72,24 +83,29 @@ find *.js -not -name "require.js" -not -name "config*.js" | xargs -i java -jar $
 ### Production
 cd $BUILD
 
-# increment build number
-echo "Setting build number ..."
-if [ -f $BUILDNUM_FILE ]; then
-    BUILDNUM=`cat $BUILDNUM_FILE`
-else
-    BUILDNUM=1
-fi
-BUILDNUM=$((BUILDNUM + 1))
-echo $BUILDNUM > $BUILDNUM_FILE
+echo $BUILD_NAME
+if [ -z "$BUILD_NAME" ]; then
+	# increment build number
+	echo "Setting build number ..."
+	if [ -f $BUILDNUM_FILE ]; then
+	    BUILDNUM=`cat $BUILDNUM_FILE`
+	else
+	    BUILDNUM=1
+	fi
+	BUILDNUM=$((BUILDNUM + 1))
+	echo $BUILDNUM > $BUILDNUM_FILE
 
-if [ -f $BUILDNAME_FILE ]; then
-	BUILDNAME=`cat $BUILDNAME_FILE`
-	BUILDNUM="'$BUILDNAME-$BUILDNUM'"
+	if [ -f $BUILDNAME_FILE ]; then
+		BUILDNAME=`cat $BUILDNAME_FILE`
+		BUILDNUM="'$BUILDNAME-$BUILDNUM'"
+	fi
+else
+	BUILDNUM=$BUILD_NAME
 fi
 
 # insert build no. into html
 #sed -i 's/<\!\-\-build\-\->/Build: '$BUILDNUM'/g' index.html
-sed -i 's/buildnumber:_timestamp/buildnumber:'$BUILDNUM'/g' index.html
+sed -i 's/buildnumber:_timestamp/buildnumber:"'"$BUILDNUM"'"/g' index.html
 
 if [ ! -z $NO_URCHIN ]; then 
 	echo "Skipped: urchin <script>."
