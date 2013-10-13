@@ -54,7 +54,6 @@ The following open source libraries are used:
   * [Underscore.js](http://underscorejs.org/) - utility-belt library for JavaScript.
   * [FooTable](https://github.com/bradvin/FooTable) - jQuery plugin to make HTML tables responsive.
   * [jQuery Storage API](https://github.com/julien-maurel/jQuery-Storage-API) - jQuery Storage API is a plugin that simplify access to storages.
-  * [Holder.js](http://imsky.github.com/holder/) - Holder renders image placeholders entirely on the client side.  
   * [Moment.js](http://momentjs.com/) - A 5.5kb javascript date library for parsing, validating, manipulating, and formatting dates.
   * [Modernizr](http://modernizr.com/) - Modernizr is a JavaScript library that detects HTML5 and CSS3 features in the user's browser.
 
