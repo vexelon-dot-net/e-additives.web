@@ -18,7 +18,7 @@
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
     <body>
-        <!--[if lt IE 7]>
+        <!--[if lt IE 9]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
     <div class="container wrap">
@@ -43,33 +43,37 @@
     </div> <!-- /container wrap -->
     <!-- app start -->
     <script>
-    var _timestamp = (new Date()).getTime();
-    var _Globals = {
-      buildnumber:_timestamp,
-      locale:null
-    };
-    var require = {
-      urlArgs: "bust=" + _Globals.buildnumber,
-      // check if user has set locale
-      // use that locale instead of browser default
-      deps: ['js/vendor/jquery-1.10.1.min'], 
-        callback: function() {
-          require(['js/vendor/plugins/jquery.storageapi.min'], function() {
-            var storage = $.localStorage;
-            if (storage && !storage.isEmpty('locale')) {
-              _Globals.locale = storage.get('locale');
-            } else {
-              var language = window.navigator.userLanguage || window.navigator.language;
-              if (language.length == 2)
-                language += '-' + language;
-              _Globals.locale = language;
-            }
-            console.log('Setting locale to: ' + _Globals.locale);
-            // load app
-            require(['js/app']);
-          });
-        }      
-    };    
+    if (!Modernizr.localstorage && !Modernizr.history) {
+      document.body.innerHTML = 'You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.';
+    } else {
+      var _timestamp = (new Date()).getTime();
+      var _Globals = {
+        buildnumber:_timestamp,
+        locale:null
+      };
+      var require = {
+        urlArgs: "bust=" + _Globals.buildnumber,
+        // check if user has set locale
+        // use that locale instead of browser default
+        deps: ['js/vendor/jquery-1.10.1.min'], 
+          callback: function() {
+            require(['js/vendor/plugins/jquery.storageapi.min'], function() {
+              var storage = $.localStorage;
+              if (storage && !storage.isEmpty('locale')) {
+                _Globals.locale = storage.get('locale');
+              } else {
+                var language = window.navigator.userLanguage || window.navigator.language;
+                if (language.length == 2)
+                  language += '-' + language;
+                _Globals.locale = language;
+              }
+              console.log('Setting locale to: ' + _Globals.locale);
+              // load app
+              require(['js/app']);
+            });
+          }      
+      };
+    }
     </script>
     <script src="js/require.js"></script>
     <!--USERVOICE-->
