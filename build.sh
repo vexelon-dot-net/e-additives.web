@@ -83,7 +83,6 @@ find *.js -not -name "require.js" -not -name "config*.js" | xargs -i java -jar $
 ### Production
 cd $BUILD
 
-echo $BUILD_NAME
 if [ -z "$BUILD_NAME" ]; then
 	# increment build number
 	echo "Setting build number ..."
@@ -97,7 +96,7 @@ if [ -z "$BUILD_NAME" ]; then
 
 	if [ -f $BUILDNAME_FILE ]; then
 		BUILDNAME=`cat $BUILDNAME_FILE`
-		BUILDNUM="'$BUILDNAME-$BUILDNUM'"
+		BUILDNUM="$BUILDNAME-$BUILDNUM"
 	fi
 else
 	BUILDNUM=$BUILD_NAME
