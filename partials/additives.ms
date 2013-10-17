@@ -29,12 +29,12 @@
 </div>
 
 <div class="table-responsive">
-  <table class="footable" data-page-navigation=".pagination" data-page-size="25" data-filter="#filter">
+  <table class="footable" data-page-navigation=".pagination" data-page-size="25" data-filter="#filter" data-filter-text-only="true">
     <thead>
         <tr>
             <th data-sort-ignore="true"><input data-role="additives-checkall" type="checkbox"/></th>
-            <th data-toggle="true">{{locale.additives.code}}</th>
-            <th data-toggle="true">{{locale.categories.name}}</th>
+            <th data-value="true" data-toggle="true">{{locale.additives.code}}</th>
+            <th data-value="true" data-toggle="true">{{locale.categories.name}}</th>
             <th data-hide="phone,tablet" data-toggle="true">{{locale.additives.last_update}}</th>
         </tr>
     </thead>
