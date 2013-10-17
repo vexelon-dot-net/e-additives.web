@@ -62,7 +62,7 @@ define({
             "name": "Name",
             "code": "Code",
             "last_update": "Last update",
-            "enter": "Search by E-number"
+            "enter": "E-number or Name"
         },
 
         // Categories page

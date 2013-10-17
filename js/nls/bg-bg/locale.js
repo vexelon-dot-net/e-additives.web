@@ -61,7 +61,7 @@ define({
         "name": "Име",
         "code": "Код",
         "last_update": "Обновено на",
-        "enter": "Търси по E-номер"
+        "enter": "E-номер или Име"
     },
 
     // Categories page

@@ -2,15 +2,13 @@
 {{>breadcrumbs}}
 <!--End: Breadcrumbs -->
 
-<div>
 <form role="form" class="form-horizontal">
   <div class="form-group">
-    <div class="col-sm-3 col-md-2 col-xs-6">
+    <div class="col-xs-6 col-sm-4 col-md-4">
         <input type="text" id="filter" class="form-control" id="code" placeholder="{{locale.additives.enter}}">
     </div>
   </div>
 </form>
-</div>
 
 <div class="table-responsive">
   <table class="footable" data-page-navigation=".pagination" data-page-size="25" data-filter="#filter">
