@@ -256,7 +256,9 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                     }
                     context.data = formatAdditivesData(data);
                     context.locale = Locale;
-                    context.partial('partials/search-additives.ms');                        
+                    context.partial('partials/search-additives.ms', function() {
+                        $('table').footable();
+                    });                        
                 });                
             });
         }); 

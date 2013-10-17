@@ -26,8 +26,8 @@
         {{#data}}
         <tr>
             <td><input type="checkbox" data-role="additives-item" /></td>
-            <td class="searchitem"><a href="#!/additives/{{code}}">{{code}}</a></td>
-            <td class="searchitem">{{name}}</td>
+            <td data-filter="true" class="searchitem"><a href="#!/additives/{{code}}">{{code}}</a></td>
+            <td data-filter="true" class="searchitem">{{name}}</td>
             <td>{{last_update}}</td>
         </tr>
         {{/data}}
