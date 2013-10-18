@@ -68,7 +68,6 @@ define(['jquery'], function($) {
                     app.setLocation('#additives/search/' + query);
             });
             $(document).on('keyup', '#search', function(event) {
-                console.log('asasas');
                 if (event.which != 13) {
                     event.preventDefault();
                     return;
