@@ -63,8 +63,19 @@ define(['jquery'], function($) {
              * Home page
              */
             $(document).on('click', '#btnSearch', function() {
-                var query = $('#search').val();
-                app.setLocation('#additives/search/' + query);
+                var query = $('#search').val().trim();
+                if (query.length > 0)
+                    app.setLocation('#additives/search/' + query);
+            });
+            $(document).on('keyup', '#search', function(event) {
+                console.log('asasas');
+                if (event.which != 13) {
+                    event.preventDefault();
+                    return;
+                }
+                var query = $('#search').val().trim();
+                if (query.length > 0)
+                    app.setLocation('#additives/search/' + query);
             });
             /**
              * Additives page
