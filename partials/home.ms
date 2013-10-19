@@ -5,7 +5,7 @@
 
   <div class="jumbotron hidden-xs hidden-sm">
     <div class="container">
-      <p>{{home.jumbotron}}</p>
+      <p>{{{home.jumbotron}}}</p>
       <p>
         <a href="#!/additives" class="btn btn-primary btn-lg">{{home.explore}} &raquo;</a>
         <a href="#!/faq" class="btn btn-info btn-lg">
