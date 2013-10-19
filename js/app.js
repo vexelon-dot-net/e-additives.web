@@ -372,6 +372,15 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                 context.locale = Locale;
                 context.partial('partials/apps.ms');                      
             });            
+        });
+        // Goodies: Developer API
+        this.get('goodies/developers', function(context) {
+            var self = this;
+            self.swap(load_anim);
+            breadcrumbs.clear().add('home').add('goodies').add('developers').render(self, context, function() {
+                context.locale = Locale;
+                context.partial('partials/developer-api.ms');                      
+            });            
         });        
         // Legal: Privacy page
         this.get('legal/privacy', function() {

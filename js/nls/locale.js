@@ -85,15 +85,33 @@ define({
             "info": "Details"
         },
 
-        // Apps page
         "goodies": {
+            // Apps page
             "apps": {
                 "jumbotron": 'Here you can find a list of apps that interact with the E-additives platform. \
-                If you write an app that uses our API, make sure you send us a link so we can place it here. :) ',
+                If you create an app that uses our API, make sure you send us a link so we can place it here. :) ',
                 "j2me_title": "E-additives Java ME App",
                 "j2me_body": "Java Microedition app that provides detailed information about food additives on Java enabled phones."
+            },
+            // Developers page
+            "developers": {
+                "jumbotron": 'Using the E-additives API, you can build applications that deliver food additives information \
+                or you can integrate that information in your existing app. <br> \
+                If you create an app that uses our API, make sure you send us a link. We\'ll be happy to see that our API works. :-P ',
+
+                "documentation": "Documentation",
+                "docu_body1": 'The latest production based API documentation is located at \
+                <a href="https://github.com/vexelon-dot-net/e-additives.server/blob/production/docs/API.md">GitHub</a>.',
+                "docu_body2": 'Pleast note that we are still in <i>BETA</i> and the API <u>may</u> change between \
+                production versions! Sorry :)',
+
+                "apikeys": "API keys",
+                "apikeys_body1": "We do not have an authentication model implemented, yet. Currently, you only need to set an \
+                authorization demo key in the header of your HTTP requests as specified in the documentation.",
+                "apikeys_body2": "Demo key: <i>c89b0a895987a710db6ee5c86fc7da24d97e55dd</i>"
             }
         }
+
     },
     "bg-bg": true
 });

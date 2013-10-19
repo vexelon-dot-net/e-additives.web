@@ -34,7 +34,7 @@
         <ul class="list-unstyled">
             <li><a href="#!/goodies/apps">{{footer.apps}}</a></li>
             <li>
-              <a href="https://github.com/vexelon-dot-net/e-additives.server/blob/production/docs/API.md">{{footer.api}}</a>
+              <a href="#!/goodies/developers">{{footer.api}}</a>
             </li>
          </ul>
       </div>
@@ -77,7 +77,7 @@
             <li><h4>{{footer.column_2}}</h4></li>
             <li><a href="#!/goodies/apps">{{footer.apps}}</a></li>
             <li>
-              <a href="https://github.com/vexelon-dot-net/e-additives.server/blob/production/docs/API.md">{{footer.api}}</a>
+              <a href="#!/goodies/developers">{{footer.api}}</a>
             </li>
         </ul>
     </div>
