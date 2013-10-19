@@ -49,7 +49,8 @@ define({
 
         // Home page
         "home": {
-            "jumbotron" : "The goal of the E-additives project is to implement a web platform that allows users to Search and Browse for information about food additives.",
+            "jumbotron" : "Do you know what you eat? No! Well, neither do we. That's why we have created the E-additives platform. \
+            It's a place where we want to give you the chance to find, learn, comment and edit infos about food additives.",
             "search_title": "Search food additives",
             "search_hint": "Name or E-number, e.g, 101",
             "explore": "Explore",
@@ -95,9 +96,11 @@ define({
             },
             // Developers page
             "developers": {
-                "jumbotron": 'Using the E-additives API, you can build applications that deliver food additives information \
+                "jumbotron": '<i><small>Do you even code, Bro\'?</small></i> Because, using the E-additives API, you can \
+                (<i><small>hopefully</small></i>) build applications that deliver food additives information \
                 or you can integrate that information in your existing app. <br> \
-                If you create an app that uses our API, make sure you send us a link. We\'ll be happy to see that our API works. :-P ',
+                If you create an app that uses our API, make sure you send us a link. We\'ll be happy to see that this whole \
+                API thing works. :-P',
 
                 "documentation": "Documentation",
                 "docu_body1": 'The latest production based API documentation is located at \
