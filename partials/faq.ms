@@ -3,8 +3,7 @@
 <!--End: Breadcrumbs -->
 
 <h2>What exactly is E-additives?</h2>
-<p>An open source web platform that provides access to information about food additives.</p>
-<p>The additives may be searched by their E Number or name.</p>
+<p>An open source web platform that provides access to information about food additives. The additives may be searched by E Number or name. At some point (in the <i>(not so (<small>*inception</small>) far)</i> future) we'd also like to provide a way to edit and add comments to each additive.</p>
 
 <h2>What are food additives?</h2>
 <p>
@@ -20,11 +19,11 @@ E numbers are number codes for food additives that have been assessed for use wi
 </p>
 
 <h2>Some of the information is inaccurate!</h2>
-<p>Suggestions and corrections are most welcome. Please use the <a href="http://e-additives.uservoice.com/forums/224067-general">feedback</a> forum to add your corrections and remarks. Make sure you specify valid sources and links before posting corrections! We will <b>not accept</b> corrections otherwise.</p>
-<p>We will be further working on a way to allow users to write comments and update additives directly. That would be a functionality quite similar to how information is edited in Wikipedia.</p>
+<p>Suggestions and corrections are most welcome. Please use the <a href="http://e-additives.uservoice.com/forums/224067-general">feedback</a> forum to add your corrections and remarks. Make sure you specify valid sources and links before posting corrections! We will <b>not accept</b> corrections otherwise. <br> Understood? :-P</p>
+<p>We will be further working on a way to allow users to write comments and update additives directly. That would (probably) be a functionality quite similar to how information is edited in Wikipedia.</p>
 
 <h2>Where does the information about E-additives come from?</h2>
-<p>Information is collected from sources on the Internet. Here is a complete list:</p>
+<p>Information is collected from sources on the Internet. Here is a complete list up to now:</p>
 <ul>
 	<li>http://en.wikipedia.org/wiki/E_number</li>
 	<li>http://www.ukfoodguide.net</li>
@@ -34,8 +33,8 @@ E numbers are number codes for food additives that have been assessed for use wi
 </ul>
 
 <h2>I found an issue! Where do I report it?</h2>
-<p>Please use the <a href="https://github.com/vexelon-dot-net/e-additives.web/issues">issues</a> page at GitHub.</p> 
-<p>Note that the issue board is for technical problems <b>only</b> and not for information inaccuracies!</p>
+<p>Whoa There Horsey! But seriously, please create a new bug on the <a href="https://github.com/vexelon-dot-net/e-additives.web/issues">issues</a> board at GitHub.</p> 
+<p>Note that the issue board is for technical problems <b>only</b>! Do not open bugs about information inaccuracies there, or <a href="http://www.youtube.com/watch?v=azD2AAYK9cE">CONSEQUENCES WILL NEVER BE THE SAME!!!</a>.</p>
 
 <h2>What license is the E-additives platform source code licensed under?</h2> 
 <p><a href="http://www.gnu.org/licenses/agpl-3.0.html">Affero General Public License</a>.</p>
