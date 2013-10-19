@@ -1,6 +1,6 @@
 
 {{#locale}}
-<div class="jumbotron hidden-xs hidden-sm">
+<div class="jumbotron hidden-xs">
     <div class="container">
       <p>{{goodies.apps.jumbotron}}</p>
     </div>
