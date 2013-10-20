@@ -37,6 +37,6 @@
 <p>Ще трябва да отвориш нов бъг директно на <a href="https://github.com/vexelon-dot-net/e-additives.web/issues">страницата</a> в GitHub. Сорка, но друг вариант няма. :)</p> 
 <p>Ааа и да добавя, че в GitHub се публикуват <b>само технически</b> проблеми, които не са свързани с грешки в информацията за добавките!</p>
 
-<h2>Под какъв лиценз е сорс кодът на E-additives?</h2> 
+<h2>Под какъв лиценз е кодът на E-additives?</h2> 
 <p><a href="http://www.gnu.org/licenses/agpl-3.0.html">Affero General Public License</a>.</p>
 <p>Ето <a href="http://www.tldrlegal.com/license/gnu-affero-general-public-license-v3-(agpl-3.0)">обобщение</a> на AGPL лиценза.</p>
