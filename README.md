@@ -27,9 +27,19 @@ The Web UI is a responsive HTML5/Javascript single-page web app that allows user
 
 `tests`/ - QUnit based tests.
 
-# Configuration
+## Build
 
-## Configure test Apache server
+Run the `build.sh` script to build the project. The ready to deploy files will be located in the `build` folder.
+
+To clean the `build` folder run `build.sh clean`. 
+
+## Configuration
+
+### Configure App
+
+Create a copy of `config-empty.js` to `config.js` in the `js/` subfolder. Set the server url and API key properties.
+
+### Configure test Apache server
 
 Configure Apache server on local machine for tests. Open your Apache Virtual Hosts configurations, e.g. `/etc/httpd/conf/extra/httpd-vhosts.conf`, and add the following:
 
@@ -40,7 +50,7 @@ Configure Apache server on local machine for tests. Open your Apache Virtual Hos
             Order allow,deny
             Allow from all
     </Directory>
-		
+    
 If your are under Windows you can also use [XAMPP](http://www.apachefriends.org/en/xampp.html).
 
 # Open Source Libraries
