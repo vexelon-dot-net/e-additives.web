@@ -58,6 +58,9 @@
         deps: ['js/vendor/jquery-1.10.1.min'], 
           callback: function() {
             require(['js/vendor/plugins/jquery.storageapi.min'], function() {
+              var language = window.navigator.userLanguage || window.navigator.language;
+              _Globals.navlang = language.substring(0, 2).toLowerCase();
+              console.log(_Globals.navlang);
               var storage = $.localStorage;
               if (storage && !storage.isEmpty('locale')) {
                 _Globals.locale = storage.get('locale');

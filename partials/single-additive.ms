@@ -1,7 +1,7 @@
 <!--Start: Breadcrumbs -->
 {{>breadcrumbs}}
 <!--End: Breadcrumbs -->
- <div class="table-responsive">
+<div class="table-responsive">
   <table class="footable">
     <thead>
         <th colspan="2">
@@ -43,4 +43,11 @@
         {{/data}}
     </tbody>
   </table>
+</div>
+<br>
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div id="disqus_thread"></div>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
 </div>

@@ -289,8 +289,11 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                         .render(self, context, function() {
                             context.data = formatAdditivesData(data);
                             context.locale = Locale;
-                            context.partial('partials/single-additive.ms');                        
-                        });                      
+                            context.partial('partials/single-additive.ms', function() {
+                                // comments
+                                loadComments('/additives/' + data.code, '/additives/' + data.code);                                
+                            });
+                        });
                 });
             });
         });
@@ -453,5 +456,39 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
         }
 
         return _fmt(data);
+    }
+    function loadComments(identifier, uri) {
+        if (typeof identifier !== 'string')
+            throw "Invalid identifier!";
+        if (typeof uri !== 'string')
+            throw "Invalid uri!";
+
+        if(window.DISQUS) {
+            console.log('already loaded');
+            window.DISQUS.reset({
+                reload: true,
+                config: function () {
+                    this.page.identifier = identifier;
+                    this.page.url = "http://e-additiv.es/#!/" + uri;
+                    if (_Globals.navlang)
+                        this.language = _Globals.navlang;
+                }
+            });
+        } else {
+            var disqus_shortname = 'e-additives';
+            var disqus_identifier = identifier;
+            var disqus_url = "http://e-additiv.es/#!/" + uri;
+            // var disqus_developer = 1;
+            // if (_Globals.navlang) {
+                var disqus_config = function () { 
+                    this.language = _Globals.navlang;
+                };
+            // }
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();            
+        }   
     }
 });
