@@ -462,9 +462,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
             throw "Invalid identifier!";
         if (typeof uri !== 'string')
             throw "Invalid uri!";
-
         if(window.DISQUS) {
-            console.log('already loaded');
             window.DISQUS.reset({
                 reload: true,
                 config: function () {
