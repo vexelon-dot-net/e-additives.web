@@ -18,14 +18,21 @@
 <br/>
 <br/>
 
-<form role="form" class="form-horizontal">
+<!-- form role="form" class="form-horizontal">
   <div class="form-group">
     <div class="col-xs-6 col-sm-4 col-md-4">
         <input type="text" id="filter" class="form-control" id="code" placeholder="{{locale.additives.enter}}">
     </div>
   </div>
-</form>
+</form> -->
 
+<div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-4 input-group">
+        <input type="text" id="filter" class="form-control" placeholder="{{locale.additives.enter}}">
+        <span class="input-group-addon glyphicon glyphicon-search"></span>
+    </div>
+</div>
+<br>
 <div class="table-responsive">
   <table class="footable" data-page-navigation=".pagination" data-page-size="25" data-filter="#filter">
     <thead>
@@ -47,11 +54,11 @@
         {{/data}}
     </tbody>
     <tfoot>
-		<tr>
-			<td colspan="4">
-				<div class="pagination pagination-centered"></div>
-			</td>
-		</tr>
-	</tfoot>
+        <tr>
+            <td colspan="4">
+                <div class="pagination pagination-centered"></div>
+            </td>
+        </tr>
+    </tfoot>
   </table>
 </div>
