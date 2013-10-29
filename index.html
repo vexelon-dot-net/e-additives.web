@@ -53,14 +53,13 @@
       };
       var require = {
         urlArgs: "bust=" + _Globals.buildnumber,
-        // check if user has set locale
-        // use that locale instead of browser default
         deps: ['js/vendor/jquery-1.10.1.min'], 
           callback: function() {
             require(['js/vendor/plugins/jquery.storageapi.min'], function() {
-              var language = window.navigator.userLanguage || window.navigator.language;
-              _Globals.navlang = language.substring(0, 2).toLowerCase();
-              
+              // var language = window.navigator.userLanguage || window.navigator.language;
+              // _Globals.navlang = language.substring(0, 2).toLowerCase();
+              // check if user has set locale
+              // use that locale instead of browser default
               var storage = $.localStorage;
               if (storage && !storage.isEmpty('locale')) {
                 _Globals.locale = storage.get('locale');
@@ -71,7 +70,6 @@
                 _Globals.locale = language;
               }
               console.log('Setting locale to: ' + _Globals.locale);
-              // load app
               require(['js/app']);
             });
           }      

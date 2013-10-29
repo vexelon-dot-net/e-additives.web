@@ -291,7 +291,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                             context.locale = Locale;
                             context.partial('partials/single-additive.ms', function() {
                                 // comments
-                                loadComments('/additives/' + data.code, '/additives/' + data.code);                                
+                                loadComments('/additives/' + data.code);                                
                             });
                         });
                 });
@@ -401,7 +401,6 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
         // this.notFound = function(verb, path) {
         //     window.location = '404.html';
         // }
-
         // show/hide error messages        
         this.bind('changed', function() {
             if (errNo.exists()) {
@@ -457,32 +456,29 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
 
         return _fmt(data);
     }
-    function loadComments(identifier, uri) {
-        if (typeof identifier !== 'string')
-            throw "Invalid identifier!";
+    function loadComments(uri) {
         if (typeof uri !== 'string')
-            throw "Invalid uri!";
+            throw "Invalid uri (identifier)!";
         if(window.DISQUS) {
             window.DISQUS.reset({
                 reload: true,
                 config: function () {
-                    this.page.identifier = identifier;
+                    this.page.identifier = uri;
                     this.page.url = "http://e-additiv.es/#!/" + uri;
-                    if (_Globals.navlang)
-                        this.language = _Globals.navlang;
+                    if (shortLocale)
+                        this.language = shortLocale;
                 }
             });
         } else {
             var disqus_shortname = 'e-additives';
-            var disqus_identifier = identifier;
+            var disqus_identifier = uri;
             var disqus_url = "http://e-additiv.es/#!/" + uri;
-            // var disqus_developer = 1;
-            // if (_Globals.navlang) {
-            // var disqus_language = 'de';
-            var disqus_config = function () { 
-                this.language = _Globals.navlang;
-            };
-            // }
+            var disqus_developer = Config.isDevMode ? 1 : null;
+            if (shortLocale) {
+                var disqus_config = function () { 
+                    this.language = shortLocale;
+                };
+            }
             (function() {
                 var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
                 dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
