@@ -478,9 +478,10 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
             var disqus_url = "http://e-additiv.es/#!/" + uri;
             // var disqus_developer = 1;
             // if (_Globals.navlang) {
-                var disqus_config = function () { 
-                    this.language = _Globals.navlang;
-                };
+            // var disqus_language = 'de';
+            var disqus_config = function () { 
+                this.language = _Globals.navlang;
+            };
             // }
             (function() {
                 var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
