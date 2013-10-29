@@ -457,8 +457,14 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
         return _fmt(data);
     }
     function loadComments(uri) {
+        if (!Config.comments) {
+            $('#comments').hide();
+            return;
+        }
+
         if (typeof uri !== 'string')
             throw "Invalid uri (identifier)!";
+
         if(window.DISQUS) {
             window.DISQUS.reset({
                 reload: true,
