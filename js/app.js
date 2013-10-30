@@ -487,7 +487,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                 "var disqus_url         = \"" + Config.comments.url + "/#!" + uri + "\";\n";
             
             if (Config.isDevMode) {
-                script += "var disqus_developer  = 1;\n"
+                script += "var disqus_developer = 1;\n"
             }
             if (shortLocale) {
                 script += "var disqus_config = function () { this.language = '" + shortLocale + "'; };\n"   
@@ -497,7 +497,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                 var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
                 dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
                 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();            
+            })();
         }   
     }
     function appendScriptTag(script) {
