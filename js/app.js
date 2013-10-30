@@ -466,6 +466,8 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
             throw "Invalid uri (identifier)!";
         }
 
+        console.log(Config.comments.url + "/#!" + uri);
+
         if (window.DISQUS) {
             window.DISQUS.reset({
                 reload: true,
@@ -478,20 +480,29 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                 }
             });
         } else {
-            var disqus_shortname = 'e-additives';
-            var disqus_category_id = '2676695';
-            var disqus_identifier = uri;
-            var disqus_url = Config.comments.url + "/#!" + uri;
-            var disqus_developer = Config.isDevMode ? 1 : null;
-            var disqus_config = function () { 
-                if (shortLocale)
-                    this.language = shortLocale;
-            };
+            var script = "var disqus_shortname  = \"" + 'e-additives'  + "\";\n" + 
+                // "var disqus_title       = \"" + 'e-additives' + "\";\n" + 
+                "var disqus_category_id = \"" + '2676695' + "\";\n" +
+                "var disqus_identifier  = \"" + uri + "\";\n" +
+                "var disqus_url         = \"" + Config.comments.url + "/#!" + uri + "\";\n";
+            
+            if (Config.isDevMode) {
+                script += "var disqus_developer  = 1;\n"
+            }
+            if (shortLocale) {
+                script += "var disqus_config = function () { this.language = '" + shortLocale + "'; };\n"   
+            }
+            appendScriptTag(script);
             (function() {
                 var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
                 dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
                 (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
             })();            
         }   
+    }
+    function appendScriptTag(script) {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.text = script;
+        document.getElementsByTagName('body')[0].appendChild(dsq);
     }
 });
