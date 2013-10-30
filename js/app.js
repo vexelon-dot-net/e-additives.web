@@ -166,11 +166,19 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                 if (shortLocale == 'bg') {
                     $('#bg-lang-alert').show();
                 }
-                // show news!?
-                var lastRDate = new Date("2013-11-30T00:00:01").getTime();
-                var now = Date.now();
-                if (lastRDate - now > 0) {
-                    $('[data-role="site-news"]').show();
+                // show news
+                // TODO: Refactor this piece of crap
+                // 
+                if ($.sessionStorage.get('news.enabled') !== false) {
+                    var lastRDate = new Date("2013-11-30T00:00:01").getTime();
+                    var now = Date.now();
+                    if (lastRDate - now > 0) {
+                        $('[data-role="site-news"]').show();
+                    }
+                    $('div[data-role="site-news"]').bind('closed.bs.alert', function () {
+                        $('span[data-role="site-news"]').hide();
+                        $.sessionStorage.set('news.enabled', false);
+                    });
                 }
                 // prep. search 
                 API.getAdditives(function(err, data) {
