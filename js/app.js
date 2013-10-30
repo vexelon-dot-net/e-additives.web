@@ -461,7 +461,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
             $('#comments').hide();
             return;
         }
-        if (typeof uri !== 'object') {
+        if (typeof uri !== 'string') {
             $('#comments').hide();
             throw "Invalid uri (identifier)!";
         }

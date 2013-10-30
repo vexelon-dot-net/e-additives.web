@@ -21,11 +21,27 @@
 define([], function() {
 
     var Config = {
+        /**
+         * Development mode
+         */
         devMode: false,
+        /**
+         * Backend url
+         */
         serverUrl: '',
+        /**
+         * Backend API key
+         */
         serverKey: '',
+        
         comments: {
+            /**
+             * Comments on/off
+             */
             enabled: false,
+            /**
+             * Omit the slash (/) at the end
+             */
             url: 'http://e-additiv.es'
         }       
     };
