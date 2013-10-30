@@ -22,10 +22,16 @@ define({
      */ 
     "root": {
 
+        // Changelog/News
+        "news": {
+            "latest": "You can now add comments under each additive."
+        },
+
         // Common for all pages
         "common": {
             "language": "Language",
-            "outdated": "outdated"
+            "outdated": "outdated",
+            "new": "NEW"
         },
 
         // Navbar

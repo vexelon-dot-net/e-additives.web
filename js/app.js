@@ -166,6 +166,13 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                 if (shortLocale == 'bg') {
                     $('#bg-lang-alert').show();
                 }
+                // show news!?
+                var lastRDate = new Date("2013-11-30T00:00:01").getTime();
+                var now = Date.now();
+                if (lastRDate - now > 0) {
+                    $('[data-role="site-news"]').show();
+                }
+                // prep. search 
                 API.getAdditives(function(err, data) {
                     if (err) {
                         console.log(err);

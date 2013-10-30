@@ -20,11 +20,17 @@ define({
     /**
      * bg_BG locale
      */
+    
+    // Changelog/News
+    "news": {
+        "latest": "Вече можеш да добавяш коментари под всяка една добавка."
+    },    
 
     // Common for all pages
     "common": {
         "language": "Език",
-        "outdated": "неактуално"
+        "outdated": "неактуално",
+        "new": "Ново"
     },
 
     // Navbar

@@ -1,8 +1,7 @@
 
   <!-- Main jumbotron for a primary marketing message or call to action -->
   {{#locale}}
-  <p><span class="label label-info pull-left">BETA</span></p>
-
+  <span class="label label-info pull-left hidden-xs hidden-sm">BETA</span>
   <div class="jumbotron hidden-xs hidden-sm">
     <div class="container">
       <p>{{{home.jumbotron}}}</p>
@@ -13,6 +12,14 @@
         </a>
       </p>
     </div>
+  </div> 
+  <!-- news -->
+  <div class="hidden-xs">
+    <span data-role="site-news" class="label label-danger pull-left" style="display: none">{{common.new}}</span>
+    <div data-role="site-news" class="alert alert-dismissable alert-info" style="display: none"> 
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      &nbsp;&nbsp;{{{news.latest}}}
+    </div>  
   </div>  
   <!-- bg warn -->
   <div class="hidden-xs">
