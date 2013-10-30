@@ -20,11 +20,15 @@
 
 define([], function() {
 
-	var Config = {
-		devMode: false,
-		serverUrl: '',
-		serverKey: ''
-	};
+    var Config = {
+        devMode: false,
+        serverUrl: '',
+        serverKey: '',
+        comments: {
+            enabled: false,
+            url: 'http://e-additiv.es'
+        }       
+    };
 
-	return Config;
+    return Config;
 });
