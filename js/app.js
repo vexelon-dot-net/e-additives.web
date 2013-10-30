@@ -457,34 +457,36 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
         return _fmt(data);
     }
     function loadComments(uri) {
-        if (!Config.comments) {
+        if (typeof Config.comments !== 'object' || !Config.comments.enabled) {
             $('#comments').hide();
             return;
         }
-
-        if (typeof uri !== 'string')
+        if (typeof uri !== 'object') {
+            $('#comments').hide();
             throw "Invalid uri (identifier)!";
+        }
 
-        if(window.DISQUS) {
+        if (window.DISQUS) {
             window.DISQUS.reset({
                 reload: true,
                 config: function () {
+                    this.page.category_id = '2676695';
                     this.page.identifier = uri;
-                    this.page.url = "http://e-additiv.es/#!/" + uri;
+                    this.page.url = Config.comments.url + "/#!" + uri;
                     if (shortLocale)
                         this.language = shortLocale;
                 }
             });
         } else {
             var disqus_shortname = 'e-additives';
+            var disqus_category_id = '2676695';
             var disqus_identifier = uri;
-            var disqus_url = "http://e-additiv.es/#!/" + uri;
+            var disqus_url = Config.comments.url + "/#!" + uri;
             var disqus_developer = Config.isDevMode ? 1 : null;
-            if (shortLocale) {
-                var disqus_config = function () { 
+            var disqus_config = function () { 
+                if (shortLocale)
                     this.language = shortLocale;
-                };
-            }
+            };
             (function() {
                 var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
                 dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
