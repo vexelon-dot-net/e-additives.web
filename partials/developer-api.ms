@@ -15,6 +15,7 @@
 			<div class="panel-body">
 				<p>{{{docu_body1}}}</p>
 				<p>{{{docu_body2}}}</p>
+				<p>{{{docu_body3}}}</p>
 			</div>			
 		</div>
 	</div>    	

@@ -111,13 +111,14 @@ define({
                 "documentation": "Documentation",
                 "docu_body1": 'The latest production based API documentation is located at \
                 <a href="https://github.com/vexelon-dot-net/e-additives.server/blob/production/docs/API.md">GitHub</a>.',
-                "docu_body2": 'Please note that we are still in <i>BETA</i> and the API <u>may</u> change between \
+                "docu_body2": '<b>API access:</b> http://e-additiv.es/api',
+                "docu_body3": 'Please note that we are still in <i>BETA</i> and the API <u>may</u> change between \
                 production versions! Sorry :)',
 
                 "apikeys": "API keys",
                 "apikeys_body1": "We do not have an authentication model implemented, yet. Currently, you only need to set an \
                 authorization demo key in the header of your HTTP requests as specified in the documentation.",
-                "apikeys_body2": "Demo key: <i>c89b0a895987a710db6ee5c86fc7da24d97e55dd</i>"
+                "apikeys_body2": "<b>Demo key:</b> c89b0a895987a710db6ee5c86fc7da24d97e55dd"
             }
         }
 

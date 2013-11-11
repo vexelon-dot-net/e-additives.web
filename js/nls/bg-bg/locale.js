@@ -110,13 +110,14 @@ define({
             "documentation": "Документация",
             "docu_body1": 'Най-новата документация, базирана на последната production версия, можете да намерите в \
             <a href="https://github.com/vexelon-dot-net/e-additives.server/blob/production/docs/API.md">GitHub</a>.',
-            "docu_body2": 'Естествено все още сме в <i>БЕТА</i>, така че API-то <u>може</u> да претърпи промени, когато \
+            "docu_body2": '<b>Достъп до API:</b> http://e-additiv.es/api',
+            "docu_body3": 'Естествено все още сме в <i>БЕТА</i>, така че API-то <u>може</u> да претърпи промени, когато \
             обновяваме production версията! Sorry :)',
 
             "apikeys": "API ключове",
             "apikeys_body1": "Все още нямаме заложен authentication модел. В момента, за да използвате API-то, трябва да добавите \
             демо ключ за авторизация към header-a на HTTP заявките.",
-            "apikeys_body2": "Демо ключ: <i>c89b0a895987a710db6ee5c86fc7da24d97e55dd</i>"
+            "apikeys_body2": "<b>Демо ключ:</b> c89b0a895987a710db6ee5c86fc7da24d97e55dd"
         }        
     }    
   
