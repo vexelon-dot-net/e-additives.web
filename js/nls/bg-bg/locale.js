@@ -110,14 +110,14 @@ define({
             "documentation": "Документация",
             "docu_body1": 'Най-новата документация, базирана на последната production версия, можете да намерите в \
             <a href="https://github.com/vexelon-dot-net/e-additives.server/blob/production/docs/API.md">GitHub</a>.',
-            "docu_body2": 'За достъп до API моля рагледайте <a href="https://market.mashape.com/petarov/e-additives">Mashape</a> станицата ни.',
+            "docu_body2": 'За достъп до API, моля рагледайте <a href="https://market.mashape.com/petarov/e-additives">Mashape</a> страницата ни.',
             "docu_body3": 'Естествено все още сме в <i>БЕТА</i>, така че API-то <u>може</u> да претърпи промени, когато \
             обновяваме production версията! Sorry :)',
 
             "apikeys": "API ключове",
             "apikeys_body1": "Все още нямаме заложен authentication модел. В момента, за да използвате API-то, трябва да добавите \
             демо ключ за авторизация към header-a на HTTP заявките.",
-            "apikeys_body2": "<b>Демо ключ:</b> c89b0a895987a710db6ee5c86fc7da24d97e55dd"
+            "apikeys_body2": "<b>Демо ключ:</b> "
         }        
     }    
   

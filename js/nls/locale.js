@@ -118,7 +118,7 @@ define({
                 "apikeys": "API keys",
                 "apikeys_body1": "We do not have an authentication model implemented, yet. Currently, you only need to set an \
                 authorization demo key in the header of your HTTP requests as specified in the documentation.",
-                "apikeys_body2": "<b>Demo key:</b> c89b0a895987a710db6ee5c86fc7da24d97e55dd"
+                "apikeys_body2": "<b>Demo key:</b> "
             }
         }
 
