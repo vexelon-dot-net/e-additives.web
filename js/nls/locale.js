@@ -111,7 +111,7 @@ define({
                 "documentation": "Documentation",
                 "docu_body1": 'The latest production based API documentation is located at \
                 <a href="https://github.com/vexelon-dot-net/e-additives.server/blob/production/docs/API.md">GitHub</a>.',
-                "docu_body2": '<b>API access:</b> http://e-additiv.es/api',
+                "docu_body2": 'For API access please check our <a href="https://market.mashape.com/petarov/e-additives">Mashape</a> page.',
                 "docu_body3": 'Please note that we are still in <i>BETA</i> and the API <u>may</u> change between \
                 production versions! Sorry :)',
 
