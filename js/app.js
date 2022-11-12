@@ -209,7 +209,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
         });
         // Additives browse pages
         this.get('additives', function(context) {
-            this.redirect('#!/additives/category/1');
+            this.redirect('#!/additives/category/100');
         });
         this.get('additives/category/:category', function(context) {
             var self = this;
@@ -227,7 +227,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                 }                                   
                 // prep category info
                 _.each(categoriesData, function(item) {
-                    if (item.id == catId) {
+                    if (item.category === parseInt(catId)) {
                         item.active = true;
                         catName = item.name;
                         return;
@@ -242,7 +242,7 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                     // no results?
                     if (data.length === 0) {
                         errNo.trigger(Locale.categories.msg_notfound);
-                        self.redirect('#!/additives');                        
+                        self.redirect('#!/');
                         return;
                     }                    
                     breadcrumbs.clear().add('home').add('additives').add(catName).render(self, context, function() {
@@ -293,13 +293,13 @@ require(['sammy', 'config', 'api', 'bindings', 'breadcrumbs', 'mustache', 'i18n!
                     self.redirect('#!/additives');
                     return;
                 }
-                API.getCategory(data.category_id, function(err, categoryData) {
+                API.getCategory(data.category, function(err, categoryData) {
                     if (err) {
                         console.log(err);
                         return;
                     }
                     breadcrumbs.clear().add('home').add('additives')
-                        .add(categoryData.name, 'additives/category/' + categoryData.id)
+                        .add(categoryData.name, 'additives/category/' + categoryData.category)
                         .add(data.code)
                         .render(self, context, function() {
                             context.data = formatAdditivesData(data);

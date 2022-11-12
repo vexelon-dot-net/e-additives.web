@@ -10,7 +10,7 @@
     {{^active}}
     <li>
     {{/active}}
-        <a href="#!/additives/category/{{id}}">E {{category}}</a>
+        <a href="#!/additives/category/{{category}}">E {{category}}</a>
     </li>
 {{/categories}}
 </ul>
