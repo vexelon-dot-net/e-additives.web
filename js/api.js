@@ -115,8 +115,8 @@ define(['jquery', 'underscore'], function($, _) {
             api.serverUrl = server;
             api.apiAuthKey = authKey;
             api.requestHeaders = {
-                //'User-Agent': 'EAD WEB',
-                'X-Authorization': 'EAD-TOKENS apiKey="' + authKey + '"'
+                //'X-Authorization': 'EAD-TOKENS apiKey="' + authKey + '"'
+                'Authorization': 'Bearer ' + authKey
             };
         },
 
